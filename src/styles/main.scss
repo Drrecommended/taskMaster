@@ -1,0 +1,10 @@
+$primary-color: red;
+$secondary-color: blue;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $secondary-color;
+}
