@@ -19,7 +19,7 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({
-    title: 'YOUR APP NAME HERE',
+    title: 'Task Master',
     filename: 'index.html',
     template: 'src/template.html'
   })],

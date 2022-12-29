@@ -1,10 +1,28 @@
-$primary-color: red;
-$secondary-color: blue;
+@import url('reset.css');
 
-* {
-    box-sizing: border-box;
-}
+//color scheme
+$primary-color: #e9eaec;
+$secondary-color: #333652;
+$highlight-color: #fad02c;
+$active-color: #90adc6;
 
 body {
-    background-color: $secondary-color;
+  background-color: $primary-color;
+}
+
+header {
+  background-color: $secondary-color;
+  color: $primary-color;
+  border-bottom-left-radius: 20px;
+  padding: 10px;
+  width: 99.5%;
+  height: 64px;
+  float: right;
+  display: inline;
+  .hero {
+    text-align: center;
+    font-size: 36px;
+    padding: 0;
+    margin: 0;
+  }
 }

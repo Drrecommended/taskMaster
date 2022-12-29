@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-</head>
-<body>
-    <header><h1>YOUR APP HERE</h1></header>
-    <main></main>
-    <footer></footer>
-</body>
+    <script src="https://kit.fontawesome.com/00f93b5c74.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="main-grid">
+      <header>
+        <div>
+          <div class="hero">Task Master</div>
+          <button></button>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><i class="fa-solid fa-inbox"></i>Inbox</li>
+          <li><i class="fa-solid fa-calendar-day"></i>Today</li>
+          <li><i class="fa-solid fa-calendar-week"></i>This Week</li>
+          <li><i class="fa-solid fa-flag-checkered"></i>Completed</li>
+        </ul>
+      </nav>
+      <main>
+        <div class="task"></div>
+        <h2>Tasks</h2>
+        <button><i class="fa-solid fa-plus"></i>Add Task</button>
+        <ul class="task-list"></ul>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
 </html>
