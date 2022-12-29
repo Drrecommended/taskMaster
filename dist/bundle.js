@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #e9eaec;\n}\n\nheader {\n  background-color: #333652;\n  color: #e9eaec;\n  border-bottom-left-radius: 20px;\n  padding: 10px;\n  width: 99.5%;\n  height: 64px;\n  float: right;\n  display: inline;\n}\nheader .hero {\n  text-align: center;\n  font-size: 36px;\n  padding: 0;\n  margin: 0;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAQA;EACE,yBANc;AAAhB;;AASA;EACE,yBATgB;EAUhB,cAXc;EAYd,+BAAA;EACA,aAAA;EACA,YAAA;EACA,YAAA;EACA,YAAA;EACA,eAAA;AANF;AAOE;EACE,kBAAA;EACA,eAAA;EACA,UAAA;EACA,SAAA;AALJ","sourcesContent":["@import url('reset.css');\n\n//color scheme\n$primary-color: #e9eaec;\n$secondary-color: #333652;\n$highlight-color: #fad02c;\n$active-color: #90adc6;\n\nbody {\n  background-color: $primary-color;\n}\n\nheader {\n  background-color: $secondary-color;\n  color: $primary-color;\n  border-bottom-left-radius: 20px;\n  padding: 10px;\n  width: 99.5%;\n  height: 64px;\n  float: right;\n  display: inline;\n  .hero {\n    text-align: center;\n    font-size: 36px;\n    padding: 0;\n    margin: 0;\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #e9eaec;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n}\n.main-grid .content-wrap {\n  padding-bottom: 2.5rem;\n}\n\nheader {\n  background-color: #333652;\n  color: #e9eaec;\n  height: 64px;\n}\nheader .hero {\n  font-size: 36px;\n}\nheader .hero i {\n  font-size: 30px;\n  margin-right: 6px;\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAQA;EACE,yBANc;AAAhB;;AASA;EACE,kBAAA;EACA,iBAAA;AANF;AAOE;EACE,sBAAA;AALJ;;AASA;EACE,yBAjBgB;EAkBhB,cAnBc;EAoBd,YAAA;AANF;AAOE;EACE,eAAA;AALJ;AAMI;EACE,eAAA;EACA,iBAAA;AAJN;;AASA;EACE,kBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,cAAA;AANF","sourcesContent":["@import url('reset.css');\n\n//color scheme\n$primary-color: #e9eaec;\n$secondary-color: #333652;\n$highlight-color: #fad02c;\n$active-color: #90adc6;\n\nbody {\n  background-color: $primary-color;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n  .content-wrap {\n    padding-bottom: 2.5rem;\n  }\n}\n\nheader {\n  background-color: $secondary-color;\n  color: $primary-color;\n  height: 64px;\n  .hero {\n    font-size: 36px;\n    i {\n      font-size: 30px;\n      margin-right: 6px;\n    }\n  }\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50,7 +50,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n* {\n  margin: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n#root,\n#__next {\n  isolation: isolate;\n}\n", "",{"version":3,"sources":["webpack://./src/styles/reset.css"],"names":[],"mappings":"AAAA;;;CAGC;AACD;;;EAGE,sBAAsB;AACxB;AACA;EACE,SAAS;AACX;AACA;;EAEE,YAAY;AACd;AACA;EACE,gBAAgB;EAChB,mCAAmC;AACrC;AACA;;;;;EAKE,cAAc;EACd,eAAe;AACjB;AACA;;;;EAIE,aAAa;AACf;AACA;;;;;;;EAOE,yBAAyB;AAC3B;AACA;;EAEE,kBAAkB;AACpB","sourcesContent":["/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n* {\n  margin: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n#root,\n#__next {\n  isolation: isolate;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n* {\n  margin: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\nli {\n    list-style: none;\n}\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n#root,\n#__next {\n  isolation: isolate;\n}\n", "",{"version":3,"sources":["webpack://./src/styles/reset.css"],"names":[],"mappings":"AAAA;;;CAGC;AACD;;;EAGE,sBAAsB;AACxB;AACA;EACE,SAAS;AACX;AACA;;EAEE,YAAY;AACd;AACA;EACE,gBAAgB;EAChB,mCAAmC;AACrC;AACA;IACI,gBAAgB;AACpB;AACA;;;;;EAKE,cAAc;EACd,eAAe;AACjB;AACA;;;;EAIE,aAAa;AACf;AACA;;;;;;;EAOE,yBAAyB;AAC3B;AACA;;EAEE,kBAAkB;AACpB","sourcesContent":["/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n* {\n  margin: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\nli {\n    list-style: none;\n}\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n#root,\n#__next {\n  isolation: isolate;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -534,22 +534,6 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
-/***/ }),
-
-/***/ "./src/generateJoke.js":
-/*!*****************************!*\
-  !*** ./src/generateJoke.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ generateJoke)
-/* harmony export */ });
-function generateJoke() {
-    return "I don't trust the stairs. They are always up to something."
-}
-
 /***/ })
 
 /******/ 	});
@@ -632,17 +616,21 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _generateJoke__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generateJoke */ "./src/generateJoke.js");
-/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-
+/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 
 
 function component() {
     const element = document.createElement('div')
 
-    element.innerText = (0,_generateJoke__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    element.innerText = 'something soon'
     return element
 }
+
+const taskForm = (() => {
+    const form = document.getElementById('task-form')
+})()
+
+
 
 console.log(1, 2, 3)
 
