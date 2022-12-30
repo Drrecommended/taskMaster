@@ -22,12 +22,23 @@ header {
   background-color: $secondary-color;
   color: $primary-color;
   height: 64px;
+  padding: .7em;
+  padding-right: 1em;
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
   .hero {
     font-size: 36px;
-    i {
-      font-size: 30px;
-      margin-right: 6px;
-    }
+  }
+}
+
+.menu-btn {
+  background-color: transparent;
+  color: $primary-color;
+  border: none;
+  i {
+    font-size: 36px;
   }
 }
 
