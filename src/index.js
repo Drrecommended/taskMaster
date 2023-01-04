@@ -1,4 +1,6 @@
 import './styles/main.scss'
+import interFace from './UI'
+
 
 function component() {
     const element = document.createElement('div')
@@ -6,6 +8,8 @@ function component() {
     element.innerText = 'something soon'
     return element
 }
+
+interFace()
 
 const taskForm = (() => {
     const form = document.getElementById('task-form')

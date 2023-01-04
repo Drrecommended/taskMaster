@@ -22,7 +22,7 @@ header {
   background-color: $secondary-color;
   color: $primary-color;
   height: 64px;
-  padding: .7em;
+  padding: 0.7em;
   padding-right: 1em;
   div {
     display: flex;
@@ -33,10 +33,13 @@ header {
   }
 }
 
-.menu-btn {
+.nav-btn {
   background-color: transparent;
   color: $primary-color;
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
   i {
     font-size: 36px;
   }
