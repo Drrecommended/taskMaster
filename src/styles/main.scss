@@ -33,7 +33,7 @@ header {
   }
 }
 
-.nav-btn {
+button {
   background-color: transparent;
   color: $primary-color;
   border: none;
@@ -46,23 +46,40 @@ header {
 }
 
 .nav {
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: $secondary-color;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    button {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $secondary-color;
+  color: $primary-color;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 3.7em;
+
+  ul {
+    padding-left: 20px;
+    font-size: 22px;
+  }
+  a {
+    color: $primary-color;
+    &:visited {
+      color: $primary-color;
     }
+    &:hover {
+        color: $highlight-color;
+    }
+  }
+  button {
+    line-height: 38.7px;
+    padding-bottom: 6.2px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 58px;
+    margin-left: 50px;
+  }
 }
 
 footer {
