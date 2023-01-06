@@ -56,11 +56,14 @@ button {
   color: $primary-color;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 3.7em;
-
+  padding-top: 5em;
   ul {
     padding-left: 20px;
-    font-size: 22px;
+    font-size: 24px;
+    margin-bottom: 1em;
+    li {
+        margin-bottom: .3em;
+    }
   }
   a {
     color: $primary-color;
@@ -68,7 +71,10 @@ button {
       color: $primary-color;
     }
     &:hover {
-        color: $highlight-color;
+      color: $highlight-color;
+    }
+    i {
+      margin-right: 10px;
     }
   }
   button {
@@ -79,6 +85,12 @@ button {
     right: 25px;
     font-size: 58px;
     margin-left: 50px;
+  }
+  .line {
+    height: 1px;
+    background: $primary-color;
+    max-width: 80%;
+    margin: 0 auto;
   }
 }
 
