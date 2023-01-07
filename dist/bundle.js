@@ -536,6 +536,30 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/eventsHandlers.js":
+/*!***************************************!*\
+  !*** ./src/modules/eventsHandlers.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ eventHandlers)
+/* harmony export */ });
+function eventHandlers() {
+  //Handler to open and close the nav
+  const nav = document.getElementById('nav')
+  const navBtn = document.getElementById('nav-btn')
+  const closeNavBtn = document.getElementById('close-nav-btn')
+  navBtn.addEventListener('click', () => (nav.style.width = '250px'))
+  closeNavBtn.addEventListener('click', () => (nav.style.width = '0px'))
+
+  //Handler to add a task
+}
+
+
+/***/ }),
+
 /***/ "./src/modules/nav.js":
 /*!****************************!*\
   !*** ./src/modules/nav.js ***!
@@ -548,11 +572,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const nav = () => {
   //NAV CONTROLS TO OPEN AND CLOSE
-  const nav = document.getElementById('nav')
-  const navBtn = document.getElementById('nav-btn')
-  const closeNavBtn = document.getElementById('close-nav-btn')
-  navBtn.addEventListener('click', () => (nav.style.width = '250px'))
-  closeNavBtn.addEventListener('click', () => (nav.style.width = '0px'))
+
 
 
 }
@@ -644,6 +664,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nav */ "./src/modules/nav.js");
+/* harmony import */ var _modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/eventsHandlers */ "./src/modules/eventsHandlers.js");
+
 
 
 
@@ -654,7 +676,9 @@ function component() {
   return element
 }
 
-(0,_modules_nav__WEBPACK_IMPORTED_MODULE_1__["default"])()
+
+(0,_modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
+;(0,_modules_nav__WEBPACK_IMPORTED_MODULE_1__["default"])()
 
 const taskForm = (() => {
   const form = document.getElementById('task-form')

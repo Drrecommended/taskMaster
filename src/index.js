@@ -1,5 +1,6 @@
 import './styles/main.scss'
 import nav from './modules/nav'
+import eventHandlers from './modules/eventsHandlers'
 
 function component() {
   const element = document.createElement('div')
@@ -8,6 +9,8 @@ function component() {
   return element
 }
 
+
+eventHandlers()
 nav()
 
 const taskForm = (() => {
