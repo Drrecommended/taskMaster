@@ -1,21 +1,18 @@
 import './styles/main.scss'
-import interFace from './UI'
-
+import nav from './modules/nav'
 
 function component() {
-    const element = document.createElement('div')
+  const element = document.createElement('div')
 
-    element.innerText = 'something soon'
-    return element
+  element.innerText = 'something soon'
+  return element
 }
 
-interFace()
+nav()
 
 const taskForm = (() => {
-    const form = document.getElementById('task-form')
+  const form = document.getElementById('task-form')
 })()
-
-
 
 console.log(1, 2, 3)
 

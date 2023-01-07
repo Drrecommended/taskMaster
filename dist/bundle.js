@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #e9eaec;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n}\n.main-grid .content-wrap {\n  padding-bottom: 2.5rem;\n}\n\nheader {\n  background-color: #333652;\n  color: #e9eaec;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n}\nheader div {\n  display: flex;\n  justify-content: space-between;\n}\nheader .hero {\n  font-size: 36px;\n}\n\nbutton {\n  background-color: transparent;\n  color: #e9eaec;\n  border: none;\n}\nbutton:hover {\n  cursor: pointer;\n}\nbutton i {\n  font-size: 36px;\n}\n\n.nav {\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: #333652;\n  color: #e9eaec;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 5em;\n}\n.nav ul {\n  padding-left: 20px;\n  font-size: 24px;\n  margin-bottom: 1em;\n}\n.nav ul li {\n  margin-bottom: 0.3em;\n}\n.nav a {\n  color: #e9eaec;\n}\n.nav a:visited {\n  color: #e9eaec;\n}\n.nav a:hover {\n  color: #fad02c;\n}\n.nav a i {\n  margin-right: 10px;\n}\n.nav button {\n  line-height: 38.7px;\n  padding-bottom: 6.2px;\n  position: absolute;\n  top: 15px;\n  right: 25px;\n  font-size: 58px;\n  margin-left: 50px;\n}\n.nav .line {\n  height: 1px;\n  background: #e9eaec;\n  max-width: 80%;\n  margin: 0 auto;\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAQA;EACE,yBANc;AAAhB;;AASA;EACE,kBAAA;EACA,iBAAA;AANF;AAOE;EACE,sBAAA;AALJ;;AASA;EACE,yBAjBgB;EAkBhB,cAnBc;EAoBd,YAAA;EACA,cAAA;EACA,kBAAA;AANF;AAOE;EACE,aAAA;EACA,8BAAA;AALJ;AAOE;EACE,eAAA;AALJ;;AASA;EACE,6BAAA;EACA,cAlCc;EAmCd,YAAA;AANF;AAOE;EACE,eAAA;AALJ;AAOE;EACE,eAAA;AALJ;;AASA;EACE,aAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,yBAlDgB;EAmDhB,cApDc;EAqDd,kBAAA;EACA,gBAAA;EACA,gBAAA;AANF;AAOE;EACE,kBAAA;EACA,eAAA;EACA,kBAAA;AALJ;AAMI;EACI,oBAAA;AAJR;AAOE;EACE,cAjEY;AA4DhB;AAMI;EACE,cAnEU;AA+DhB;AAMI;EACE,cApEY;AAgElB;AAMI;EACE,kBAAA;AAJN;AAOE;EACE,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,iBAAA;AALJ;AAOE;EACE,WAAA;EACA,mBAvFY;EAwFZ,cAAA;EACA,cAAA;AALJ;;AASA;EACE,kBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,cAAA;AANF","sourcesContent":["@import url('reset.css');\n\n//color scheme\n$primary-color: #e9eaec;\n$secondary-color: #333652;\n$highlight-color: #fad02c;\n$active-color: #90adc6;\n\nbody {\n  background-color: $primary-color;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n  .content-wrap {\n    padding-bottom: 2.5rem;\n  }\n}\n\nheader {\n  background-color: $secondary-color;\n  color: $primary-color;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n  div {\n    display: flex;\n    justify-content: space-between;\n  }\n  .hero {\n    font-size: 36px;\n  }\n}\n\nbutton {\n  background-color: transparent;\n  color: $primary-color;\n  border: none;\n  &:hover {\n    cursor: pointer;\n  }\n  i {\n    font-size: 36px;\n  }\n}\n\n.nav {\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: $secondary-color;\n  color: $primary-color;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 5em;\n  ul {\n    padding-left: 20px;\n    font-size: 24px;\n    margin-bottom: 1em;\n    li {\n        margin-bottom: .3em;\n    }\n  }\n  a {\n    color: $primary-color;\n    &:visited {\n      color: $primary-color;\n    }\n    &:hover {\n      color: $highlight-color;\n    }\n    i {\n      margin-right: 10px;\n    }\n  }\n  button {\n    line-height: 38.7px;\n    padding-bottom: 6.2px;\n    position: absolute;\n    top: 15px;\n    right: 25px;\n    font-size: 58px;\n    margin-left: 50px;\n  }\n  .line {\n    height: 1px;\n    background: $primary-color;\n    max-width: 80%;\n    margin: 0 auto;\n  }\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #e9eaec;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n}\n.main-grid .content-wrap {\n  padding-bottom: 2.5rem;\n}\n\nheader {\n  background-color: #333652;\n  color: #e9eaec;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n}\nheader div {\n  display: flex;\n  justify-content: space-between;\n}\nheader .hero {\n  font-size: 36px;\n}\n\nbutton {\n  border: none;\n}\n\n.nav button,\nheader button {\n  background-color: transparent;\n  color: #e9eaec;\n}\n.nav button i,\nheader button i {\n  font-size: 36px;\n}\n\n.nav {\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: #333652;\n  color: #e9eaec;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 5em;\n}\n.nav ul {\n  padding-left: 20px;\n  font-size: 24px;\n  margin-bottom: 1em;\n}\n.nav ul li {\n  margin-bottom: 0.3em;\n}\n.nav a {\n  color: #e9eaec;\n}\n.nav a:visited {\n  color: #e9eaec;\n}\n.nav a:hover {\n  color: #fad02c;\n}\n.nav a i {\n  margin-right: 10px;\n}\n.nav button {\n  line-height: 38.7px;\n  padding-bottom: 6.2px;\n  position: absolute;\n  top: 15px;\n  right: 25px;\n  font-size: 58px;\n  margin-left: 50px;\n}\n.nav .line {\n  height: 1px;\n  background: #e9eaec;\n  max-width: 80%;\n  margin: 0 auto;\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAQA;EACE,yBANc;AAAhB;;AASA;EACE,kBAAA;EACA,iBAAA;AANF;AAOE;EACE,sBAAA;AALJ;;AASA;EACE,yBAjBgB;EAkBhB,cAnBc;EAoBd,YAAA;EACA,cAAA;EACA,kBAAA;AANF;AAOE;EACE,aAAA;EACA,8BAAA;AALJ;AAOE;EACE,eAAA;AALJ;;AASA;EACE,YAAA;AANF;;AAWE;;EACE,6BAAA;EACA,cAxCY;AAiChB;AAQI;;EACE,eAAA;AALN;;AAUA;EACE,aAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,yBArDgB;EAsDhB,cAvDc;EAwDd,kBAAA;EACA,gBAAA;EACA,gBAAA;AAPF;AAQE;EACE,kBAAA;EACA,eAAA;EACA,kBAAA;AANJ;AAOI;EACE,oBAAA;AALN;AAQE;EACE,cApEY;AA8DhB;AAOI;EACE,cAtEU;AAiEhB;AAOI;EACE,cAvEY;AAkElB;AAOI;EACE,kBAAA;AALN;AAQE;EACE,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,iBAAA;AANJ;AAQE;EACE,WAAA;EACA,mBA1FY;EA2FZ,cAAA;EACA,cAAA;AANJ;;AAUA;EACE,kBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,cAAA;AAPF","sourcesContent":["@import url('reset.css');\n\n//color scheme\n$primary-color: #e9eaec;\n$secondary-color: #333652;\n$highlight-color: #fad02c;\n$active-color: #90adc6;\n\nbody {\n  background-color: $primary-color;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100vh;\n  .content-wrap {\n    padding-bottom: 2.5rem;\n  }\n}\n\nheader {\n  background-color: $secondary-color;\n  color: $primary-color;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n  div {\n    display: flex;\n    justify-content: space-between;\n  }\n  .hero {\n    font-size: 36px;\n  }\n}\n\nbutton {\n  border: none;\n}\n\n.nav,\nheader {\n  button {\n    background-color: transparent;\n    color: $primary-color;\n    i {\n      font-size: 36px;\n    }\n  }\n}\n\n.nav {\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: $secondary-color;\n  color: $primary-color;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 5em;\n  ul {\n    padding-left: 20px;\n    font-size: 24px;\n    margin-bottom: 1em;\n    li {\n      margin-bottom: 0.3em;\n    }\n  }\n  a {\n    color: $primary-color;\n    &:visited {\n      color: $primary-color;\n    }\n    &:hover {\n      color: $highlight-color;\n    }\n    i {\n      margin-right: 10px;\n    }\n  }\n  button {\n    line-height: 38.7px;\n    padding-bottom: 6.2px;\n    position: absolute;\n    top: 15px;\n    right: 25px;\n    font-size: 58px;\n    margin-left: 50px;\n  }\n  .line {\n    height: 1px;\n    background: $primary-color;\n    max-width: 80%;\n    margin: 0 auto;\n  }\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50,7 +50,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n\n/* Some extra reset added by me */\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nli {\n  list-style: none;\n}\n\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\n\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\n\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n\n#root,\n#__next {\n  isolation: isolate;\n}\n\na {\n    text-decoration: none;\n}\n\na:hover {\n    cursor: pointer;\n}", "",{"version":3,"sources":["webpack://./src/styles/reset.css"],"names":[],"mappings":"AAAA;;;CAGC;;AAED,iCAAiC;;AAEjC;;;EAGE,sBAAsB;AACxB;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;;EAEE,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,gBAAgB;AAClB;;AAEA;;;;;EAKE,cAAc;EACd,eAAe;AACjB;;AAEA;;;;EAIE,aAAa;AACf;;AAEA;;;;;;;EAOE,yBAAyB;AAC3B;;AAEA;;EAEE,kBAAkB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;AACnB","sourcesContent":["/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n\n/* Some extra reset added by me */\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nli {\n  list-style: none;\n}\n\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\n\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\n\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n\n#root,\n#__next {\n  isolation: isolate;\n}\n\na {\n    text-decoration: none;\n}\n\na:hover {\n    cursor: pointer;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n\n/* Some extra reset added by me */\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nli {\n  list-style: none;\n}\n\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\n\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\n\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n\n#root,\n#__next {\n  isolation: isolate;\n}\n\na {\n    text-decoration: none;\n}\n\na:hover, button:hover {\n    cursor: pointer;\n}\n\n", "",{"version":3,"sources":["webpack://./src/styles/reset.css"],"names":[],"mappings":"AAAA;;;CAGC;;AAED,iCAAiC;;AAEjC;;;EAGE,sBAAsB;AACxB;;AAEA;EACE,SAAS;EACT,UAAU;AACZ;;AAEA;;EAEE,YAAY;AACd;;AAEA;EACE,gBAAgB;EAChB,mCAAmC;AACrC;;AAEA;EACE,gBAAgB;AAClB;;AAEA;;;;;EAKE,cAAc;EACd,eAAe;AACjB;;AAEA;;;;EAIE,aAAa;AACf;;AAEA;;;;;;;EAOE,yBAAyB;AAC3B;;AAEA;;EAEE,kBAAkB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;AACnB","sourcesContent":["/*\n  Josh's Custom CSS Reset\n  https://www.joshwcomeau.com/css/custom-css-reset/\n*/\n\n/* Some extra reset added by me */\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\nbody {\n  line-height: 1.5;\n  -webkit-font-smoothing: antialiased;\n}\n\nli {\n  list-style: none;\n}\n\nimg,\npicture,\nvideo,\ncanvas,\nsvg {\n  display: block;\n  max-width: 100%;\n}\n\ninput,\nbutton,\ntextarea,\nselect {\n  font: inherit;\n}\n\np,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  overflow-wrap: break-word;\n}\n\n#root,\n#__next {\n  isolation: isolate;\n}\n\na {\n    text-decoration: none;\n}\n\na:hover, button:hover {\n    cursor: pointer;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -536,26 +536,28 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/UI.js":
-/*!*******************!*\
-  !*** ./src/UI.js ***!
-  \*******************/
+/***/ "./src/modules/nav.js":
+/*!****************************!*\
+  !*** ./src/modules/nav.js ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const interFace = () => {
-  //NAV CONTROLS
+const nav = () => {
+  //NAV CONTROLS TO OPEN AND CLOSE
   const nav = document.getElementById('nav')
   const navBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
   navBtn.addEventListener('click', () => (nav.style.width = '250px'))
   closeNavBtn.addEventListener('click', () => (nav.style.width = '0px'))
+
+
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (interFace);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (nav);
 
 
 /***/ })
@@ -641,29 +643,27 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UI */ "./src/UI.js");
-
+/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nav */ "./src/modules/nav.js");
 
 
 
 function component() {
-    const element = document.createElement('div')
+  const element = document.createElement('div')
 
-    element.innerText = 'something soon'
-    return element
+  element.innerText = 'something soon'
+  return element
 }
 
-(0,_UI__WEBPACK_IMPORTED_MODULE_1__["default"])()
+(0,_modules_nav__WEBPACK_IMPORTED_MODULE_1__["default"])()
 
 const taskForm = (() => {
-    const form = document.getElementById('task-form')
+  const form = document.getElementById('task-form')
 })()
-
-
 
 console.log(1, 2, 3)
 
 document.body.appendChild(component())
+
 })();
 
 /******/ })()
