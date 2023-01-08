@@ -34,7 +34,7 @@
           <div class="line"></div>
         </nav>
         <!--CONTENT-->
-        <main>
+        <main class="dash-board">
           <div class="task"></div>
 
           <h2>Tasks</h2>
@@ -42,12 +42,13 @@
           <form id="task-form">
             <label for="task-name">Task:</label><br />
             <input type="text" name="task-name" id="" /><br />
-            <label for="task-name">Desc:</label><br />
-            <input type="" name="task-name" id="" /><br />
-            <label for="task-name">Task:</label><br />
-            <input type="text" name="task-name" id="" /><br />
-            <label for="task-name">Task:</label><br />
-            <input type="text" name="task-name" id="" />
+            <label for="task-description">Description:</label><br />
+            <textarea type="" name="task-description" id="" rows="4" cols="10"></textarea><br />
+            <label for="task-date">Date due:</label><br />
+            <input type="date" name="task-date" id="" /><br />
+            <p>Priority:</p>
+            <input type="radio" name="task-priority_high" id="" />
+            <label for=""></label>
             <br />
             <button>CANCEL</button>
             <input type="submit" value="SUBMIT" />
