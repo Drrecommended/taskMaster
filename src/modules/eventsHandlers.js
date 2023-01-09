@@ -1,10 +1,20 @@
+
+
 export default function eventHandlers() {
-  //Handler to open and close the nav
+  /* navigation handler */
   const nav = document.getElementById('nav')
   const navBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
-  navBtn.addEventListener('click', () => (nav.style.width = '250px'))
-  closeNavBtn.addEventListener('click', () => (nav.style.width = '0px'))
+  navBtn.addEventListener('click', () => {
+    nav.style.width = '250px'
+  })
+  closeNavBtn.addEventListener('click', () => {
+    nav.style.width = '0px'
+  })
 
-  //Handler to add a task
+  /* form handler */
+  const taskForm = document.getElementById('task-form')
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+  })
 }

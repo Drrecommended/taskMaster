@@ -4,6 +4,6 @@ export default function taskFactory(name, description, priority, dueDate) {
   return { name, description, priority, dueDate }
 }
 
-export function addTask(task) {
-  
+export function addTask() {
+  tasks.push('we taskin')
 }
