@@ -536,6 +536,22 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/UI.js":
+/*!***************************!*\
+  !*** ./src/modules/UI.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ resetForm)
+/* harmony export */ });
+function resetForm() {
+  document.getElementById('task-form').reset()
+}
+
+/***/ }),
+
 /***/ "./src/modules/eventsHandlers.js":
 /*!***************************************!*\
   !*** ./src/modules/eventsHandlers.js ***!
@@ -580,6 +596,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "addTask": () => (/* binding */ addTask),
 /* harmony export */   "deleteTask": () => (/* binding */ deleteTask)
 /* harmony export */ });
+/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/modules/UI.js");
+
+
 const tasks = []
 
 function taskFactory(name, description, dueDate) {
@@ -593,6 +612,7 @@ function addTask(e) {
   const taskDate = document.getElementById('task-date').value
   const newTask = taskFactory(taskName, taskDescription, taskDate)
   tasks.push(newTask)
+  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate)
   console.log(tasks)
 }
 

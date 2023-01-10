@@ -1,3 +1,5 @@
+import resetForm from "./UI"
+
 const tasks = []
 
 function taskFactory(name, description, dueDate) {
@@ -11,6 +13,7 @@ export function addTask(e) {
   const taskDate = document.getElementById('task-date').value
   const newTask = taskFactory(taskName, taskDescription, taskDate)
   tasks.push(newTask)
+  resetForm(taskName, taskDescription, taskDate)
   console.log(tasks)
 }
 
