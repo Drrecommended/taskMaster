@@ -1,5 +1,4 @@
 import './styles/main.scss'
-import nav from './modules/nav'
 import eventHandlers from './modules/eventsHandlers'
 
 function component() {
@@ -11,11 +10,7 @@ function component() {
 
 
 eventHandlers()
-nav()
 
-const taskForm = (() => {
-  const form = document.getElementById('task-form')
-})()
 
 console.log(1, 2, 3)
 

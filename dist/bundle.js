@@ -546,6 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ eventHandlers)
 /* harmony export */ });
+/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ "./src/modules/tasks.js");
 
 
 function eventHandlers() {
@@ -562,33 +563,42 @@ function eventHandlers() {
 
   /* form handler */
   const taskForm = document.getElementById('task-form')
-  taskForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-  })
+  taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
 }
 
 
 /***/ }),
 
-/***/ "./src/modules/nav.js":
-/*!****************************!*\
-  !*** ./src/modules/nav.js ***!
-  \****************************/
+/***/ "./src/modules/tasks.js":
+/*!******************************!*\
+  !*** ./src/modules/tasks.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "addTask": () => (/* binding */ addTask),
+/* harmony export */   "deleteTask": () => (/* binding */ deleteTask)
 /* harmony export */ });
-const nav = () => {
+const tasks = []
 
-
-
-
+function taskFactory(name, description, dueDate) {
+  return { name, description, dueDate }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (nav);
+function addTask(e) {
+  e.preventDefault()
+  const taskName = document.getElementById('task-name').value
+  const taskDescription = document.getElementById('task-description').value
+  const taskDate = document.getElementById('task-date').value
+  const newTask = taskFactory(taskName, taskDescription, taskDate)
+  tasks.push(newTask)
+  console.log(tasks)
+}
 
+function deleteTask() {
+
+}
 
 /***/ })
 
@@ -673,9 +683,7 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nav */ "./src/modules/nav.js");
-/* harmony import */ var _modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/eventsHandlers */ "./src/modules/eventsHandlers.js");
-
+/* harmony import */ var _modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/eventsHandlers */ "./src/modules/eventsHandlers.js");
 
 
 
@@ -687,12 +695,8 @@ function component() {
 }
 
 
-(0,_modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
-;(0,_modules_nav__WEBPACK_IMPORTED_MODULE_1__["default"])()
+(0,_modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__["default"])()
 
-const taskForm = (() => {
-  const form = document.getElementById('task-form')
-})()
 
 console.log(1, 2, 3)
 

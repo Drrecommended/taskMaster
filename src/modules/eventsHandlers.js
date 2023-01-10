@@ -1,4 +1,4 @@
-
+import { addTask } from "./tasks"
 
 export default function eventHandlers() {
   /* navigation handler */
@@ -14,7 +14,5 @@ export default function eventHandlers() {
 
   /* form handler */
   const taskForm = document.getElementById('task-form')
-  taskForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-  })
+  taskForm.addEventListener('submit', addTask)
 }
