@@ -544,11 +544,22 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ resetForm)
+/* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
+/* harmony export */   "resetForm": () => (/* binding */ resetForm)
 /* harmony export */ });
 function resetForm() {
   document.getElementById('task-form').reset()
 }
+
+function displayTasks(tasks) {
+  const taskList = document.getElementById('task-list')
+  tasks.forEach((task) => {
+    const taskContainer = document.createElement('div')
+    taskContainer.innerText = task
+    taskList.appendChild(taskContainer)
+  })
+}
+
 
 /***/ }),
 
@@ -594,17 +605,21 @@ function eventHandlers() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addTask": () => (/* binding */ addTask),
-/* harmony export */   "deleteTask": () => (/* binding */ deleteTask)
+/* harmony export */   "deleteTask": () => (/* binding */ deleteTask),
+/* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/modules/UI.js");
 
 
-const tasks = []
+const tasks = [ "task", "other task"]
 
 function taskFactory(name, description, dueDate) {
   return { name, description, dueDate }
 }
 
+
+
+/* make a function to add task but also to append task so we don't have to reload all the tasks */ 
 function addTask(e) {
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
@@ -612,13 +627,13 @@ function addTask(e) {
   const taskDate = document.getElementById('task-date').value
   const newTask = taskFactory(taskName, taskDescription, taskDate)
   tasks.push(newTask)
-  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate)
-  console.log(tasks)
+  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__.resetForm)(taskName, taskDescription, taskDate)
+  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__.displayTasks)(tasks)
 }
 
-function deleteTask() {
+function deleteTask() {}
 
-}
+
 
 /***/ })
 
@@ -704,6 +719,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/eventsHandlers */ "./src/modules/eventsHandlers.js");
+/* harmony import */ var _modules_UI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/UI */ "./src/modules/UI.js");
+/* harmony import */ var _modules_tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tasks */ "./src/modules/tasks.js");
+
+
 
 
 
@@ -714,11 +733,9 @@ function component() {
   return element
 }
 
+(0,_modules_UI__WEBPACK_IMPORTED_MODULE_2__.displayTasks)(_modules_tasks__WEBPACK_IMPORTED_MODULE_3__.tasks)
+;(0,_modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__["default"])()
 
-(0,_modules_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__["default"])()
-
-
-console.log(1, 2, 3)
 
 document.body.appendChild(component())
 
