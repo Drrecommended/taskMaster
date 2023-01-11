@@ -1,4 +1,4 @@
-import { addTask } from "./tasks"
+import { addTask } from './tasks'
 
 export default function eventHandlers() {
   /* navigation handler */

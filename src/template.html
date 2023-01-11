@@ -35,13 +35,11 @@
         </nav>
         <!--CONTENT-->
         <main class="dash-board">
-          <div class="task"></div>
-
           <h2>Tasks</h2>
           <button><i class="fa-solid fa-plus"></i>Add Task</button>
           <form id="task-form">
             <label for="task-name">Task:</label><br />
-            <input type="text" name="task-name" id="task-name" /><br />
+            <input type="text" name="task-name" id="task-name" required/><br />
             <label for="task-description">Description:</label><br />
             <textarea type="" name="task-description" id="task-description" rows="4" cols="10"></textarea><br />
             <label for="task-date">Date due:</label><br />
@@ -53,7 +51,7 @@
             <button>CANCEL</button>
             <input type="submit" value="SUBMIT" />
           </form>
-          <ul class="task-list" id="task-list"></ul>
+          <ul class="task-list" id="task-list-container"></ul>
         </main>
       </div>
       <!--FOOTER-->
