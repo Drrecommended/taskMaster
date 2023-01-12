@@ -536,10 +536,10 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/modules/UI.js":
-/*!***************************!*\
-  !*** ./src/modules/UI.js ***!
-  \***************************/
+/***/ "./src/components/UI.js":
+/*!******************************!*\
+  !*** ./src/components/UI.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -555,10 +555,43 @@ function resetForm() {
 
 /***/ }),
 
-/***/ "./src/modules/tasks.js":
-/*!******************************!*\
-  !*** ./src/modules/tasks.js ***!
-  \******************************/
+/***/ "./src/components/eventsHandlers.js":
+/*!******************************************!*\
+  !*** ./src/components/eventsHandlers.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ eventHandlers)
+/* harmony export */ });
+/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
+
+
+function eventHandlers() {
+  /* navigation handler */
+  const nav = document.getElementById('nav')
+  const navBtn = document.getElementById('nav-btn')
+  const closeNavBtn = document.getElementById('close-nav-btn')
+  navBtn.addEventListener('click', () => {
+    nav.style.width = '250px'
+  })
+  closeNavBtn.addEventListener('click', () => {
+    nav.style.width = '0px'
+  })
+
+  /* form handler */
+  const taskForm = document.getElementById('task-form')
+  taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
+}
+
+
+/***/ }),
+
+/***/ "./src/components/tasks.js":
+/*!*********************************!*\
+  !*** ./src/components/tasks.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -568,7 +601,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
-/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/modules/UI.js");
+/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/components/UI.js");
 
 
 const tasks = [ "task", "other task"]
@@ -589,6 +622,7 @@ function displayTasks(taskArray) {
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */ 
 function addTask(e) {
+  console.log('test')
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value
@@ -600,6 +634,34 @@ function addTask(e) {
 }
 
 function deleteTask() {}
+
+
+/***/ }),
+
+/***/ "./src/layouts/nav.js":
+/*!****************************!*\
+  !*** ./src/layouts/nav.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const nav = () => {
+  const navLinks = document.querySelectorAll('nav a')
+  console.log(navLinks)
+  navLinks.forEach((link) => {
+    console.log(link)
+  })
+  return {
+    test() {
+      console.log('test e')
+    }
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (nav);
 
 
 /***/ })
@@ -685,7 +747,11 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _modules_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tasks */ "./src/modules/tasks.js");
+/* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/tasks */ "./src/components/tasks.js");
+/* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layouts/nav */ "./src/layouts/nav.js");
+/* harmony import */ var _components_eventsHandlers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/eventsHandlers */ "./src/components/eventsHandlers.js");
+
+
 
 
 
@@ -696,8 +762,10 @@ function component() {
   return element
 }
 
-(0,_modules_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_modules_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
 
+(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_3__["default"])()
+;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_components_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
+;(0,_layouts_nav__WEBPACK_IMPORTED_MODULE_2__["default"])().test()
 
 document.body.appendChild(component())
 

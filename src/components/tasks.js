@@ -18,6 +18,7 @@ export function displayTasks(taskArray) {
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */ 
 export function addTask(e) {
+  console.log('test')
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value

@@ -1,5 +1,7 @@
 import './styles/main.scss'
-import { tasks, displayTasks } from './modules/tasks'
+import { tasks, displayTasks } from './components/tasks'
+import nav from './layouts/nav'
+import eventHandlers from './components/eventsHandlers'
 
 function component() {
   const element = document.createElement('div')
@@ -8,7 +10,9 @@ function component() {
   return element
 }
 
-displayTasks(tasks)
 
+eventHandlers()
+displayTasks(tasks)
+nav().test()
 
 document.body.appendChild(component())
