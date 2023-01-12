@@ -1,7 +1,7 @@
 import './styles/main.scss'
 import { tasks, displayTasks } from './components/tasks'
-import nav from './layouts/nav'
 import eventHandlers from './components/eventsHandlers'
+import dashboard from './dashboard/dashboard'
 
 function component() {
   const element = document.createElement('div')
@@ -13,6 +13,6 @@ function component() {
 
 eventHandlers()
 displayTasks(tasks)
-nav().test()
+dashboard.loadDashBoard()
 
 document.body.appendChild(component())

@@ -1,14 +1,14 @@
-const nav = () => {
+const navbar = () => {
   const navLinks = document.querySelectorAll('nav a')
-  console.log(navLinks)
+  console.log(navLinks, "works")
   navLinks.forEach((link) => {
     console.log(link)
   })
   return {
-    test() {
+    navigate() {
       console.log('test e')
     }
   }
 }
 
-export default nav
+export default navbar

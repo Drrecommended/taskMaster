@@ -638,6 +638,32 @@ function deleteTask() {}
 
 /***/ }),
 
+/***/ "./src/dashboard/dashboard.js":
+/*!************************************!*\
+  !*** ./src/dashboard/dashboard.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/nav */ "./src/layouts/nav.js");
+
+
+const dashboard = () => {
+  const loadDashboard = () => {
+    _layouts_nav__WEBPACK_IMPORTED_MODULE_0__["default"].navigate()
+  }
+  return {
+    loadDashboard
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dashboard); 
+
+/***/ }),
+
 /***/ "./src/layouts/nav.js":
 /*!****************************!*\
   !*** ./src/layouts/nav.js ***!
@@ -648,20 +674,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const nav = () => {
+const navbar = () => {
   const navLinks = document.querySelectorAll('nav a')
-  console.log(navLinks)
+  console.log(navLinks, "works")
   navLinks.forEach((link) => {
     console.log(link)
   })
   return {
-    test() {
+    navigate() {
       console.log('test e')
     }
   }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (nav);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbar);
 
 
 /***/ })
@@ -748,8 +774,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/tasks */ "./src/components/tasks.js");
-/* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layouts/nav */ "./src/layouts/nav.js");
-/* harmony import */ var _components_eventsHandlers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/eventsHandlers */ "./src/components/eventsHandlers.js");
+/* harmony import */ var _components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/eventsHandlers */ "./src/components/eventsHandlers.js");
+/* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/dashboard */ "./src/dashboard/dashboard.js");
 
 
 
@@ -763,9 +789,9 @@ function component() {
 }
 
 
-(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_3__["default"])()
+(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
 ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_components_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
-;(0,_layouts_nav__WEBPACK_IMPORTED_MODULE_2__["default"])().test()
+_dashboard_dashboard__WEBPACK_IMPORTED_MODULE_3__["default"].loadDashBoard()
 
 document.body.appendChild(component())
 

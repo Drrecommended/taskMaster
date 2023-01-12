@@ -1,9 +1,12 @@
 import nav from "../layouts/nav"
 
-export default function dashboard() {
+const dashboard = () => {
+  const loadDashboard = () => {
+    nav.navigate()
+  }
   return {
-    loadDashboard() {
-      nav.test()
-    }
+    loadDashboard
   }
 }
+
+export default dashboard 
