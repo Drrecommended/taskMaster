@@ -61,7 +61,6 @@ header {
   transition: 0.5s;
   padding-top: 5em;
   ul {
-    padding-left: 20px;
     font-size: 24px;
     margin-bottom: 1em;
     li {
@@ -94,6 +93,7 @@ header {
     background: $primary-color;
     max-width: 80%;
     margin: 0 auto;
+    margin-bottom: 0.5em;
   }
 }
 

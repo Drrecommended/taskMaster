@@ -7,9 +7,11 @@ export default function eventHandlers() {
   const closeNavBtn = document.getElementById('close-nav-btn')
   navBtn.addEventListener('click', () => {
     nav.style.width = '250px'
+    nav.style.paddingLeft = '20px'
   })
   closeNavBtn.addEventListener('click', () => {
     nav.style.width = '0px'
+    nav.style.paddingLeft = '0px'
   })
 
   /* form handler */
