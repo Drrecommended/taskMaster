@@ -9,10 +9,10 @@ function component() {
   element.innerText = 'something soon'
   return element
 }
-
+console.log(dashboard)
 
 eventHandlers()
 displayTasks(tasks)
-dashboard.loadDashBoard()
+
 
 document.body.appendChild(component())
