@@ -585,7 +585,13 @@ function eventHandlers() {
   })
   /* add project */
   addProjectBtn.addEventListener('click', () => {
-    console.log('hello')
+    const projectElem = document.createElement('div')
+    projectElem.addClass('project-elem')
+    const editNameBtn = document.createElement('button')
+    editNameBtn.innerText('test')
+    const trashProjectBtn = document.createElement("button")
+    trashProjectBtn.innerText('test')
+    
   })
 
 
