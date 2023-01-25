@@ -5,6 +5,8 @@ $primary-color: #e9eaec;
 $secondary-color: #333652;
 $highlight-color: #fad02c;
 $active-color: #90adc6;
+$submit-color: #039862;
+$cancel-color: rgb(213, 70, 70);
 
 body {
   background-color: $primary-color;
@@ -33,7 +35,7 @@ header {
   }
 }
 
-button {
+button, .submit-btn {
   border: none;
 }
 
@@ -100,9 +102,46 @@ header {
   padding: 1em;
 }
 
-form {
+.form {
   margin: 0 auto;
+  padding: 25px;
+  padding-bottom: 50px;
   max-width: 400px;
+  border: 1px solid black;
+  .task-input {
+    width: 100%;
+  }
+  input, fieldset {
+    margin-bottom: 10px;
+  }
+  fieldset {
+    border: none;
+  }
+  textarea {
+    resize: none;
+    width: 100%;
+  }
+  .radio-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  .form-btn-container {
+    float: right;
+    .submit-btn {
+      background-color: $submit-color;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .cancel-btn {
+      background-color: $cancel-color;
+    }
+    .submit-btn, .cancel-btn {
+      padding: .5em;
+    }
+  }
+
+
 }
 
 footer {

@@ -52,34 +52,50 @@
         <main class="dash-board">
           <h2>Tasks</h2>
           <button><i class="fa-solid fa-plus"></i>Add Task</button>
-          <form id="task-form">
+          <!--FORM-->
+          <form class="form" id="task-form">
             <label for="task-name">Task:</label><br />
-            <input type="text" name="task-name" id="task-name" required /><br />
+            <input
+              class="task-input"
+              type="text"
+              name="task-name"
+              id="task-name"
+              required
+            /><br />
             <label for="task-description">Description:</label><br />
             <textarea
               type=""
               name="task-description"
               id="task-description"
-              rows="4"
-              cols="10"
             ></textarea
             ><br />
             <label for="task-date">Date due:</label><br />
             <input type="date" name="task-date" id="task-date" /><br />
             <fieldset>
-              <legned>Priority:</legned>
-              <div>
-                <input type="radio" name="task-priority" id="low-priority" />
-                <label for="low-priority">low</label>
-                <input type="radio" name="task-priority" id="medium-priority" />
-                <label for="medium-priority">medium</label>
-                <input type="radio" name="task-priority" id="high-priority" />
-                <label for="high-priority">high</label>
+              <legend>Priority:</legend>
+              <div class="radio-container">
+                <div>
+                  <input type="radio" name="task-priority" id="low-priority" />
+                  <label for="low-priority">low</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="task-priority"
+                    id="medium-priority"
+                  />
+                  <label for="medium-priority">medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="task-priority" id="high-priority" />
+                  <label for="high-priority">high</label>
+                </div>
               </div>
-              <br />
             </fieldset>
-            <button>CANCEL</button>
-            <input type="submit" value="SUBMIT" />
+            <div class="form-btn-container">
+              <button class="cancel-btn" id="close-form_btn">CANCEL</button>
+              <input class="submit-btn" type="submit" value="SUBMIT" />
+            </div>
           </form>
           <ul class="task-list" id="task-list-container"></ul>
         </main>
