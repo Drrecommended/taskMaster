@@ -112,7 +112,7 @@ header {
     width: 100%;
   }
   input, fieldset {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   fieldset {
     border: none;
@@ -124,6 +124,30 @@ header {
   .radio-container {
     display: flex;
     justify-content: space-around;
+  }
+  .radio-btn {
+    position: relative;
+    width: 80px;
+    label, input {
+      display: block;
+      position: absolute;
+      // top: 0;
+      // left: 0;
+      // right: 0;
+      // bottom: 0;
+    }
+    input[type=radio] {
+      opacity: 0.011;
+      z-index: 100;
+      &:checked + label {
+        background-color: #039862;
+      }
+    }
+    label {
+      cursor: pointer;
+      z-index: 90;
+      line-height: 1.8em;
+    }
   }
   .form-btn-container {
     float: right;
