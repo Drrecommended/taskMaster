@@ -63,6 +63,7 @@ header {
   transition: 0.5s;
   padding-top: 3em;
   font-size: 24px;
+  z-index: 100;
   ul {
     margin-bottom: 1em;
     li {
@@ -116,25 +117,23 @@ header {
   }
   fieldset {
     border: none;
+    padding-bottom: 30px;
   }
   textarea {
     resize: none;
     width: 100%;
   }
   .radio-container {
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-between;
+    // max-width: 85%;
   }
   .radio-btn {
     position: relative;
-    width: 80px;
+    // width: 80px;
     label, input {
       display: block;
       position: absolute;
-      // top: 0;
-      // left: 0;
-      // right: 0;
-      // bottom: 0;
     }
     input[type=radio] {
       opacity: 0.011;
@@ -144,6 +143,8 @@ header {
       }
     }
     label {
+      border: 2px solid black;
+      padding: 2px 6px;
       cursor: pointer;
       z-index: 90;
       line-height: 1.8em;
