@@ -124,16 +124,15 @@ header {
     width: 100%;
   }
   .radio-container {
-    // display: flex;
-    // justify-content: space-between;
-    // max-width: 85%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-template-rows: auto;
   }
   .radio-btn {
     position: relative;
-    // width: 80px;
     label, input {
       display: block;
-      position: absolute;
     }
     input[type=radio] {
       opacity: 0.011;
@@ -145,6 +144,7 @@ header {
     label {
       border: 2px solid black;
       padding: 2px 6px;
+      text-align: center;
       cursor: pointer;
       z-index: 90;
       line-height: 1.8em;
