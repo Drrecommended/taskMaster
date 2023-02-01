@@ -18,14 +18,16 @@ export function displayTasks(taskArray) {
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */ 
 export function addTask(e) {
-  console.log('test')
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value
   const taskDate = document.getElementById('task-date').value
-  const newTask = taskFactory(taskName, taskDescription, taskDate)
+  const taskPriority = document.querySelector('input[name="task-priority"]:checked').value
+  console.log(taskPriority)
+  const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
-  resetForm(taskName, taskDescription, taskDate)
+  console.log(newTask)
+  resetForm(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
 }
 

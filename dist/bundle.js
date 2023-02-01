@@ -637,72 +637,20 @@ function displayTasks(taskArray) {
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */ 
 function addTask(e) {
-  console.log('test')
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value
   const taskDate = document.getElementById('task-date').value
-  const newTask = taskFactory(taskName, taskDescription, taskDate)
+  const taskPriority = document.querySelector('input[name="task-priority"]:checked').value
+  console.log(taskPriority)
+  const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
-  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate)
+  console.log(newTask)
+  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
 }
 
 function deleteTask() {}
-
-
-/***/ }),
-
-/***/ "./src/dashboard/dashboard.js":
-/*!************************************!*\
-  !*** ./src/dashboard/dashboard.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/nav */ "./src/layouts/nav.js");
-
-
-const dashboard = () => {
-  const loadDashboard = () => {
-    _layouts_nav__WEBPACK_IMPORTED_MODULE_0__["default"].navigate()
-  }
-  return {
-    loadDashboard
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dashboard); 
-
-/***/ }),
-
-/***/ "./src/layouts/nav.js":
-/*!****************************!*\
-  !*** ./src/layouts/nav.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const navbar = () => {
-  const navLinks = document.querySelectorAll('nav a')
-  console.log(navLinks, "works")
-  navLinks.forEach((link) => {
-    console.log(link)
-  })
-  return {
-    navigate() {
-      console.log('test e')
-    }
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbar);
 
 
 /***/ })
@@ -790,8 +738,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/tasks */ "./src/components/tasks.js");
 /* harmony import */ var _components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/eventsHandlers */ "./src/components/eventsHandlers.js");
-/* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/dashboard */ "./src/dashboard/dashboard.js");
-
 
 
 
@@ -802,9 +748,8 @@ function component() {
   element.innerText = 'something soon'
   return element
 }
-console.log(_dashboard_dashboard__WEBPACK_IMPORTED_MODULE_3__["default"])
 
-;(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
+(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
 ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_components_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
 
 
