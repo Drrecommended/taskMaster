@@ -7,6 +7,9 @@ $highlight-color: #fad02c;
 $active-color: #90adc6;
 $submit-color: #039862;
 $cancel-color: rgb(213, 70, 70);
+$border-radius__outer: 6px;
+$border-radius__inner: 4px;
+$input-button-height: 38px;
 
 body {
   background-color: $primary-color;
@@ -35,7 +38,8 @@ header {
   }
 }
 
-button, .submit-btn {
+button,
+.submit-btn {
   border: none;
 }
 
@@ -109,34 +113,48 @@ header {
   padding-bottom: 50px;
   max-width: 400px;
   border: 1px solid black;
+  border-radius: $border-radius__outer;
+  input, .cancel-btn {
+    height: $input-button-height;
+  }
   .task-input {
     width: 100%;
   }
-  input, fieldset {
-    margin-bottom: 15px;
-  }
   fieldset {
+    margin-bottom: 15px;
     border: none;
-    padding-bottom: 30px;
   }
   textarea {
     resize: none;
     width: 100%;
   }
+  textarea,
+  input, .radio-btn > label {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: $border-radius__inner;
+  }
+
+  #task-date {
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .radio-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    grid-template-rows: auto;
   }
   .radio-btn {
     position: relative;
-    label, input {
+    label,
+    input {
       display: block;
     }
-    input[type=radio] {
+    input[type='radio'] {
       opacity: 0.011;
       z-index: 100;
+      position: absolute;
       &:checked + label {
         background-color: #039862;
       }
@@ -161,12 +179,12 @@ header {
     .cancel-btn {
       background-color: $cancel-color;
     }
-    .submit-btn, .cancel-btn {
-      padding: .5em;
+    .submit-btn,
+    .cancel-btn {
+      padding: 0.5em;
+      border-radius: $border-radius__inner;
     }
   }
-
-
 }
 
 footer {
