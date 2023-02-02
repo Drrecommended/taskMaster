@@ -5,14 +5,15 @@ $primary-color: #e9eaec;
 $secondary-color: #333652;
 $highlight-color: #fad02c;
 $active-color: #90adc6;
-$submit-color: #039862;
-$cancel-color: rgb(213, 70, 70);
+$submit-color: #84d4b7;
+$cancel-color: rgb(235, 132, 132);
 $border-radius__outer: 6px;
 $border-radius__inner: 4px;
-$input-button-height: 38px;
+$input-button-height: 42px;
 
 body {
   background-color: $primary-color;
+  font-size: 18px;
 }
 
 .main-grid {
@@ -114,27 +115,36 @@ header {
   max-width: 400px;
   border: 1px solid black;
   border-radius: $border-radius__outer;
-  input, .cancel-btn {
+  input,
+  fieldset {
+    margin-bottom: 12px;
+  }
+  input,
+  .cancel-btn {
     height: $input-button-height;
   }
-  .task-input {
+  .task-input,
+  textarea {
     width: 100%;
   }
   fieldset {
-    margin-bottom: 15px;
     border: none;
+    padding-bottom: 15px;
   }
   textarea {
     resize: none;
-    width: 100%;
   }
   textarea,
-  input, .radio-btn > label {
+  input,
+  .radio-btn > label {
     padding-left: 5px;
     padding-right: 5px;
     border-radius: $border-radius__inner;
   }
-
+  input,
+  textarea {
+    border: 1px solid black;
+  }
   #task-date {
     &:hover {
       cursor: pointer;
@@ -172,6 +182,8 @@ header {
     float: right;
     .submit-btn {
       background-color: $submit-color;
+      border: none;
+      margin-left: 4px;
       &:hover {
         cursor: pointer;
       }
@@ -181,7 +193,7 @@ header {
     }
     .submit-btn,
     .cancel-btn {
-      padding: 0.5em;
+      padding: 0.5em .6em;
       border-radius: $border-radius__inner;
     }
   }
