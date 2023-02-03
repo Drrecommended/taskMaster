@@ -1,12 +1,14 @@
 import { addTask } from './tasks'
 
 export default function eventHandlers() {
-  /* navigation handler */
   const nav = document.getElementById('nav')
   const navBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
-
   const addProjectBtn = document.getElementById('add-project-btn')
+  const formRadios = document.querySelectorAll('input[type="radio"]')
+  const taskForm = document.getElementById('task-form')
+
+
   navBtn.addEventListener('click', () => {
     nav.style.width = '250px'
     nav.style.paddingLeft = '20px'
@@ -21,13 +23,24 @@ export default function eventHandlers() {
     projectElem.addClass('project-elem')
     const editNameBtn = document.createElement('button')
     editNameBtn.innerText('test')
-    const trashProjectBtn = document.createElement("button")
+    const trashProjectBtn = document.createElement('button')
     trashProjectBtn.innerText('test')
-    
+  })
+
+  /* form handler */
+  taskForm.addEventListener('submit', addTask)
+
+  /* form radios */
+  formRadios.forEach(radio => {
+    radio.addEventListener('click', () => {
+      if(radio.checked) {
+        console.log(radio)
+        
+      }
+    })
+    console.log(radio.checked)
+
   })
 
 
-  /* form handler */
-  const taskForm = document.getElementById('task-form')
-  taskForm.addEventListener('submit', addTask)
 }

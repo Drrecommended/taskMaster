@@ -544,12 +544,16 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ resetForm)
+/* harmony export */   "formRadioButtonColors": () => (/* binding */ formRadioButtonColors),
+/* harmony export */   "resetForm": () => (/* binding */ resetForm)
 /* harmony export */ });
 function resetForm() {
   document.getElementById('task-form').reset()
 }
 
+function formRadioButtonColors() {
+
+}
 
 
 
@@ -569,12 +573,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function eventHandlers() {
-  /* navigation handler */
   const nav = document.getElementById('nav')
   const navBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
-
   const addProjectBtn = document.getElementById('add-project-btn')
+  const formRadios = document.querySelectorAll('input[type="radio"]')
+  const taskForm = document.getElementById('task-form')
+
+
   navBtn.addEventListener('click', () => {
     nav.style.width = '250px'
     nav.style.paddingLeft = '20px'
@@ -589,15 +595,26 @@ function eventHandlers() {
     projectElem.addClass('project-elem')
     const editNameBtn = document.createElement('button')
     editNameBtn.innerText('test')
-    const trashProjectBtn = document.createElement("button")
+    const trashProjectBtn = document.createElement('button')
     trashProjectBtn.innerText('test')
-    
+  })
+
+  /* form handler */
+  taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
+
+  /* form radios */
+  formRadios.forEach(radio => {
+    radio.addEventListener('click', () => {
+      if(radio.checked) {
+        console.log(radio)
+        
+      }
+    })
+    console.log(radio.checked)
+
   })
 
 
-  /* form handler */
-  const taskForm = document.getElementById('task-form')
-  taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
 }
 
 
@@ -619,7 +636,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/components/UI.js");
 
 
-const tasks = [ "task", "other task"]
+const tasks = ['task', 'other task']
 
 function taskFactory(name, description, dueDate) {
   return { name, description, dueDate }
@@ -634,14 +651,15 @@ function displayTasks(taskArray) {
   })
 }
 
-
-/* make a function to add task but also to append task so we don't have to reload all the tasks */ 
+/* make a function to add task but also to append task so we don't have to reload all the tasks */
 function addTask(e) {
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value
   const taskDate = document.getElementById('task-date').value
-  const taskPriority = document.querySelector('input[name="task-priority"]:checked').value
+  const taskPriority = document.querySelector(
+    'input[name="task-priority"]:checked'
+  ).value
   console.log(taskPriority)
   const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
@@ -651,6 +669,7 @@ function addTask(e) {
 }
 
 function deleteTask() {}
+
 
 
 /***/ })
