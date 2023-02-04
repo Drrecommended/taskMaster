@@ -166,8 +166,17 @@ header {
       z-index: 100;
       position: absolute;
       &:checked + label {
-        background-color: #039862;
+        border: 2px solid transparent;
       }
+    }
+    .low + label {
+      background-color: red;
+    }
+    .medium + label {
+      background-color: green;
+    }
+    .high + label {
+      background-color: blue;
     }
     label {
       border: 2px solid black;
@@ -193,7 +202,7 @@ header {
     }
     .submit-btn,
     .cancel-btn {
-      padding: 0.5em .6em;
+      padding: 0.5em 0.6em;
       border-radius: $border-radius__inner;
     }
   }

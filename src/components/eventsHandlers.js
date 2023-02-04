@@ -1,4 +1,5 @@
 import { addTask } from './tasks'
+import { changeRadioButtonColors } from './UI'
 
 export default function eventHandlers() {
   const nav = document.getElementById('nav')
@@ -7,7 +8,6 @@ export default function eventHandlers() {
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
-
 
   navBtn.addEventListener('click', () => {
     nav.style.width = '250px'
@@ -31,16 +31,10 @@ export default function eventHandlers() {
   taskForm.addEventListener('submit', addTask)
 
   /* form radios */
-  formRadios.forEach(radio => {
+  formRadios.forEach((radio) => {
     radio.addEventListener('click', () => {
-      if(radio.checked) {
-        console.log(radio)
-        
-      }
+      changeRadioButtonColors(radio, formRadios)
     })
     console.log(radio.checked)
-
   })
-
-
 }
