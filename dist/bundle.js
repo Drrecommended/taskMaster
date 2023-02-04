@@ -544,14 +544,15 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "changeRadioButtonColors": () => (/* binding */ changeRadioButtonColors),
-/* harmony export */   "resetForm": () => (/* binding */ resetForm)
+/* harmony export */   "changeRadioButtonColor": () => (/* binding */ changeRadioButtonColor),
+/* harmony export */   "resetForm": () => (/* binding */ resetForm),
+/* harmony export */   "userInterface": () => (/* binding */ userInterface)
 /* harmony export */ });
 function resetForm() {
   document.getElementById('task-form').reset()
 }
 
-function changeRadioButtonColors(selectedRadio, allRadios) {
+function changeRadioButtonColor(selectedRadio, allRadios) {
   allRadios.forEach((radio) => {
     if (selectedRadio.value !== radio.value) {
       radio.classList.remove(radio.value)
@@ -559,6 +560,11 @@ function changeRadioButtonColors(selectedRadio, allRadios) {
       radio.classList.add(radio.value)
     }
   })
+}
+
+function userInterface() {
+  const openNav = () => console.log('test')
+  return { openNav }
 }
 
 
@@ -579,17 +585,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function eventHandlers() {
   const nav = document.getElementById('nav')
-  const navBtn = document.getElementById('nav-btn')
+  const openNavBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
 
-  navBtn.addEventListener('click', () => {
+  openNavBtn.addEventListener('click', () => {
     nav.style.width = '250px'
     nav.style.paddingLeft = '20px'
+    console.log(_UI__WEBPACK_IMPORTED_MODULE_1__.userInterface)
+    _UI__WEBPACK_IMPORTED_MODULE_1__.userInterface.openNav()
   })
   closeNavBtn.addEventListener('click', () => {
     nav.style.width = '0px'
@@ -611,7 +620,7 @@ function eventHandlers() {
   /* form radios */
   formRadios.forEach((radio) => {
     radio.addEventListener('click', () => {
-      ;(0,_UI__WEBPACK_IMPORTED_MODULE_1__.changeRadioButtonColors)(radio, formRadios)
+      ;(0,_UI__WEBPACK_IMPORTED_MODULE_1__.changeRadioButtonColor)(radio, formRadios)
     })
     console.log(radio.checked)
   })
@@ -638,6 +647,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const tasks = ['task', 'other task']
 
+
+
 function taskFactory(name, description, dueDate) {
   return { name, description, dueDate }
 }
@@ -660,11 +671,9 @@ function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  console.log(taskPriority)
   const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
-  console.log(newTask)
-  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate, taskPriority)
+  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__.resetForm)(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
 }
 
