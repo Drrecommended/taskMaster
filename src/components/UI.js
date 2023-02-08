@@ -1,18 +1,19 @@
-export function resetForm() {
-  document.getElementById('task-form').reset()
+const userInterface = {
+  toggleNav(nav) {
+    nav.classList.toggle('open')
+  },
+  changeRadioButtonColor(selectedRadio, allRadios) {
+    allRadios.forEach((radio) => {
+      if (selectedRadio.value !== radio.value) {
+        radio.classList.remove(radio.value)
+      } else {
+        radio.classList.add(radio.value)
+      }
+    })
+  },
+  resetForm() {
+    document.getElementById('task-form').reset()
+  },
 }
 
-export function changeRadioButtonColor(selectedRadio, allRadios) {
-  allRadios.forEach((radio) => {
-    if (selectedRadio.value !== radio.value) {
-      radio.classList.remove(radio.value)
-    } else {
-      radio.classList.add(radio.value)
-    }
-  })
-}
-
-export function userInterface() {
-  const openNav = () => console.log('test')
-  return { openNav }
-}
+export default userInterface
