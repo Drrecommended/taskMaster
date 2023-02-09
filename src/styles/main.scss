@@ -119,6 +119,9 @@ header {
   max-width: 400px;
   border: 1px solid black;
   border-radius: $border-radius__outer;
+  &.open {
+    display: none;
+  }
   input,
   fieldset {
     margin-bottom: 12px;

@@ -15,7 +15,8 @@ const userInterface = {
     document.getElementById('task-form').reset()
   },
   toggleForm() {
-    console.log(this)
+    const form = this
+    form.classList.toggle('open')
   }
 }
 
