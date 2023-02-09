@@ -14,6 +14,12 @@ const userInterface = {
   resetForm() {
     document.getElementById('task-form').reset()
   },
+  toggleForm() {
+    console.log(this)
+  }
 }
 
 export default userInterface
+
+
+

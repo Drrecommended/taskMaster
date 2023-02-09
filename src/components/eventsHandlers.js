@@ -5,6 +5,7 @@ export default function eventHandlers() {
   const nav = document.getElementById('nav')
   const openNavBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
+  const openFormBtn = document.getElementById('open-form-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
@@ -22,6 +23,8 @@ export default function eventHandlers() {
   })
 
   /* form handler */
+  console.log(openFormBtn)
+  openFormBtn.addEventListener('click', userInterface.toggleForm.bind(taskForm))
   taskForm.addEventListener('submit', addTask)
 
   /* form radios */

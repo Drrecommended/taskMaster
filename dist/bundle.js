@@ -562,9 +562,15 @@ const userInterface = {
   resetForm() {
     document.getElementById('task-form').reset()
   },
+  toggleForm() {
+    console.log(this)
+  }
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInterface);
+
+
+
 
 
 /***/ }),
@@ -588,6 +594,7 @@ function eventHandlers() {
   const nav = document.getElementById('nav')
   const openNavBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
+  const openFormBtn = document.getElementById('open-form-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
@@ -605,6 +612,8 @@ function eventHandlers() {
   })
 
   /* form handler */
+  console.log(openFormBtn)
+  openFormBtn.addEventListener('click', _UI__WEBPACK_IMPORTED_MODULE_1__["default"].toggleForm.bind(taskForm))
   taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
 
   /* form radios */
