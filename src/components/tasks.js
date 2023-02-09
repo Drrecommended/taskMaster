@@ -1,4 +1,4 @@
-import {resetForm} from './UI'
+// import {resetForm} from './UI'
 
 const tasks = ['task', 'other task']
 
@@ -26,9 +26,10 @@ export function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
+  console.log(taskPriority)
   const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
-  resetForm(taskName, taskDescription, taskDate, taskPriority)
+  // resetForm(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
 }
 

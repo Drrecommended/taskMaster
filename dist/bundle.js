@@ -596,10 +596,10 @@ function eventHandlers() {
   const openNavBtn = document.getElementById('nav-btn')
   const closeNavBtn = document.getElementById('close-nav-btn')
   const openFormBtn = document.getElementById('open-form-btn')
+  const closeFormBtn = document.getElementById('close-form-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
-
   openNavBtn.addEventListener('click', () => _UI__WEBPACK_IMPORTED_MODULE_1__["default"].toggleNav(nav))
   closeNavBtn.addEventListener('click', () => _UI__WEBPACK_IMPORTED_MODULE_1__["default"].toggleNav(nav))
   /* add project */
@@ -613,8 +613,8 @@ function eventHandlers() {
   })
 
   /* form handler */
-  console.log(openFormBtn)
   openFormBtn.addEventListener('click', _UI__WEBPACK_IMPORTED_MODULE_1__["default"].toggleForm.bind(taskForm))
+  closeFormBtn.addEventListener('click', _UI__WEBPACK_IMPORTED_MODULE_1__["default"].toggleForm.bind(taskForm))
   taskForm.addEventListener('submit', _tasks__WEBPACK_IMPORTED_MODULE_0__.addTask)
 
   /* form radios */
@@ -641,8 +641,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
-/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UI */ "./src/components/UI.js");
-
+// import {resetForm} from './UI'
 
 const tasks = ['task', 'other task']
 
@@ -670,9 +669,10 @@ function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
+  console.log(taskPriority)
   const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
   tasks.push(newTask)
-  ;(0,_UI__WEBPACK_IMPORTED_MODULE_0__.resetForm)(taskName, taskDescription, taskDate, taskPriority)
+  // resetForm(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
 }
 
