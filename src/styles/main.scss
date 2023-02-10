@@ -24,6 +24,10 @@ body {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 header {
   background-color: $secondary-color;
   color: $primary-color;

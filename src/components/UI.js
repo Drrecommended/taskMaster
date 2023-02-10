@@ -1,4 +1,4 @@
-const userInterface = {
+const dashboard = {
   toggleNav(nav) {
     nav.classList.toggle('open')
   },
@@ -18,9 +18,10 @@ const userInterface = {
     const form = this
     form.classList.toggle('open')
   }
+  
 }
 
-export default userInterface
+export default dashboard
 
 
 

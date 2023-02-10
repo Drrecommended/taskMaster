@@ -22,7 +22,7 @@ export default function eventHandlers() {
     trashProjectBtn.innerText('test')
   })
 
-  /* form handler */
+  /* form handler maybe bind isnt needed */
   openFormBtn.addEventListener('click', userInterface.toggleForm.bind(taskForm))
   closeFormBtn.addEventListener('click', userInterface.toggleForm.bind(taskForm))
   taskForm.addEventListener('submit', addTask)

@@ -12,5 +12,4 @@ function component() {
 eventHandlers()
 displayTasks(tasks)
 
-
 document.body.appendChild(component())
