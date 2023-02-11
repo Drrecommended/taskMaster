@@ -26,6 +26,11 @@ body {
 
 .flex {
   display: flex;
+  .task-name,
+  .task-date,
+  .task-priority {
+    border: 1px solid red;
+  }
 }
 
 header {
@@ -115,6 +120,18 @@ header {
 .dash-board {
   padding: 1em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 .form {
   margin: 0 auto;

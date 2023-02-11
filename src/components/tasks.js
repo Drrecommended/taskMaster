@@ -1,5 +1,24 @@
 // import {resetForm} from './UI'
-const tasks = []
+const tasks = [
+  {
+    name: '432',
+    description: '423',
+    dueDate: '2023-02-07',
+    priority: 'medium',
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '2023-02-07',
+    priority: 'medium',
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '2023-02-07',
+    priority: 'medium',
+  },
+]
 
 function taskFactory(name, description, dueDate, priority) {
   return { name, description, dueDate, priority }
@@ -15,10 +34,21 @@ export function displayTasks(taskArray) {
   //   taskContainer.innerText = task
   //   taskListContainer.appendChild(taskContainer)
   // })
+
   taskListContainer.innerHTML = taskArray
     .map(
       (task, index) =>
-        `<li class="flex" data-id="${index}"><p>${task.name}</p><p>${task.dueDate}</p><p>${task.priority}</p></li>`
+        `<li class="flex" data-id="${index}">
+          <label>
+            <input type="radio">
+          </label>
+          <p class="task-name">${task.name}</p>
+          <p class="task-date">${task.dueDate}</p>
+          <p class="task-priority">${task.priority}</p>
+          <button>
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+         </li>`
     )
     .join('')
 }
