@@ -26,6 +26,7 @@ body {
 
 .flex {
   display: flex;
+  gap: 5px;
   .task-name,
   .task-date,
   .task-priority {
@@ -140,8 +141,9 @@ header {
   max-width: 400px;
   border: 1px solid black;
   border-radius: $border-radius__outer;
+  display: none;
   &.open {
-    display: none;
+    display: block;
   }
   input,
   fieldset {
