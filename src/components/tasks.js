@@ -1,23 +1,23 @@
 // import {resetForm} from './UI'
-import { format, parseISO } from "date-fns"
+import { format, parseISO } from 'date-fns'
 
 const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
 ]
@@ -64,9 +64,13 @@ export function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  const formattedDate = format(parseISO(taskDate), 'MMM')
-  console.log(formattedDate, taskDate)
-  const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
+  const formattedDate = format(parseISO(taskDate), 'MM/dd/yy')
+  const newTask = taskFactory(
+    taskName,
+    taskDescription,
+    formattedDate,
+    taskPriority
+  )
   tasks.push(newTask)
   // resetForm(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)

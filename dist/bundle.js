@@ -4076,19 +4076,19 @@ const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '2023-02-07',
+    dueDate: '23/02/07',
     priority: 'medium',
   },
 ]
@@ -4135,9 +4135,13 @@ function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(taskDate), 'MMM')
-  console.log(formattedDate, taskDate)
-  const newTask = taskFactory(taskName, taskDescription, taskDate, taskPriority)
+  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(taskDate), 'MM/dd/yy')
+  const newTask = taskFactory(
+    taskName,
+    taskDescription,
+    formattedDate,
+    taskPriority
+  )
   tasks.push(newTask)
   // resetForm(taskName, taskDescription, taskDate, taskPriority)
   displayTasks(tasks)
