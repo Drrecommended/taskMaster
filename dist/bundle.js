@@ -3961,6 +3961,34 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/app/startApp.js":
+/*!*****************************!*\
+  !*** ./src/app/startApp.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/nav */ "./src/layouts/nav.js");
+
+
+function startApp() {
+  const initialize = () => {
+    (0,_layouts_nav__WEBPACK_IMPORTED_MODULE_0__["default"])()
+  }
+
+  return { initialize }
+}
+
+const app = startApp()
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (app);
+
+
+/***/ }),
+
 /***/ "./src/components/UI.js":
 /*!******************************!*\
   !*** ./src/components/UI.js ***!
@@ -4099,14 +4127,6 @@ function taskFactory(name, description, dueDate, priority) {
 
 function displayTasks(taskArray) {
   const taskListContainer = document.getElementById('task-list-container')
-  // taskArray.forEach((task) => {
-  //   const taskContainer = document.createElement('li')
-  //   taskContainer.classList.add('task-container')
-  //   const taskTitle = document.createElement('p')
-  //   taskTitle.innerText = task
-  //   taskContainer.innerText = task
-  //   taskListContainer.appendChild(taskContainer)
-  // })
 
   taskListContainer.innerHTML = taskArray
     .map(
@@ -4149,6 +4169,34 @@ function addTask(e) {
 
 function deleteTask() {}
 
+
+
+/***/ }),
+
+/***/ "./src/layouts/nav.js":
+/*!****************************!*\
+  !*** ./src/layouts/nav.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const navbar = () => {
+  const navLinks = document.querySelectorAll('nav a')
+  console.log(navLinks, "works")
+  navLinks.forEach((link) => {
+    console.log(link)
+  })
+  return {
+    navigate() {
+      console.log('test e')
+    }
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navbar);
 
 
 /***/ })
@@ -4236,21 +4284,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/tasks */ "./src/components/tasks.js");
 /* harmony import */ var _components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/eventsHandlers */ "./src/components/eventsHandlers.js");
+/* harmony import */ var _app_startApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/startApp */ "./src/app/startApp.js");
 
 
 
 
-function component() {
-  const element = document.createElement('div')
 
-  element.innerText = 'something soon'
-  return element
-}
+_app_startApp__WEBPACK_IMPORTED_MODULE_3__["default"].initialize()
 
-(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
+;(0,_components_eventsHandlers__WEBPACK_IMPORTED_MODULE_2__["default"])()
 ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_components_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
 
-document.body.appendChild(component())
 
 })();
 

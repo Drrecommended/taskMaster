@@ -1,15 +1,10 @@
 import './styles/main.scss'
 import { tasks, displayTasks } from './components/tasks'
 import eventHandlers from './components/eventsHandlers'
+import app from './app/startApp'
 
-function component() {
-  const element = document.createElement('div')
-
-  element.innerText = 'something soon'
-  return element
-}
+app.initialize()
 
 eventHandlers()
 displayTasks(tasks)
 
-document.body.appendChild(component())

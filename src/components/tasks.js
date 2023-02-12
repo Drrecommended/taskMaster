@@ -28,14 +28,6 @@ function taskFactory(name, description, dueDate, priority) {
 
 export function displayTasks(taskArray) {
   const taskListContainer = document.getElementById('task-list-container')
-  // taskArray.forEach((task) => {
-  //   const taskContainer = document.createElement('li')
-  //   taskContainer.classList.add('task-container')
-  //   const taskTitle = document.createElement('p')
-  //   taskTitle.innerText = task
-  //   taskContainer.innerText = task
-  //   taskListContainer.appendChild(taskContainer)
-  // })
 
   taskListContainer.innerHTML = taskArray
     .map(
