@@ -5,19 +5,25 @@ const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '23/02/07',
+    dueDate: '01/02/23',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '23/02/07',
+    dueDate: '01/02/23',
     priority: 'medium',
   },
   {
     name: '432',
     description: '423',
-    dueDate: '23/02/07',
+    dueDate: '01/02/23',
+    priority: 'medium',
+  },
+  {
+    name: 'YOU DID IT',
+    description: '423',
+    dueDate: '03/02/23',
     priority: 'medium',
   },
 ]

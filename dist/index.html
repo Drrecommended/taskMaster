@@ -27,18 +27,22 @@
           <button class="close-nav-btn" id="close-nav-btn">&times;</button>
           <ul>
             <li>
-              <a href="#tasks"><i class="fa-solid fa-inbox"></i>Tasks</a>
+              <a href="#tasks" data-section="tasks"
+                ><i class="fa-solid fa-inbox"></i>Tasks</a
+              >
             </li>
             <li>
-              <a href="#today"><i class="fa-solid fa-calendar-day"></i>Today</a>
+              <a href="#today" data-section="todays"
+                ><i class="fa-solid fa-calendar-day"></i>Today</a
+              >
             </li>
             <li>
-              <a href="#week"
+              <a href="#week" data-section="weeks"
                 ><i class="fa-solid fa-calendar-week"></i>This Week</a
               >
             </li>
             <li>
-              <a href="#completed"
+              <a href="#completed" data-section="completed"
                 ><i class="fa-solid fa-flag-checkered"></i>Completed</a
               >
             </li>
@@ -51,7 +55,9 @@
         <!--CONTENT-->
         <main class="dash-board">
           <h2>Tasks</h2>
-          <button id="open-form-btn"><i class="fa-solid fa-plus"></i>Add Task</button>
+          <button id="open-form-btn">
+            <i class="fa-solid fa-plus"></i>Add Task
+          </button>
           <!--FORM-->
           <form class="form" id="task-form">
             <label for="task-name">Task:</label><br />

@@ -1,14 +1,13 @@
-const navbar = () => {
-  const navLinks = document.querySelectorAll('nav a')
-  console.log(navLinks, "works")
-  navLinks.forEach((link) => {
-    console.log(link)
-  })
-  return {
-    navigate() {
-      console.log('test e')
-    }
-  }
-}
+import { displayTasks } from '../components/tasks'
 
-export default navbar
+export default function navbar() {
+  const navLinks = document.querySelectorAll('nav a')
+
+  const navigate = (e) => {
+    const { page } = e.target.dataset.section
+    displayTasks(page)
+  }
+  navLinks.forEach((link) => {
+    link.addEventListener('click', navigate)
+  })
+}
