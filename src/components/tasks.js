@@ -23,7 +23,7 @@ const tasks = [
   {
     name: 'YOU DID IT',
     description: '423',
-    dueDate: '03/02/23',
+    dueDate: '02/13/23',
     priority: 'medium',
   },
 ]
@@ -32,10 +32,12 @@ function taskFactory(name, description, dueDate, priority) {
   return { name, description, dueDate, priority }
 }
 
-export function displayTasks(taskArray) {
-  const taskListContainer = document.getElementById('task-list-container')
+/* maybe rename to load tasks */
 
-  taskListContainer.innerHTML = taskArray
+export function displayTasks(filteredTasks) {
+  const taskListContainer = document.getElementById('task-list-container')
+  
+  taskListContainer.innerHTML = tasks
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
@@ -51,6 +53,14 @@ export function displayTasks(taskArray) {
          </li>`
     )
     .join('')
+}
+
+export function displayTodaysTasks() {
+  const todaysDate = new Date()
+  const todaysDateFormatted = format(todaysDate, 'MM/dd/yy')
+  const todaysTasks = tasks.filter(task => task.dueDate === todaysDateFormatted)
+  console.log(todaysTasks)
+  /* filter to today's date and then display the filtered tasks with displays task */
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */

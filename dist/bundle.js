@@ -4066,12 +4066,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _layouts_nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/nav */ "./src/layouts/nav.js");
 /* harmony import */ var _eventsHandlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventsHandlers */ "./src/components/eventsHandlers.js");
+/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
+
 
 
 
 function startApp() {
   const initialize = () => {
     (0,_layouts_nav__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_2__.displayTasks)()
     ;(0,_eventsHandlers__WEBPACK_IMPORTED_MODULE_1__["default"])()
   }
 
@@ -4096,6 +4099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "addTask": () => (/* binding */ addTask),
 /* harmony export */   "deleteTask": () => (/* binding */ deleteTask),
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
+/* harmony export */   "displayTodaysTasks": () => (/* binding */ displayTodaysTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
@@ -4125,7 +4129,7 @@ const tasks = [
   {
     name: 'YOU DID IT',
     description: '423',
-    dueDate: '03/02/23',
+    dueDate: '02/13/23',
     priority: 'medium',
   },
 ]
@@ -4134,10 +4138,12 @@ function taskFactory(name, description, dueDate, priority) {
   return { name, description, dueDate, priority }
 }
 
-function displayTasks(taskArray) {
-  const taskListContainer = document.getElementById('task-list-container')
+/* maybe rename to load tasks */
 
-  taskListContainer.innerHTML = taskArray
+function displayTasks(filteredTasks) {
+  const taskListContainer = document.getElementById('task-list-container')
+  
+  taskListContainer.innerHTML = tasks
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
@@ -4153,6 +4159,14 @@ function displayTasks(taskArray) {
          </li>`
     )
     .join('')
+}
+
+function displayTodaysTasks() {
+  const todaysDate = new Date()
+  const todaysDateFormatted = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(todaysDate, 'MM/dd/yy')
+  const todaysTasks = tasks.filter(task => task.dueDate === todaysDateFormatted)
+  console.log(todaysTasks)
+  /* filter to today's date and then display the filtered tasks with displays task */
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
@@ -4199,8 +4213,14 @@ function navbar() {
   const navLinks = document.querySelectorAll('nav a')
 
   const navigate = (e) => {
-    const { page } = e.target.dataset.section
-    ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayTasks)(page)
+    const page = e.target.dataset.section
+
+    switch (page) {
+      case 'todays':
+        ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayTodaysTasks)()
+        break
+      default:
+    }
   }
   navLinks.forEach((link) => {
     link.addEventListener('click', navigate)
@@ -4291,15 +4311,13 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/tasks */ "./src/components/tasks.js");
-/* harmony import */ var _components_startApp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/startApp */ "./src/components/startApp.js");
+/* harmony import */ var _components_startApp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/startApp */ "./src/components/startApp.js");
 
 
 
+_components_startApp__WEBPACK_IMPORTED_MODULE_1__["default"].initialize()
 
-_components_startApp__WEBPACK_IMPORTED_MODULE_2__["default"].initialize()
 
-;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_1__.displayTasks)(_components_tasks__WEBPACK_IMPORTED_MODULE_1__.tasks)
 
 })();
 
