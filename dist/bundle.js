@@ -4278,16 +4278,17 @@ function displayTasks(filteredTasks) {
 }
 
 function displayTodaysTasks() {
-  const todaysDateFormatted = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(todaysDate, 'MM/dd/yy')
-  const todaysTasks = tasks.filter(
-    (task) => task.dueDate === todaysDateFormatted
-  )
+  const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
+  console.log(todaysTasks)
   displayTasks(todaysTasks)
 }
 
 function displayWeeksTasks() {
-  const thisWeek = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(todaysDate, 1)
-  console.log(thisWeek)
+  const thisWeek = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(todaysDate, 1), 'MM/dd/yy')
+    .toString()
+    .slice(3, 5)
+
+  
 }
 
 function displayCompletedTasks() {
@@ -4299,11 +4300,12 @@ function addTask(e) {
   e.preventDefault()
   const taskName = document.getElementById('task-name').value
   const taskDescription = document.getElementById('task-description').value
-  const taskDate = document.getElementById('task-date').value
+  const taskDueDate = document.getElementById('task-date').value
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDate), 'MM/dd/yy')
+  console.log(taskDueDate)
+  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate))
   const newTask = taskFactory(
     taskName,
     taskDescription,
