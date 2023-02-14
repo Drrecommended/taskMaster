@@ -1,5 +1,7 @@
 // import {resetForm} from './UI'
-import { format, parseISO } from 'date-fns'
+import { addWeeks, format, parseISO } from 'date-fns'
+
+const todaysDate = new Date()
 
 const tasks = [
   {
@@ -17,7 +19,13 @@ const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '01/02/23',
+    dueDate: '02/15/23',
+    priority: 'medium',
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '02/14/23',
     priority: 'medium',
   },
   {
@@ -29,7 +37,14 @@ const tasks = [
 ]
 
 function taskFactory(name, description, dueDate, priority) {
-  return { name, description, dueDate, priority }
+  const markComplete = () => {
+    console.log('marked')
+  }
+  const deleteTask = () => {
+    console.log('deleted')
+  }
+
+  return { name, description, dueDate, priority, markComplete, deleteTask }
 }
 
 /* maybe rename to load tasks */
@@ -37,13 +52,12 @@ function taskFactory(name, description, dueDate, priority) {
 export function displayTasks(filteredTasks) {
   const taskListContainer = document.getElementById('task-list-container')
   const selectedTasks = filteredTasks || tasks
-  console.log(selectedTasks)
   taskListContainer.innerHTML = selectedTasks
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
           <label>
-            <input type="radio">
+            <input id="task-radio" type="radio">
           </label>
           <p class="task-name">${task.name}</p>
           <p class="task-date">${task.dueDate}</p>
@@ -57,12 +71,20 @@ export function displayTasks(filteredTasks) {
 }
 
 export function displayTodaysTasks() {
-  const todaysDate = new Date()
   const todaysDateFormatted = format(todaysDate, 'MM/dd/yy')
   const todaysTasks = tasks.filter(
     (task) => task.dueDate === todaysDateFormatted
   )
   displayTasks(todaysTasks)
+}
+
+export function displayWeeksTasks() {
+  const thisWeek = addWeeks(todaysDate, 1)
+  console.log(thisWeek)
+}
+
+export function displayCompletedTasks() {
+  console.log('yeeee')
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
@@ -85,5 +107,4 @@ export function addTask(e) {
   displayTasks()
 }
 
-export function deleteTask() {}
 export { tasks }

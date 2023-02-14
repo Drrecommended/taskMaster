@@ -1749,6 +1749,61 @@ function toInteger(dirtyNumber) {
 
 /***/ }),
 
+/***/ "./node_modules/date-fns/esm/addDays/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/date-fns/esm/addDays/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addDays)
+/* harmony export */ });
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "./node_modules/date-fns/esm/toDate/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name addDays
+ * @category Day Helpers
+ * @summary Add the specified number of days to the given date.
+ *
+ * @description
+ * Add the specified number of days to the given date.
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Number} amount - the amount of days to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ * @returns {Date} - the new date with the days added
+ * @throws {TypeError} - 2 arguments required
+ *
+ * @example
+ * // Add 10 days to 1 September 2014:
+ * const result = addDays(new Date(2014, 8, 1), 10)
+ * //=> Thu Sep 11 2014 00:00:00
+ */
+
+function addDays(dirtyDate, dirtyAmount) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  var date = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+  var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+
+  if (isNaN(amount)) {
+    return new Date(NaN);
+  }
+
+  if (!amount) {
+    // If 0 days, no-op to avoid changing times in the hour before end of DST
+    return date;
+  }
+
+  date.setDate(date.getDate() + amount);
+  return date;
+}
+
+/***/ }),
+
 /***/ "./node_modules/date-fns/esm/addMilliseconds/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/date-fns/esm/addMilliseconds/index.js ***!
@@ -1789,6 +1844,50 @@ function addMilliseconds(dirtyDate, dirtyAmount) {
   var timestamp = (0,_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate).getTime();
   var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
   return new Date(timestamp + amount);
+}
+
+/***/ }),
+
+/***/ "./node_modules/date-fns/esm/addWeeks/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/date-fns/esm/addWeeks/index.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ addWeeks)
+/* harmony export */ });
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "./node_modules/date-fns/esm/_lib/toInteger/index.js");
+/* harmony import */ var _addDays_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../addDays/index.js */ "./node_modules/date-fns/esm/addDays/index.js");
+/* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "./node_modules/date-fns/esm/_lib/requiredArgs/index.js");
+
+
+
+/**
+ * @name addWeeks
+ * @category Week Helpers
+ * @summary Add the specified number of weeks to the given date.
+ *
+ * @description
+ * Add the specified number of week to the given date.
+ *
+ * @param {Date|Number} date - the date to be changed
+ * @param {Number} amount - the amount of weeks to be added. Positive decimals will be rounded using `Math.floor`, decimals less than zero will be rounded using `Math.ceil`.
+ * @returns {Date} the new date with the weeks added
+ * @throws {TypeError} 2 arguments required
+ *
+ * @example
+ * // Add 4 weeks to 1 September 2014:
+ * const result = addWeeks(new Date(2014, 8, 1), 4)
+ * //=> Mon Sep 29 2014 00:00:00
+ */
+
+function addWeeks(dirtyDate, dirtyAmount) {
+  (0,_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+  var amount = (0,_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyAmount);
+  var days = amount * 7;
+  return (0,_addDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate, days);
 }
 
 /***/ }),
@@ -4097,15 +4196,19 @@ const app = startApp()
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addTask": () => (/* binding */ addTask),
-/* harmony export */   "deleteTask": () => (/* binding */ deleteTask),
+/* harmony export */   "displayCompletedTasks": () => (/* binding */ displayCompletedTasks),
 /* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "displayTodaysTasks": () => (/* binding */ displayTodaysTasks),
+/* harmony export */   "displayWeeksTasks": () => (/* binding */ displayWeeksTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/addWeeks/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
 // import {resetForm} from './UI'
 
+
+const todaysDate = new Date()
 
 const tasks = [
   {
@@ -4123,7 +4226,13 @@ const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '01/02/23',
+    dueDate: '02/15/23',
+    priority: 'medium',
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '02/14/23',
     priority: 'medium',
   },
   {
@@ -4135,7 +4244,14 @@ const tasks = [
 ]
 
 function taskFactory(name, description, dueDate, priority) {
-  return { name, description, dueDate, priority }
+  const markComplete = () => {
+    console.log('marked')
+  }
+  const deleteTask = () => {
+    console.log('deleted')
+  }
+
+  return { name, description, dueDate, priority, markComplete, deleteTask }
 }
 
 /* maybe rename to load tasks */
@@ -4143,13 +4259,12 @@ function taskFactory(name, description, dueDate, priority) {
 function displayTasks(filteredTasks) {
   const taskListContainer = document.getElementById('task-list-container')
   const selectedTasks = filteredTasks || tasks
-  console.log(selectedTasks)
   taskListContainer.innerHTML = selectedTasks
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
           <label>
-            <input type="radio">
+            <input id="task-radio" type="radio">
           </label>
           <p class="task-name">${task.name}</p>
           <p class="task-date">${task.dueDate}</p>
@@ -4163,12 +4278,20 @@ function displayTasks(filteredTasks) {
 }
 
 function displayTodaysTasks() {
-  const todaysDate = new Date()
   const todaysDateFormatted = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(todaysDate, 'MM/dd/yy')
   const todaysTasks = tasks.filter(
     (task) => task.dueDate === todaysDateFormatted
   )
   displayTasks(todaysTasks)
+}
+
+function displayWeeksTasks() {
+  const thisWeek = (0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(todaysDate, 1)
+  console.log(thisWeek)
+}
+
+function displayCompletedTasks() {
+  console.log('yeeee')
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
@@ -4180,7 +4303,7 @@ function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(taskDate), 'MM/dd/yy')
+  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDate), 'MM/dd/yy')
   const newTask = taskFactory(
     taskName,
     taskDescription,
@@ -4191,7 +4314,6 @@ function addTask(e) {
   displayTasks()
 }
 
-function deleteTask() {}
 
 
 
@@ -4215,14 +4337,24 @@ function navbar() {
 
   const navigate = (e) => {
     const page = e.target.dataset.section
-
+    console.log(page)
     switch (page) {
+      case 'tasks':
+        ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayTasks)()
+        break
       case 'todays':
         ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayTodaysTasks)()
+        break
+      case 'weeks':
+        ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayWeeksTasks)()
+        break
+      case 'completed':
+        ;(0,_components_tasks__WEBPACK_IMPORTED_MODULE_0__.displayCompletedTasks)()
         break
       default:
     }
   }
+
   navLinks.forEach((link) => {
     link.addEventListener('click', navigate)
   })
