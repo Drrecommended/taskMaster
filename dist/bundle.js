@@ -4142,8 +4142,9 @@ function taskFactory(name, description, dueDate, priority) {
 
 function displayTasks(filteredTasks) {
   const taskListContainer = document.getElementById('task-list-container')
-  
-  taskListContainer.innerHTML = tasks
+  const selectedTasks = filteredTasks || tasks
+  console.log(selectedTasks)
+  taskListContainer.innerHTML = selectedTasks
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
@@ -4164,9 +4165,10 @@ function displayTasks(filteredTasks) {
 function displayTodaysTasks() {
   const todaysDate = new Date()
   const todaysDateFormatted = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(todaysDate, 'MM/dd/yy')
-  const todaysTasks = tasks.filter(task => task.dueDate === todaysDateFormatted)
-  console.log(todaysTasks)
-  /* filter to today's date and then display the filtered tasks with displays task */
+  const todaysTasks = tasks.filter(
+    (task) => task.dueDate === todaysDateFormatted
+  )
+  displayTasks(todaysTasks)
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
@@ -4186,8 +4188,7 @@ function addTask(e) {
     taskPriority
   )
   tasks.push(newTask)
-  // resetForm(taskName, taskDescription, taskDate, taskPriority)
-  displayTasks(tasks)
+  displayTasks()
 }
 
 function deleteTask() {}
