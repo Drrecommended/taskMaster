@@ -4207,8 +4207,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
 // import {resetForm} from './UI'
 
-
-const todaysDate = new Date()
+/* make a function to handle all the dates and formatting and put it in another file */
+const todaysDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(new Date(), 'MM/dd/yy')
 
 const tasks = [
   {
@@ -4254,8 +4254,6 @@ function taskFactory(name, description, dueDate, priority) {
   return { name, description, dueDate, priority, markComplete, deleteTask }
 }
 
-/* maybe rename to load tasks */
-
 function displayTasks(filteredTasks) {
   const taskListContainer = document.getElementById('task-list-container')
   const selectedTasks = filteredTasks || tasks
@@ -4279,16 +4277,16 @@ function displayTasks(filteredTasks) {
 
 function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
-  console.log(todaysTasks)
   displayTasks(todaysTasks)
 }
 
 function displayWeeksTasks() {
-  const thisWeek = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(todaysDate, 1), 'MM/dd/yy')
-    .toString()
-    .slice(3, 5)
-
-  
+  const thisWeek = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_1__["default"])(new Date(), 1), 'MM/dd/yy')
+  // console.log(typeof todaysDate, thisWeek)
+  const thisWeeksTasks = tasks.filter(
+    (task) => task.dueDate <= thisWeek && task.dueDate >= todaysDate
+  )
+  displayTasks(thisWeeksTasks)
 }
 
 function displayCompletedTasks() {
@@ -4304,12 +4302,12 @@ function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  console.log(taskDueDate)
-  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate))
+  const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate), 'MM/dd/yy')
+  console.log(formattedDate)
   const newTask = taskFactory(
     taskName,
     taskDescription,
-    formattedDate,
+    taskDueDate,
     taskPriority
   )
   tasks.push(newTask)

@@ -1,7 +1,7 @@
 // import {resetForm} from './UI'
 import { addWeeks, format, parseISO } from 'date-fns'
-
-const todaysDate = new Date()
+/* make a function to handle all the dates and formatting and put it in another file */
+const todaysDate = format(new Date(), 'MM/dd/yy')
 
 const tasks = [
   {
@@ -47,8 +47,6 @@ function taskFactory(name, description, dueDate, priority) {
   return { name, description, dueDate, priority, markComplete, deleteTask }
 }
 
-/* maybe rename to load tasks */
-
 export function displayTasks(filteredTasks) {
   const taskListContainer = document.getElementById('task-list-container')
   const selectedTasks = filteredTasks || tasks
@@ -72,16 +70,16 @@ export function displayTasks(filteredTasks) {
 
 export function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
-  console.log(todaysTasks)
   displayTasks(todaysTasks)
 }
 
 export function displayWeeksTasks() {
-  const thisWeek = format(addWeeks(todaysDate, 1), 'MM/dd/yy')
-    .toString()
-    .slice(3, 5)
-
-  
+  const thisWeek = format(addWeeks(new Date(), 1), 'MM/dd/yy')
+  // console.log(typeof todaysDate, thisWeek)
+  const thisWeeksTasks = tasks.filter(
+    (task) => task.dueDate <= thisWeek && task.dueDate >= todaysDate
+  )
+  displayTasks(thisWeeksTasks)
 }
 
 export function displayCompletedTasks() {
@@ -97,12 +95,12 @@ export function addTask(e) {
   const taskPriority = document.querySelector(
     'input[name="task-priority"]:checked'
   ).value
-  console.log(taskDueDate)
-  const formattedDate = format(parseISO(taskDueDate))
+  const formattedDate = format(parseISO(taskDueDate), 'MM/dd/yy')
+  console.log(formattedDate)
   const newTask = taskFactory(
     taskName,
     taskDescription,
-    formattedDate,
+    taskDueDate,
     taskPriority
   )
   tasks.push(newTask)
