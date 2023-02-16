@@ -37,14 +37,25 @@ const tasks = [
 ]
 
 function taskFactory(name, description, dueDate, priority) {
-  const markComplete = () => {
-    console.log('marked')
-  }
+  const markComplete = () => console.log(name)
   const deleteTask = () => {
     console.log('deleted')
   }
 
   return { name, description, dueDate, priority, markComplete, deleteTask }
+}
+
+function changeTaskStatus(target) {
+  console.log(target.classList)
+}
+
+function attachTaskHandlers() {
+  const taskRadios = document.querySelectorAll('#task-radio')
+  taskRadios.forEach((radio) =>
+    radio.addEventListener('change', (e) => {
+      changeTaskStatus(e.target)
+    })
+  )
 }
 
 export function displayTasks(filteredTasks) {
@@ -55,7 +66,7 @@ export function displayTasks(filteredTasks) {
       (task, index) =>
         `<li class="flex" data-id="${index}">
           <label>
-            <input id="task-radio" type="radio">
+            <input id="task-radio" name="task-radio" type="radio" id="task-radio">
           </label>
           <p class="task-name">${task.name}</p>
           <p class="task-date">${task.dueDate}</p>
@@ -63,9 +74,13 @@ export function displayTasks(filteredTasks) {
           <button>
             <i class="fa-solid fa-trash-can"></i>
           </button>
+          <button>
+            e
+         </button>
          </li>`
     )
     .join('')
+  attachTaskHandlers()
 }
 
 export function displayTodaysTasks() {
@@ -75,7 +90,6 @@ export function displayTodaysTasks() {
 
 export function displayWeeksTasks() {
   const thisWeek = format(addWeeks(new Date(), 1), 'MM/dd/yy')
-  // console.log(typeof todaysDate, thisWeek)
   const thisWeeksTasks = tasks.filter(
     (task) => task.dueDate <= thisWeek && task.dueDate >= todaysDate
   )
@@ -83,7 +97,7 @@ export function displayWeeksTasks() {
 }
 
 export function displayCompletedTasks() {
-  console.log('yeeee')
+  console.log('yeeee', this)
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
@@ -96,11 +110,10 @@ export function addTask(e) {
     'input[name="task-priority"]:checked'
   ).value
   const formattedDate = format(parseISO(taskDueDate), 'MM/dd/yy')
-  console.log(formattedDate)
   const newTask = taskFactory(
     taskName,
     taskDescription,
-    taskDueDate,
+    formattedDate,
     taskPriority
   )
   tasks.push(newTask)

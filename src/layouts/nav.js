@@ -28,6 +28,7 @@ export default function navbar() {
     }
   }
 
+
   navLinks.forEach((link) => {
     link.addEventListener('click', navigate)
   })
