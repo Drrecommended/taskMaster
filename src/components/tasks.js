@@ -7,55 +7,58 @@ const tasks = [
   {
     name: '432',
     description: '423',
-    dueDate: '01/02/23',
+    dueDate: '01/20/23',
     priority: 'medium',
+    complete: true,
   },
   {
     name: '432',
     description: '423',
-    dueDate: '01/02/23',
+    dueDate: '01/19/23',
     priority: 'medium',
+    complete: true,
   },
   {
     name: '432',
     description: '423',
-    dueDate: '02/15/23',
+    dueDate: '02/18/23',
     priority: 'medium',
+    complete: false,
   },
   {
     name: '432',
     description: '423',
-    dueDate: '02/14/23',
+    dueDate: '02/17/23',
     priority: 'medium',
+    complete: true,
   },
   {
     name: 'YOU DID IT',
     description: '423',
-    dueDate: '02/13/23',
+    dueDate: '02/17/23',
     priority: 'medium',
+    complete: false,
   },
 ]
 
 function taskFactory(name, description, dueDate, priority) {
-  const markComplete = () => console.log(name)
+  const complete = false
+  const markComplete = () => console.log(this.complete)
+
   const deleteTask = () => {
     console.log('deleted')
   }
 
-  return { name, description, dueDate, priority, markComplete, deleteTask }
+  return { name, description, dueDate, priority, complete, markComplete, deleteTask }
 }
 
-function changeTaskStatus(target) {
-  console.log(target.classList)
-}
+// function changeTaskStatus(target) {
+//   console.log(target.classList)
+// }
 
 function attachTaskHandlers() {
-  const taskRadios = document.querySelectorAll('#task-radio')
-  taskRadios.forEach((radio) =>
-    radio.addEventListener('change', (e) => {
-      changeTaskStatus(e.target)
-    })
-  )
+  const completeTaskbuttons = document.getElementById('complete-task')
+  // completeTaskbuttons.forEach((button) => button.addEventListener('click', (e) => ))
 }
 
 export function displayTasks(filteredTasks) {
@@ -65,17 +68,14 @@ export function displayTasks(filteredTasks) {
     .map(
       (task, index) =>
         `<li class="flex" data-id="${index}">
-          <label>
-            <input id="task-radio" name="task-radio" type="radio" id="task-radio">
-          </label>
           <p class="task-name">${task.name}</p>
           <p class="task-date">${task.dueDate}</p>
           <p class="task-priority">${task.priority}</p>
-          <button>
+          <button id="delete-task">
             <i class="fa-solid fa-trash-can"></i>
           </button>
-          <button>
-            e
+          <button id="complete-task">
+            complete
          </button>
          </li>`
     )
@@ -85,6 +85,7 @@ export function displayTasks(filteredTasks) {
 
 export function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
+  console.log(todaysTasks)
   displayTasks(todaysTasks)
 }
 
@@ -97,7 +98,9 @@ export function displayWeeksTasks() {
 }
 
 export function displayCompletedTasks() {
-  console.log('yeeee', this)
+  const completedTasks = tasks.filter((task) => task.complete)
+  console.log(completedTasks)
+  displayTasks(completedTasks)
 }
 
 /* make a function to add task but also to append task so we don't have to reload all the tasks */
