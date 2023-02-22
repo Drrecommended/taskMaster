@@ -2,16 +2,11 @@ import { addTask } from './tasks'
 import userInterface from './UI'
 
 export default function eventHandlers() {
-  const nav = document.getElementById('nav')
-  const openNavBtn = document.getElementById('nav-btn')
-  const closeNavBtn = document.getElementById('close-nav-btn')
   const openFormBtn = document.getElementById('open-form-btn')
   const closeFormBtn = document.getElementById('close-form-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
   const taskForm = document.getElementById('task-form')
-  openNavBtn.addEventListener('click', () => userInterface.toggleNav(nav))
-  closeNavBtn.addEventListener('click', () => userInterface.toggleNav(nav))
   /* add project */
   addProjectBtn.addEventListener('click', () => {
     const projectElem = document.createElement('div')

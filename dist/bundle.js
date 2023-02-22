@@ -4070,9 +4070,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/header */ "./src/layouts/header.js");
-/* harmony import */ var _layouts_mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/mainContent */ "./src/layouts/mainContent.js");
-/* harmony import */ var _layouts_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/navbar */ "./src/layouts/navbar.js");
+/* harmony import */ var _layout_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layout/header */ "./src/layout/header.js");
+/* harmony import */ var _layout_mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/mainContent */ "./src/layout/mainContent.js");
+/* harmony import */ var _layout_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout/navbar */ "./src/layout/navbar.js");
 /* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
 
 
@@ -4083,9 +4083,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function startApp() {
   const initialize = () => {
-    (0,_layouts_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
-    ;(0,_layouts_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
-    ;(0,_layouts_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    (0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    ;(0,_layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
+    ;(0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
     ;(0,_tasks__WEBPACK_IMPORTED_MODULE_3__.displayTasks)()
     // eventHandlers()
   }
@@ -4249,70 +4249,70 @@ function addTask(e) {
 
 /***/ }),
 
-/***/ "./src/layouts/header.js":
-/*!*******************************!*\
-  !*** ./src/layouts/header.js ***!
-  \*******************************/
+/***/ "./src/layout/header.js":
+/*!******************************!*\
+  !*** ./src/layout/header.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ header)
 /* harmony export */ });
-/* harmony import */ var _mainContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mainContent */ "./src/layouts/mainContent.js");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navbar */ "./src/layout/navbar.js");
 
+
+const openNavBtn = document.getElementById('open-nav_btn')
 
 function header() {
-  console.log('testing')
-  const openTaskFormBtn = document.getElementById('open-task-form-btn')
-  openTaskFormBtn.addEventListener('click', () => (0,_mainContent__WEBPACK_IMPORTED_MODULE_0__["default"])())
+  openNavBtn.addEventListener('click', () => (0,_navbar__WEBPACK_IMPORTED_MODULE_0__.toggleNav)())
 }
 
 
 /***/ }),
 
-/***/ "./src/layouts/mainContent.js":
-/*!************************************!*\
-  !*** ./src/layouts/mainContent.js ***!
-  \************************************/
+/***/ "./src/layout/mainContent.js":
+/*!***********************************!*\
+  !*** ./src/layout/mainContent.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ mainContent),
-/* harmony export */   "toggleForm": () => (/* binding */ toggleForm)
+/* harmony export */   "default": () => (/* binding */ mainContent)
 /* harmony export */ });
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/tasks */ "./src/components/tasks.js");
 
 
 function mainContent() {
   const content = document.getElementById('content')
-
+  console.log(content)
   if (_components_tasks__WEBPACK_IMPORTED_MODULE_0__.tasks.length === 0) console.log('empty')
 }
 
-function toggleForm() {
-  console.log('working')
-  const form = this
-  form.classList.toggle('open')
-}
+
 
 
 /***/ }),
 
-/***/ "./src/layouts/navbar.js":
-/*!*******************************!*\
-  !*** ./src/layouts/navbar.js ***!
-  \*******************************/
+/***/ "./src/layout/navbar.js":
+/*!******************************!*\
+  !*** ./src/layout/navbar.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ navbar)
+/* harmony export */   "default": () => (/* binding */ navbar),
+/* harmony export */   "toggleNav": () => (/* binding */ toggleNav)
 /* harmony export */ });
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/tasks */ "./src/components/tasks.js");
 
 
+const nav = document.getElementById('nav')
+const closeNavBtn = document.getElementById('close-nav_btn')
+
+console.log(closeNavBtn)
 function navbar() {
   const navLinks = document.querySelectorAll('nav a')
 
@@ -4341,6 +4341,12 @@ function navbar() {
     link.addEventListener('click', navigate)
   })
 }
+
+function toggleNav() {
+  nav.classList.toggle('open')
+}
+
+closeNavBtn.addEventListener('click', () => toggleNav())
 
 
 /***/ })

@@ -1,6 +1,6 @@
-import header from '../layouts/header'
-import mainContent from '../layouts/mainContent'
-import navbar from '../layouts/navbar'
+import header from '../layout/header'
+import mainContent from '../layout/mainContent'
+import navbar from '../layout/navbar'
 // import eventHandlers from './eventsHandlers'
 import { displayTasks } from './tasks'
 

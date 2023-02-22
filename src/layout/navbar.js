@@ -5,6 +5,10 @@ import {
   displayWeeksTasks,
 } from '../components/tasks'
 
+const nav = document.getElementById('nav')
+const closeNavBtn = document.getElementById('close-nav_btn')
+
+console.log(closeNavBtn)
 export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
 
@@ -33,3 +37,9 @@ export default function navbar() {
     link.addEventListener('click', navigate)
   })
 }
+
+export function toggleNav() {
+  nav.classList.toggle('open')
+}
+
+closeNavBtn.addEventListener('click', () => toggleNav())
