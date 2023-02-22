@@ -14,10 +14,7 @@ const dashboard = {
   resetForm() {
     document.getElementById('task-form').reset()
   },
-  toggleForm() {
-    const form = this
-    form.classList.toggle('open')
-  }
+
   
 }
 

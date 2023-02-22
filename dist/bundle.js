@@ -4070,19 +4070,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_mainContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/mainContent */ "./src/layouts/mainContent.js");
-/* harmony import */ var _layouts_navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/navbar */ "./src/layouts/navbar.js");
-/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
+/* harmony import */ var _layouts_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layouts/header */ "./src/layouts/header.js");
+/* harmony import */ var _layouts_mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/mainContent */ "./src/layouts/mainContent.js");
+/* harmony import */ var _layouts_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/navbar */ "./src/layouts/navbar.js");
+/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
+
 
 
 // import eventHandlers from './eventsHandlers'
 
 
+
 function startApp() {
   const initialize = () => {
-    (0,_layouts_navbar__WEBPACK_IMPORTED_MODULE_1__["default"])()
-    ;(0,_layouts_mainContent__WEBPACK_IMPORTED_MODULE_0__["default"])()
-    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_2__.displayTasks)()
+    (0,_layouts_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    ;(0,_layouts_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
+    ;(0,_layouts_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_3__.displayTasks)()
     // eventHandlers()
   }
 
@@ -4245,6 +4249,28 @@ function addTask(e) {
 
 /***/ }),
 
+/***/ "./src/layouts/header.js":
+/*!*******************************!*\
+  !*** ./src/layouts/header.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ header)
+/* harmony export */ });
+/* harmony import */ var _mainContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mainContent */ "./src/layouts/mainContent.js");
+
+
+function header() {
+  console.log('testing')
+  const openTaskFormBtn = document.getElementById('open-task-form-btn')
+  openTaskFormBtn.addEventListener('click', () => (0,_mainContent__WEBPACK_IMPORTED_MODULE_0__["default"])())
+}
+
+
+/***/ }),
+
 /***/ "./src/layouts/mainContent.js":
 /*!************************************!*\
   !*** ./src/layouts/mainContent.js ***!
@@ -4253,18 +4279,22 @@ function addTask(e) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ mainContent)
+/* harmony export */   "default": () => (/* binding */ mainContent),
+/* harmony export */   "toggleForm": () => (/* binding */ toggleForm)
 /* harmony export */ });
 /* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/tasks */ "./src/components/tasks.js");
 
 
 function mainContent() {
   const content = document.getElementById('content')
-  const addTaskBtn = document.getElementById('add-task-btn')
-  console.log(addTaskBtn)
-  if (_components_tasks__WEBPACK_IMPORTED_MODULE_0__.tasks.length === 0) console.log('empty')
 
-  addTaskBtn.addEventListener('click', console.log('seeet'))
+  if (_components_tasks__WEBPACK_IMPORTED_MODULE_0__.tasks.length === 0) console.log('empty')
+}
+
+function toggleForm() {
+  console.log('working')
+  const form = this
+  form.classList.toggle('open')
 }
 
 
