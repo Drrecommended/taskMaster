@@ -24,14 +24,19 @@ body {
   }
 }
 
-.flex {
-  display: flex;
-  gap: 5px;
-  .task-name,
-  .task-date,
-  .task-priority {
-    border: 1px solid red;
-  }
+// .flex {
+//   display: flex;
+//   gap: 5px;
+//   .task-name,
+//   .task-date,
+//   .task-priority {
+//     border: 1px solid red;
+//   }
+// }
+.task-card {
+  display: grid;
+  border: 1px solid black;
+
 }
 
 header {
@@ -118,7 +123,7 @@ header {
   }
 }
 
-.dash-board {
+.content {
   padding: 1em;
 }
 

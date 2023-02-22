@@ -33,7 +33,7 @@ const tasks = [
     complete: true,
   },
   {
-    name: 'YOU DID IT',
+    name: 'YOU',
     description: '423',
     dueDate: '02/17/23',
     priority: 'medium',
@@ -59,6 +59,7 @@ function taskFactory(name, description, dueDate, priority) {
 function attachTaskHandlers() {
   const completeTaskbuttons = document.getElementById('complete-task')
   // completeTaskbuttons.forEach((button) => button.addEventListener('click', (e) => ))
+  console.log(completeTaskbuttons)
 }
 
 export function displayTasks(filteredTasks) {
@@ -67,7 +68,7 @@ export function displayTasks(filteredTasks) {
   taskListContainer.innerHTML = selectedTasks
     .map(
       (task, index) =>
-        `<li class="flex" data-id="${index}">
+        `<li class="flex task-card" data-id="${index}">
           <p class="task-name">${task.name}</p>
           <p class="task-date">${task.dueDate}</p>
           <p class="task-priority">${task.priority}</p>
@@ -77,10 +78,10 @@ export function displayTasks(filteredTasks) {
           <button id="complete-task">
             complete
          </button>
-         </li>`
+        </li>`
     )
     .join('')
-  attachTaskHandlers()
+    attachTaskHandlers()
 }
 
 export function displayTodaysTasks() {
