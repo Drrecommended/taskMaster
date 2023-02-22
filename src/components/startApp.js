@@ -1,6 +1,6 @@
 import mainContent from '../layouts/mainContent'
 import navbar from '../layouts/navbar'
-import eventHandlers from './eventsHandlers'
+// import eventHandlers from './eventsHandlers'
 import { displayTasks } from './tasks'
 
 function startApp() {
@@ -8,7 +8,7 @@ function startApp() {
     navbar()
     mainContent()
     displayTasks()
-    eventHandlers()
+    // eventHandlers()
   }
 
   return { initialize }

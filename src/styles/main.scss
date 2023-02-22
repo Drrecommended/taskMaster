@@ -125,6 +125,20 @@ header {
 
 .content {
   padding: 1em;
+  .add-task-btn-container {
+    margin: 0 auto;
+    text-align: center;
+    button {
+      border-radius: 50%;
+      background-color: $submit-color;
+      font-size: 24px;
+      height: 42px;
+      width: 42px;
+      i {
+        margin-left: 2px;
+      }
+    }
+  }
 }
 
 
