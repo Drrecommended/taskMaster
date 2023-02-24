@@ -1,4 +1,7 @@
 const dashboard = {
+  toggleNav(nav) {
+    nav.classList.toggle('open')
+  },
   changeRadioButtonColor(selectedRadio, allRadios) {
     allRadios.forEach((radio) => {
       if (selectedRadio.value !== radio.value) {

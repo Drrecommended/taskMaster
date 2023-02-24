@@ -8,13 +8,11 @@ import {
 const nav = document.getElementById('nav')
 const closeNavBtn = document.getElementById('close-nav_btn')
 
-console.log(closeNavBtn)
 export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
 
   const navigate = (e) => {
     const page = e.target.dataset.section
-    console.log(page)
     switch (page) {
       case 'tasks':
         displayTasks()
@@ -31,7 +29,6 @@ export default function navbar() {
       default:
     }
   }
-
 
   navLinks.forEach((link) => {
     link.addEventListener('click', navigate)

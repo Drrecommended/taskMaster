@@ -2,7 +2,6 @@ import { addTask } from './tasks'
 import userInterface from './UI'
 
 export default function eventHandlers() {
-  const openFormBtn = document.getElementById('open-form-btn')
   const closeFormBtn = document.getElementById('close-form-btn')
   const addProjectBtn = document.getElementById('add-project-btn')
   const formRadios = document.querySelectorAll('input[type="radio"]')
@@ -18,7 +17,6 @@ export default function eventHandlers() {
   })
 
   /* form handler maybe bind isnt needed */
-  openFormBtn.addEventListener('click', userInterface.toggleForm.bind(taskForm))
   closeFormBtn.addEventListener('click', userInterface.toggleForm.bind(taskForm))
   taskForm.addEventListener('submit', addTask)
 
