@@ -5,15 +5,20 @@ export default function mainContent() {
   const openFormBtns = document.querySelectorAll('#open-form__btn')
   const form = document.getElementById('task-form')
 
-  const toggleFormButtonVisibility = () => {}
+  const toggleFormButtonVisibility = () => {
+    if (tasks.length === 0) {
+      openFormBtns[0].classList.remove('visibility')
+    }
+  }
 
   const toggleForm = () => {
     form.classList.toggle('open')
     toggleFormButtonVisibility()
   }
 
-  console.log(content)
-  if (tasks.length === 0) console.log('empty')
+  if (tasks.length > 0) {
+    openFormBtns[0].classList.add('visibility')
+  }
 
   openFormBtns.forEach((button) =>
     button.addEventListener('click', () => toggleForm())

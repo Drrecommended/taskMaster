@@ -4,41 +4,41 @@ import { addWeeks, format, parseISO } from 'date-fns'
 const todaysDate = format(new Date(), 'MM/dd/yy')
 
 const tasks = [
-  // {
-  //   name: '432',
-  //   description: '423',
-  //   dueDate: '01/20/23',
-  //   priority: 'medium',
-  //   complete: true,
-  // },
-  // {
-  //   name: '432',
-  //   description: '423',
-  //   dueDate: '01/19/23',
-  //   priority: 'medium',
-  //   complete: true,
-  // },
-  // {
-  //   name: '432',
-  //   description: '423',
-  //   dueDate: '02/18/23',
-  //   priority: 'medium',
-  //   complete: false,
-  // },
-  // {
-  //   name: '432',
-  //   description: '423',
-  //   dueDate: '02/17/23',
-  //   priority: 'medium',
-  //   complete: true,
-  // },
-  // {
-  //   name: 'YOU',
-  //   description: '423',
-  //   dueDate: '02/17/23',
-  //   priority: 'medium',
-  //   complete: false,
-  // },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '01/20/23',
+    priority: 'medium',
+    complete: true,
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '01/19/23',
+    priority: 'medium',
+    complete: true,
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '02/18/23',
+    priority: 'medium',
+    complete: false,
+  },
+  {
+    name: '432',
+    description: '423',
+    dueDate: '02/17/23',
+    priority: 'medium',
+    complete: true,
+  },
+  {
+    name: 'YOU',
+    description: '423',
+    dueDate: '02/17/23',
+    priority: 'medium',
+    complete: false,
+  },
 ]
 
 function taskFactory(name, description, dueDate, priority) {
@@ -86,7 +86,6 @@ export function displayTasks(filteredTasks) {
 
 export function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
-  console.log(todaysTasks)
   displayTasks(todaysTasks)
 }
 

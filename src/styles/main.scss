@@ -36,7 +36,6 @@ body {
 .task-card {
   display: grid;
   border: 1px solid black;
-
 }
 
 header {
@@ -125,6 +124,17 @@ header {
 
 .content {
   padding: 1em;
+  .section-heading {
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
+  .section-heading-form__btn {
+    &.visibility {
+      display: none;
+    }
+  }
   .add-task-btn-container {
     margin: 0 auto;
     text-align: center;
@@ -140,7 +150,6 @@ header {
     }
   }
 }
-
 
 .form {
   margin: 0 auto;
