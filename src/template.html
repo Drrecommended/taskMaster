@@ -5,134 +5,126 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script
-      src="https://kit.fontawesome.com/00f93b5c74.js"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
-    <div class="main-grid">
-      <div class="content-wrap">
-        <!--HEADER-->
-        <header>
-          <div>
-            <div class="hero">TM</div>
-            <button class="nav-btn" id="open-nav_btn">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
-        </header>
-        <!--NAVIGATION-->
-        <nav class="nav" id="nav">
-          <button class="close-nav-btn" id="close-nav_btn">&times;</button>
-          <ul>
-            <li>
-              <a href="#tasks" data-section="tasks"
-                ><i class="fa-solid fa-inbox"></i>Tasks</a
-              >
-            </li>
-            <li>
-              <a href="#today" data-section="todays"
-                ><i class="fa-solid fa-calendar-day"></i>Today</a
-              >
-            </li>
-            <li>
-              <a href="#week" data-section="weeks"
-                ><i class="fa-solid fa-calendar-week"></i>This Week</a
-              >
-            </li>
-            <li>
-              <a href="#completed" data-section="completed"
-                ><i class="fa-solid fa-flag-checkered"></i>Completed</a
-              >
-            </li>
-          </ul>
-          <div class="line"></div>
-          <p class="projects__heading">PROJECTS:</p>
-          <ul id="projects-container"></ul>
-          <button id="add-project-btn">ADD PROJECT</button>
-        </nav>
-        <!--CONTENT-->
-        <main>
-          <div class="section-heading">
-            <h1>Tasks</h1>
-            <button class="section-heading-form__btn" id="open-form__btn">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <section id="content">
-            <div class="add-task-btn-container">
-              <p>Add Task</p>
-              <button id="open-form__btn">
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-
-            <!--FORM-->
-            <form class="form" id="task-form">
-              <label for="task-name">Task:</label><br />
-              <input
-                class="task-input"
-                type="text"
-                name="task-name"
-                id="task-name"
-              /><br />
-              <label for="task-description">Description:</label><br />
-              <textarea
-                type=""
-                name="task-description"
-                id="task-description"
-              ></textarea
-              ><br />
-              <label for="task-date">Date due:</label><br />
-              <input type="date" name="task-date" id="task-date" /><br />
-              <fieldset>
-                <legend>Priority:</legend>
-                <div class="radio-container">
-                  <div class="radio-btn">
-                    <input
-                      type="radio"
-                      name="task-priority"
-                      id="low-priority"
-                      value="low"
-                    />
-                    <label for="low-priority">low</label>
-                  </div>
-                  <div class="radio-btn">
-                    <input
-                      type="radio"
-                      name="task-priority"
-                      id="medium-priority"
-                      value="medium"
-                    />
-                    <label for="medium-priority">medium</label>
-                  </div>
-                  <div class="radio-btn">
-                    <input
-                      type="radio"
-                      name="task-priority"
-                      id="high-priority"
-                      value="high"
-                    />
-                    <label for="high-priority">high</label>
-                  </div>
-                </div>
-              </fieldset>
-              <div class="form-btn-container">
-                <a href="#" class="cancel-btn" id="close-form-btn">CANCEL</a>
-                <input class="submit-btn" type="submit" value="SUBMIT" />
-              </div>
-            </form>
-            <ul class="task-list-container" id="task-list-container"></ul>
-          </section>
-        </main>
+    <!--HEADER-->
+    <header>
+      <div class="wrapper">
+        <div class="hero">TM</div>
+        <button class="nav-btn" id="open-nav_btn">
+          X
+        </button>
       </div>
-      <!--FOOTER-->
-      <footer>
-        <a href="http://"
-          >Copyright © 2022 Tyler French <i class="fa-brands fa-github"></i
-        ></a>
-      </footer>
-    </div>
+    </header>
+    <!--NAVIGATION-->
+    <nav class="nav" id="nav">
+      <button class="close-nav-btn" id="close-nav_btn">&times;</button>
+      <ul>
+        <li>
+          <a href="#tasks" data-section="tasks"
+            ><i class="fa-solid fa-inbox"></i>Tasks</a
+          >
+        </li>
+        <li>
+          <a href="#today" data-section="todays"
+            ><i class="fa-solid fa-calendar-day"></i>Today</a
+          >
+        </li>
+        <li>
+          <a href="#week" data-section="weeks"
+            ><i class="fa-solid fa-calendar-week"></i>This Week</a
+          >
+        </li>
+        <li>
+          <a href="#completed" data-section="completed"
+            ><i class="fa-solid fa-flag-checkered"></i>Completed</a
+          >
+        </li>
+      </ul>
+      <div class="line"></div>
+      <p class="projects__heading">PROJECTS:</p>
+      <ul id="projects-container"></ul>
+      <button id="add-project-btn">ADD PROJECT</button>
+    </nav>
+    <!--CONTENT-->
+    <main>
+      <div class="section-heading">
+        <h1>Tasks</h1>
+        <button class="section-heading-form__btn" id="open-form__btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <section id="content">
+        <div class="add-task-btn-container">
+          <p>Add Task</p>
+          <button id="open-form__btn">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+
+        <!--FORM-->
+        <form class="form" id="task-form">
+          <label for="task-name">Task:</label><br />
+          <input
+            class="task-input"
+            type="text"
+            name="task-name"
+            id="task-name"
+          /><br />
+          <label for="task-description">Description:</label><br />
+          <textarea
+            type=""
+            name="task-description"
+            id="task-description"
+          ></textarea
+          ><br />
+          <label for="task-date">Date due:</label><br />
+          <input type="date" name="task-date" id="task-date" /><br />
+          <fieldset>
+            <legend>Priority:</legend>
+            <div class="radio-container">
+              <div class="radio-btn">
+                <input
+                  type="radio"
+                  name="task-priority"
+                  id="low-priority"
+                  value="low"
+                />
+                <label for="low-priority">low</label>
+              </div>
+              <div class="radio-btn">
+                <input
+                  type="radio"
+                  name="task-priority"
+                  id="medium-priority"
+                  value="medium"
+                />
+                <label for="medium-priority">medium</label>
+              </div>
+              <div class="radio-btn">
+                <input
+                  type="radio"
+                  name="task-priority"
+                  id="high-priority"
+                  value="high"
+                />
+                <label for="high-priority">high</label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-btn-container">
+            <a href="#" class="cancel-btn" id="close-form-btn">CANCEL</a>
+            <input class="submit-btn" type="submit" value="SUBMIT" />
+          </div>
+        </form>
+        <ul class="task-list-container" id="task-list-container"></ul>
+      </section>
+    </main>
+    <!--FOOTER-->
+    <footer>
+      <a href="http://"
+        >Copyright © 2022 Tyler French <i class="fa-brands fa-github"></i
+      ></a>
+    </footer>
   </body>
 </html>

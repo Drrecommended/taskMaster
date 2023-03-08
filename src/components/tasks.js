@@ -11,79 +11,26 @@ const tasks = [
     priority: 'medium',
     complete: true,
   },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '01/19/23',
-    priority: 'medium',
-    complete: true,
-  },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '02/18/23',
-    priority: 'medium',
-    complete: false,
-  },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '02/17/23',
-    priority: 'medium',
-    complete: true,
-  },
-  {
-    name: 'YOU',
-    description: '423',
-    dueDate: '02/17/23',
-    priority: 'medium',
-    complete: false,
-  },
 ]
 
-function taskFactory(name, description, dueDate, priority) {
-  const complete = false
-  const markComplete = () => console.log(this.complete)
+class Task {
+ constructor(name) {
+  this.name = name
+ }
 
-  const deleteTask = () => {
-    console.log('deleted')
-  }
-
-  return { name, description, dueDate, priority, complete, markComplete, deleteTask }
+ markComplete() {
+  return this.name
+ }
 }
 
 // function changeTaskStatus(target) {
 //   console.log(target.classList)
 // }
 
-function attachTaskHandlers() {
-  const completeTaskbuttons = document.getElementById('complete-task')
-  // completeTaskbuttons.forEach((button) => button.addEventListener('click', (e) => ))
-  console.log(completeTaskbuttons)
+export function displayTasks() {
+  console.log('test')
 }
-
-export function displayTasks(filteredTasks) {
-  const taskListContainer = document.getElementById('task-list-container')
-  const selectedTasks = filteredTasks || tasks
-  taskListContainer.innerHTML = selectedTasks
-    .map(
-      (task, index) =>
-        `<li class="flex task-card" data-id="${index}">
-          <p class="task-name">${task.name}</p>
-          <p class="task-date">${task.dueDate}</p>
-          <p class="task-priority">${task.priority}</p>
-          <button id="delete-task">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-          <button id="complete-task">
-            complete
-         </button>
-        </li>`
-    )
-    .join('')
-    attachTaskHandlers()
-}
-
+ 
 export function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
   displayTasks(todaysTasks)
@@ -113,7 +60,7 @@ export function addTask(e) {
     'input[name="task-priority"]:checked'
   ).value
   const formattedDate = format(parseISO(taskDueDate), 'MM/dd/yy')
-  const newTask = taskFactory(
+  const newTask = new Task(
     taskName,
     taskDescription,
     formattedDate,

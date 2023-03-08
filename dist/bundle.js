@@ -17,14 +17,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./reset.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/reset.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_header_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! -!../../node_modules/css-loader/dist/cjs.js!./header.scss */ "./node_modules/css-loader/dist/cjs.js!./src/styles/header.scss");
 // Imports
+
 
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
+___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_header_scss__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #e9eaec;\n  font-size: 18px;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100%;\n}\n.main-grid .content-wrap {\n  padding-bottom: 2.5rem;\n}\n\n.task-card {\n  display: grid;\n  border: 1px solid black;\n}\n\nheader {\n  background-color: #333652;\n  color: #e9eaec;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n}\nheader div {\n  display: flex;\n  justify-content: space-between;\n}\nheader .hero {\n  font-size: 36px;\n}\n\nbutton,\n.submit-btn {\n  border: none;\n}\n\n.nav button,\nheader button {\n  background-color: transparent;\n  color: #e9eaec;\n}\n.nav button i,\nheader button i {\n  font-size: 36px;\n}\n\n.nav {\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: #333652;\n  color: #e9eaec;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 3em;\n  font-size: 24px;\n  z-index: 100;\n}\n.nav.open {\n  width: 100%;\n  padding-left: 20px;\n}\n.nav ul {\n  margin-bottom: 1em;\n}\n.nav ul li {\n  margin-bottom: 0.3em;\n}\n.nav a {\n  color: #e9eaec;\n}\n.nav a:visited {\n  color: #e9eaec;\n}\n.nav a:hover {\n  color: #fad02c;\n}\n.nav a i {\n  margin-right: 10px;\n}\n.nav .close-nav-btn {\n  line-height: 38.7px;\n  padding-bottom: 6.2px;\n  position: absolute;\n  top: 15px;\n  right: 25px;\n  font-size: 58px;\n  margin-left: 50px;\n}\n.nav .line {\n  height: 1px;\n  background: #e9eaec;\n  max-width: 90%;\n  margin-bottom: 0.5em;\n}\n\n.content {\n  padding: 1em;\n}\n.content .section-heading {\n  display: flex;\n  border: 1px solid black;\n  justify-content: space-between;\n  margin-bottom: 1em;\n}\n.content .section-heading-form__btn.visibility {\n  display: none;\n}\n.content .add-task-btn-container {\n  margin: 0 auto;\n  text-align: center;\n}\n.content .add-task-btn-container button {\n  border-radius: 50%;\n  background-color: #84d4b7;\n  font-size: 24px;\n  height: 42px;\n  width: 42px;\n}\n.content .add-task-btn-container button i {\n  margin-left: 2px;\n}\n\n.form {\n  margin: 0 auto;\n  padding: 25px;\n  padding-bottom: 50px;\n  max-width: 400px;\n  border: 1px solid black;\n  border-radius: 6px;\n  display: none;\n}\n.form.open {\n  display: block;\n}\n.form input,\n.form fieldset {\n  margin-bottom: 12px;\n}\n.form input,\n.form .cancel-btn {\n  height: 42px;\n}\n.form .task-input,\n.form textarea {\n  width: 100%;\n}\n.form fieldset {\n  border: none;\n  padding-bottom: 15px;\n}\n.form textarea {\n  resize: none;\n}\n.form textarea,\n.form input,\n.form .radio-btn > label {\n  padding-left: 5px;\n  padding-right: 5px;\n  border-radius: 4px;\n}\n.form input,\n.form textarea {\n  border: 1px solid black;\n}\n.form #task-date:hover {\n  cursor: pointer;\n}\n.form .radio-container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n.form .radio-btn {\n  position: relative;\n}\n.form .radio-btn label,\n.form .radio-btn input {\n  display: block;\n}\n.form .radio-btn input[type=radio] {\n  opacity: 0.011;\n  z-index: 100;\n  position: absolute;\n}\n.form .radio-btn input[type=radio]:checked + label {\n  border: 2px solid transparent;\n}\n.form .radio-btn .low + label {\n  background-color: red;\n}\n.form .radio-btn .medium + label {\n  background-color: green;\n}\n.form .radio-btn .high + label {\n  background-color: blue;\n}\n.form .radio-btn label {\n  border: 2px solid black;\n  padding: 2px 6px;\n  text-align: center;\n  cursor: pointer;\n  z-index: 90;\n  line-height: 1.8em;\n}\n.form .form-btn-container {\n  float: right;\n}\n.form .form-btn-container .submit-btn {\n  background-color: #84d4b7;\n  border: none;\n  margin-left: 4px;\n}\n.form .form-btn-container .submit-btn:hover {\n  cursor: pointer;\n}\n.form .form-btn-container .cancel-btn {\n  background-color: rgb(235, 132, 132);\n}\n.form .form-btn-container .submit-btn,\n.form .form-btn-container .cancel-btn {\n  padding: 0.5em 0.6em;\n  border-radius: 4px;\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAaA;EACE,yBAXc;EAYd,eAAA;AAXF;;AAcA;EACE,kBAAA;EACA,gBAAA;AAXF;AAYE;EACE,sBAAA;AAVJ;;AAuBA;EACE,aAAA;EACA,uBAAA;AApBF;;AAuBA;EACE,yBArCgB;EAsChB,cAvCc;EAwCd,YAAA;EACA,cAAA;EACA,kBAAA;AApBF;AAqBE;EACE,aAAA;EACA,8BAAA;AAnBJ;AAqBE;EACE,eAAA;AAnBJ;;AAuBA;;EAEE,YAAA;AApBF;;AAyBE;;EACE,6BAAA;EACA,cA7DY;AAwChB;AAsBI;;EACE,eAAA;AAnBN;;AAwBA;EAKE,aAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,yBA9EgB;EA+EhB,cAhFc;EAiFd,kBAAA;EACA,gBAAA;EACA,gBAAA;EACA,eAAA;EACA,YAAA;AAzBF;AASE;EACE,WAAA;EACA,kBAAA;AAPJ;AAsBE;EACE,kBAAA;AApBJ;AAqBI;EACE,oBAAA;AAnBN;AAsBE;EACE,cA7FY;AAyEhB;AAqBI;EACE,cA/FU;AA4EhB;AAqBI;EACE,cAhGY;AA6ElB;AAqBI;EACE,kBAAA;AAnBN;AAsBE;EACE,mBAAA;EACA,qBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,eAAA;EACA,iBAAA;AApBJ;AAsBE;EACE,WAAA;EACA,mBAnHY;EAoHZ,cAAA;EACA,oBAAA;AApBJ;;AAwBA;EACE,YAAA;AArBF;AAsBE;EACE,aAAA;EACA,uBAAA;EACA,8BAAA;EACA,kBAAA;AApBJ;AAuBI;EACE,aAAA;AArBN;AAwBE;EACE,cAAA;EACA,kBAAA;AAtBJ;AAuBI;EACE,kBAAA;EACA,yBAvIS;EAwIT,eAAA;EACA,YAAA;EACA,WAAA;AArBN;AAsBM;EACE,gBAAA;AApBR;;AA0BA;EACE,cAAA;EACA,aAAA;EACA,oBAAA;EACA,gBAAA;EACA,uBAAA;EACA,kBAtJqB;EAuJrB,aAAA;AAvBF;AAwBE;EACE,cAAA;AAtBJ;AAwBE;;EAEE,mBAAA;AAtBJ;AAwBE;;EAEE,YA/JkB;AAyItB;AAwBE;;EAEE,WAAA;AAtBJ;AAwBE;EACE,YAAA;EACA,oBAAA;AAtBJ;AAwBE;EACE,YAAA;AAtBJ;AAwBE;;;EAGE,iBAAA;EACA,kBAAA;EACA,kBAlLmB;AA4JvB;AAwBE;;EAEE,uBAAA;AAtBJ;AAyBI;EACE,eAAA;AAvBN;AA0BE;EACE,aAAA;EACA,qCAAA;EACA,SAAA;AAxBJ;AA0BE;EACE,kBAAA;AAxBJ;AAyBI;;EAEE,cAAA;AAvBN;AAyBI;EACE,cAAA;EACA,YAAA;EACA,kBAAA;AAvBN;AAwBM;EACE,6BAAA;AAtBR;AAyBI;EACE,qBAAA;AAvBN;AAyBI;EACE,uBAAA;AAvBN;AAyBI;EACE,sBAAA;AAvBN;AAyBI;EACE,uBAAA;EACA,gBAAA;EACA,kBAAA;EACA,eAAA;EACA,WAAA;EACA,kBAAA;AAvBN;AA0BE;EACE,YAAA;AAxBJ;AAyBI;EACE,yBAxOS;EAyOT,YAAA;EACA,gBAAA;AAvBN;AAwBM;EACE,eAAA;AAtBR;AAyBI;EACE,oCA/OS;AAwNf;AAyBI;;EAEE,oBAAA;EACA,kBAlPiB;AA2NvB;;AA4BA;EACE,kBAAA;EACA,kBAAA;EACA,SAAA;EACA,WAAA;EACA,cAAA;AAzBF","sourcesContent":["@import url('reset.css');\n\n//color scheme\n$primary-color: #e9eaec;\n$secondary-color: #333652;\n$highlight-color: #fad02c;\n$active-color: #90adc6;\n$submit-color: #84d4b7;\n$cancel-color: rgb(235, 132, 132);\n$border-radius__outer: 6px;\n$border-radius__inner: 4px;\n$input-button-height: 42px;\n\nbody {\n  background-color: $primary-color;\n  font-size: 18px;\n}\n\n.main-grid {\n  position: relative;\n  min-height: 100%;\n  .content-wrap {\n    padding-bottom: 2.5rem;\n  }\n}\n\n// .flex {\n//   display: flex;\n//   gap: 5px;\n//   .task-name,\n//   .task-date,\n//   .task-priority {\n//     border: 1px solid red;\n//   }\n// }\n.task-card {\n  display: grid;\n  border: 1px solid black;\n}\n\nheader {\n  background-color: $secondary-color;\n  color: $primary-color;\n  height: 64px;\n  padding: 0.7em;\n  padding-right: 1em;\n  div {\n    display: flex;\n    justify-content: space-between;\n  }\n  .hero {\n    font-size: 36px;\n  }\n}\n\nbutton,\n.submit-btn {\n  border: none;\n}\n\n.nav,\nheader {\n  button {\n    background-color: transparent;\n    color: $primary-color;\n    i {\n      font-size: 36px;\n    }\n  }\n}\n\n.nav {\n  &.open {\n    width: 100%;\n    padding-left: 20px;\n  }\n  height: 100vh;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  background-color: $secondary-color;\n  color: $primary-color;\n  overflow-x: hidden;\n  transition: 0.5s;\n  padding-top: 3em;\n  font-size: 24px;\n  z-index: 100;\n  ul {\n    margin-bottom: 1em;\n    li {\n      margin-bottom: 0.3em;\n    }\n  }\n  a {\n    color: $primary-color;\n    &:visited {\n      color: $primary-color;\n    }\n    &:hover {\n      color: $highlight-color;\n    }\n    i {\n      margin-right: 10px;\n    }\n  }\n  .close-nav-btn {\n    line-height: 38.7px;\n    padding-bottom: 6.2px;\n    position: absolute;\n    top: 15px;\n    right: 25px;\n    font-size: 58px;\n    margin-left: 50px;\n  }\n  .line {\n    height: 1px;\n    background: $primary-color;\n    max-width: 90%;\n    margin-bottom: 0.5em;\n  }\n}\n\n.content {\n  padding: 1em;\n  .section-heading {\n    display: flex;\n    border: 1px solid black;\n    justify-content: space-between;\n    margin-bottom: 1em;\n  }\n  .section-heading-form__btn {\n    &.visibility {\n      display: none;\n    }\n  }\n  .add-task-btn-container {\n    margin: 0 auto;\n    text-align: center;\n    button {\n      border-radius: 50%;\n      background-color: $submit-color;\n      font-size: 24px;\n      height: 42px;\n      width: 42px;\n      i {\n        margin-left: 2px;\n      }\n    }\n  }\n}\n\n.form {\n  margin: 0 auto;\n  padding: 25px;\n  padding-bottom: 50px;\n  max-width: 400px;\n  border: 1px solid black;\n  border-radius: $border-radius__outer;\n  display: none;\n  &.open {\n    display: block;\n  }\n  input,\n  fieldset {\n    margin-bottom: 12px;\n  }\n  input,\n  .cancel-btn {\n    height: $input-button-height;\n  }\n  .task-input,\n  textarea {\n    width: 100%;\n  }\n  fieldset {\n    border: none;\n    padding-bottom: 15px;\n  }\n  textarea {\n    resize: none;\n  }\n  textarea,\n  input,\n  .radio-btn > label {\n    padding-left: 5px;\n    padding-right: 5px;\n    border-radius: $border-radius__inner;\n  }\n  input,\n  textarea {\n    border: 1px solid black;\n  }\n  #task-date {\n    &:hover {\n      cursor: pointer;\n    }\n  }\n  .radio-container {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n  }\n  .radio-btn {\n    position: relative;\n    label,\n    input {\n      display: block;\n    }\n    input[type='radio'] {\n      opacity: 0.011;\n      z-index: 100;\n      position: absolute;\n      &:checked + label {\n        border: 2px solid transparent;\n      }\n    }\n    .low + label {\n      background-color: red;\n    }\n    .medium + label {\n      background-color: green;\n    }\n    .high + label {\n      background-color: blue;\n    }\n    label {\n      border: 2px solid black;\n      padding: 2px 6px;\n      text-align: center;\n      cursor: pointer;\n      z-index: 90;\n      line-height: 1.8em;\n    }\n  }\n  .form-btn-container {\n    float: right;\n    .submit-btn {\n      background-color: $submit-color;\n      border: none;\n      margin-left: 4px;\n      &:hover {\n        cursor: pointer;\n      }\n    }\n    .cancel-btn {\n      background-color: $cancel-color;\n    }\n    .submit-btn,\n    .cancel-btn {\n      padding: 0.5em 0.6em;\n      border-radius: $border-radius__inner;\n    }\n  }\n}\n\nfooter {\n  text-align: center;\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 2.5rem;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/header.scss":
+/*!**********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/header.scss ***!
+  \**********************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "header {\n  background-color: blue;\n  .wrapper {\n    display: flex;\n  }\n}", "",{"version":3,"sources":["webpack://./src/styles/header.scss"],"names":[],"mappings":"AAAA;EACE,sBAAsB;EACtB;IACE,aAAa;EACf;AACF","sourcesContent":["header {\n  background-color: blue;\n  .wrapper {\n    display: flex;\n  }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4073,21 +4102,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layout/header */ "./src/layout/header.js");
 /* harmony import */ var _layout_mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/mainContent */ "./src/layout/mainContent.js");
 /* harmony import */ var _layout_navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout/navbar */ "./src/layout/navbar.js");
-/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
 
 
-
-// import eventHandlers from './eventsHandlers'
 
 
 
 function startApp() {
   const initialize = () => {
+    
     (0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
     ;(0,_layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
     ;(0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
-    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_3__.displayTasks)()
-    // eventHandlers()
+    console.log('app started')
   }
 
   return { initialize }
@@ -4131,79 +4157,26 @@ const tasks = [
     priority: 'medium',
     complete: true,
   },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '01/19/23',
-    priority: 'medium',
-    complete: true,
-  },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '02/18/23',
-    priority: 'medium',
-    complete: false,
-  },
-  {
-    name: '432',
-    description: '423',
-    dueDate: '02/17/23',
-    priority: 'medium',
-    complete: true,
-  },
-  {
-    name: 'YOU',
-    description: '423',
-    dueDate: '02/17/23',
-    priority: 'medium',
-    complete: false,
-  },
 ]
 
-function taskFactory(name, description, dueDate, priority) {
-  const complete = false
-  const markComplete = () => console.log(this.complete)
+class Task {
+ constructor(name) {
+  this.name = name
+ }
 
-  const deleteTask = () => {
-    console.log('deleted')
-  }
-
-  return { name, description, dueDate, priority, complete, markComplete, deleteTask }
+ markComplete() {
+  return this.name
+ }
 }
 
 // function changeTaskStatus(target) {
 //   console.log(target.classList)
 // }
 
-function attachTaskHandlers() {
-  const completeTaskbuttons = document.getElementById('complete-task')
-  // completeTaskbuttons.forEach((button) => button.addEventListener('click', (e) => ))
-  console.log(completeTaskbuttons)
+function displayTasks() {
+  console.log('test')
 }
-
-function displayTasks(filteredTasks) {
-  const taskListContainer = document.getElementById('task-list-container')
-  const selectedTasks = filteredTasks || tasks
-  taskListContainer.innerHTML = selectedTasks
-    .map(
-      (task, index) =>
-        `<li class="flex task-card" data-id="${index}">
-          <p class="task-name">${task.name}</p>
-          <p class="task-date">${task.dueDate}</p>
-          <p class="task-priority">${task.priority}</p>
-          <button id="delete-task">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-          <button id="complete-task">
-            complete
-         </button>
-        </li>`
-    )
-    .join('')
-    attachTaskHandlers()
-}
-
+ 
 function displayTodaysTasks() {
   const todaysTasks = tasks.filter((task) => task.dueDate === todaysDate)
   displayTasks(todaysTasks)
@@ -4233,7 +4206,7 @@ function addTask(e) {
     'input[name="task-priority"]:checked'
   ).value
   const formattedDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])((0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(taskDueDate), 'MM/dd/yy')
-  const newTask = taskFactory(
+  const newTask = new Task(
     taskName,
     taskDescription,
     formattedDate,
@@ -4280,32 +4253,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ mainContent)
 /* harmony export */ });
-/* harmony import */ var _components_tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/tasks */ "./src/components/tasks.js");
-
-
 function mainContent() {
-  const content = document.getElementById('content')
-  const openFormBtns = document.querySelectorAll('#open-form__btn')
-  const form = document.getElementById('task-form')
 
-  const toggleFormButtonVisibility = () => {
-    if (_components_tasks__WEBPACK_IMPORTED_MODULE_0__.tasks.length === 0) {
-      openFormBtns[0].classList.remove('visibility')
-    }
-  }
-
-  const toggleForm = () => {
-    form.classList.toggle('open')
-    toggleFormButtonVisibility()
-  }
-
-  if (_components_tasks__WEBPACK_IMPORTED_MODULE_0__.tasks.length > 0) {
-    openFormBtns[0].classList.add('visibility')
-  }
-
-  openFormBtns.forEach((button) =>
-    button.addEventListener('click', () => toggleForm())
-  )
 }
 
 
