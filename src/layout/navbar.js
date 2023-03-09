@@ -36,6 +36,7 @@ export default function navbar() {
 }
 
 export function toggleNav() {
+  console.log('testing')
   nav.classList.toggle('open')
 }
 
