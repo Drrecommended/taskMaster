@@ -1,3 +1,22 @@
 @import url('reset.css');
-@import url('header.scss')
 
+
+button {
+  background-color: white;
+  min-height: 60px;
+  min-width: 60px;
+}
+
+
+
+.wrapper {
+  max-width: 1200px;
+}
+
+header {
+  padding: 14px;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
