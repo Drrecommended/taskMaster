@@ -1,7 +1,6 @@
-import { toggleNav } from "./navbar"
-
-const openNavBtn = document.getElementById('open-nav_btn')
+import { openNav } from './navbar'
 
 export default function header() {
-  openNavBtn.addEventListener('click', () => toggleNav())
+  const openNavBtn = document.getElementById('open-nav_btn')
+  openNavBtn.addEventListener('click', openNav)
 }

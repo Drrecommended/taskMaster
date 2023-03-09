@@ -3,18 +3,19 @@
 
 button {
   background-color: white;
-  min-height: 60px;
-  min-width: 60px;
+  min-height: 58px;
+  min-width: 58px;
 }
 
 
 
 .wrapper {
   max-width: 1200px;
+  padding: 14px;
+  margin: 0 auto;
 }
 
 header {
-  padding: 14px;
   .wrapper {
     display: flex;
     justify-content: space-between;
