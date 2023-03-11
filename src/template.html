@@ -11,15 +11,13 @@
     <header>
       <div class="wrapper">
         <h1 class="hero">TM</h1>
-        <button class="nav-btn" id="open-nav_btn">
-          &times;
-        </button>
+        <button class="nav-btn" id="open-nav_btn">&times;</button>
       </div>
     </header>
     <!--NAVIGATION-->
     <nav class="nav" id="nav">
       <button class="close-nav_btn" id="close-nav_btn">&times;</button>
-      <ul>
+      <ul class="task-pages">
         <li>
           <a href="#tasks" data-section="tasks"
             ><i class="fa-solid fa-inbox"></i>Tasks</a
@@ -41,6 +39,19 @@
           >
         </li>
       </ul>
+      <span class="divider-line"></span>
+      <div class="project-controls_header">
+        <h2>Projects</h2>
+        <button id="project-controls_btn">&#43;</button>
+      </div>
+      <div class="project-controls" id="project-controls">
+        <input type="text" id="project_input" /><button
+          class="submit"
+          id="add-project_btn"
+        >
+          ADD</button
+        ><button class="cancel" id="cancel-project_btn">CANCEL</button>
+      </div>
     </nav>
     <!--CONTENT-->
     <main>
@@ -58,7 +69,7 @@
           </button>
         </div>
 
-        <!--FORM-->
+        <!-- FORM
         <form class="form" id="task-form">
           <label for="task-name">Task:</label><br />
           <input
@@ -112,7 +123,7 @@
             <a href="#" class="cancel-btn" id="close-form-btn">CANCEL</a>
             <input class="submit-btn" type="submit" value="SUBMIT" />
           </div>
-        </form>
+        </form> -->
         <ul class="task-list-container" id="task-list-container"></ul>
       </section>
     </main>

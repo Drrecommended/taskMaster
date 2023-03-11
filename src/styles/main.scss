@@ -2,9 +2,26 @@
 
 button {
   background-color: white;
-  min-height: 58px;
-  min-width: 58px;
+  min-height: 54px;
+  min-width: 54px;
 }
+
+button,
+input {
+  padding: 10px 15px;
+  border: 2px solid black;
+}
+
+.cancel {
+  background-color: rgb(224, 105, 105);
+  color: white;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+}
+
 
 .wrapper {
   max-width: 1200px;
@@ -13,7 +30,7 @@ button {
 }
 
 header {
-  background-color: wheat;
+  background-color: white;
 
   .wrapper {
     display: flex;
@@ -32,11 +49,20 @@ header {
   overflow-x: hidden;
   transition: 0.4s;
   padding-top: 80px;
+  &.open {
+    width: 320px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  .task-pages,
+  .project-controls_header {
+    margin-bottom: 14px;
+  }
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
     display: block;
     transition: 0.3s;
   }
@@ -44,10 +70,39 @@ header {
     position: absolute;
     top: 14px;
     right: 14px;
-    font-size: 36px;
     margin-left: 50px;
   }
-  &.open {
-    width: 100%;
+  .divider-line,
+  .project-controls_header,
+  .cancel {
+    margin-right: 14px;
+  }
+  .divider-line {
+    border-bottom: 2px solid black;
+    display: block;
+    margin-left: 32px;
+    margin-bottom: 10px;
+    max-width: 90%;
+  }
+  .project-controls_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .project-controls,
+  .project-controls_header {
+    padding-left: 32px;
+  }
+  .project-controls {
+    width: 90%;
+    display: none;
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .cancel {
+      margin-left: 5px;
+    }
   }
 }
