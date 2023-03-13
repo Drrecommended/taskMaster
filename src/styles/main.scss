@@ -96,6 +96,9 @@ header {
   .project-controls {
     width: 90%;
     display: none;
+    .show-controls {
+      display: block;
+    }
     input {
       display: block;
       width: 100%;

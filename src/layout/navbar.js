@@ -12,11 +12,10 @@ export default function navbar() {
   }
 
   const toggleProjectControlsView = () => {
-    console.log(projectControls.style.display)
-    if (projectControls === 'none') {
-      projectControls.style.display = 'block'
-    } else {
+    if (projectControls.style.display === 'block') {
       projectControls.style.display = 'none'
+    } else {
+      projectControls.style.display = 'block'
     }
   }
 
