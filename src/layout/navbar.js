@@ -1,3 +1,6 @@
+import Project from "../components/projects"
+
+
 const nav = document.getElementById('nav')
 
 export default function navbar() {
@@ -22,7 +25,8 @@ export default function navbar() {
   const addProjectToNav = () => {
     const projectName = projectInput.value
     console.log(projectInput.value)
-    // const newProject = new Project(projectName)
+    const newProject = new Project(projectName)
+    newProject.sayName()
     projectInput.value = ""
     toggleProjectControlsView()
   }
