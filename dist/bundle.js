@@ -628,6 +628,7 @@ function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
   const projectControlsBtn = document.getElementById('project-controls_btn')
+  const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
   const projectControls = document.getElementById('project-controls')
   const navigate = () => {}
 
@@ -650,6 +651,7 @@ function navbar() {
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
+  closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
 }
 
 const openNav = () => {
