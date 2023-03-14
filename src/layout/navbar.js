@@ -4,13 +4,12 @@ export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
   const projectControlsBtn = document.getElementById('project-controls_btn')
+  const submitNewProjectBtn = document.getElementById('add-project_btn')
   const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
   const projectControls = document.getElementById('project-controls')
-  const navigate = () => {}
+  const projectInput = document.getElementById('project_input')
 
-  const closeNav = () => {
-    nav.classList.remove('open')
-  }
+  const navigate = () => {}
 
   const toggleProjectControlsView = () => {
     if (projectControls.style.display === 'block') {
@@ -20,6 +19,18 @@ export default function navbar() {
     }
   }
 
+  const addProjectToNav = () => {
+    const projectName = projectInput.value
+    console.log(projectInput.value)
+    // const newProject = new Project(projectName)
+    projectInput.value = ""
+    toggleProjectControlsView()
+  }
+
+  const closeNav = () => {
+    nav.classList.remove('open')
+  }
+
   closeNavBtn.addEventListener('click', closeNav)
 
   navLinks.forEach((link) => {
@@ -27,6 +38,7 @@ export default function navbar() {
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
+  submitNewProjectBtn.addEventListener('click', addProjectToNav)
   closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
 }
 
