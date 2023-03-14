@@ -1,3 +1,13 @@
-const projects = ['one', 'two', 'three']
+const projects = []
 
-export default { projects }
+export default class Project {
+  constructor(name) {
+    this.name = name
+  }
+
+  sayName() {
+    console.log(`this is the prject name: + ${this.name}`) 
+  }
+}
+
+export { projects }
