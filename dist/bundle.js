@@ -547,7 +547,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Project),
 /* harmony export */   "projects": () => (/* binding */ projects)
 /* harmony export */ });
-const projects = []
+const projects = [
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+]
 
 class Project {
   constructor(name) {
@@ -555,7 +560,7 @@ class Project {
   }
 
   sayName() {
-    console.log(`this is the prject name: + ${this.name}`) 
+    console.log(`this is the prject name: + ${this.name}`)
   }
 }
 
@@ -653,8 +658,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/projects */ "./src/components/projects.js");
 
 
-
 const nav = document.getElementById('nav')
+
 
 function navbar() {
   const navLinks = document.querySelectorAll('nav a')
@@ -664,6 +669,7 @@ function navbar() {
   const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
   const projectControls = document.getElementById('project-controls')
   const projectInput = document.getElementById('project_input')
+  const projectPages = document.getElementById('project-pages')
 
   const navigate = () => {}
 
@@ -677,16 +683,26 @@ function navbar() {
 
   const addProjectToNav = () => {
     const projectName = projectInput.value
-    console.log(projectInput.value)
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
     newProject.sayName()
-    projectInput.value = ""
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
+    console.log(_components_projects__WEBPACK_IMPORTED_MODULE_0__.projects)
+    projectInput.value = ''
     toggleProjectControlsView()
   }
 
   const closeNav = () => {
     nav.classList.remove('open')
   }
+
+  const projectLinks = _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(project => {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    li.appendChild(link)
+    console.log(projectPages)
+    projectPages.appendChild(li)
+  })
 
   closeNavBtn.addEventListener('click', closeNav)
 

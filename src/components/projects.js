@@ -1,4 +1,9 @@
-const projects = []
+const projects = [
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+]
 
 export default class Project {
   constructor(name) {
@@ -6,7 +11,7 @@ export default class Project {
   }
 
   sayName() {
-    console.log(`this is the prject name: + ${this.name}`) 
+    console.log(`this is the prject name: + ${this.name}`)
   }
 }
 

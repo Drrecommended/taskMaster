@@ -1,7 +1,7 @@
-import Project from "../components/projects"
-
+import Project, { projects } from '../components/projects'
 
 const nav = document.getElementById('nav')
+
 
 export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
@@ -11,6 +11,7 @@ export default function navbar() {
   const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
   const projectControls = document.getElementById('project-controls')
   const projectInput = document.getElementById('project_input')
+  const projectPages = document.getElementById('project-pages')
 
   const navigate = () => {}
 
@@ -24,16 +25,26 @@ export default function navbar() {
 
   const addProjectToNav = () => {
     const projectName = projectInput.value
-    console.log(projectInput.value)
     const newProject = new Project(projectName)
     newProject.sayName()
-    projectInput.value = ""
+    projects.push(newProject)
+    console.log(projects)
+    projectInput.value = ''
     toggleProjectControlsView()
   }
 
   const closeNav = () => {
     nav.classList.remove('open')
   }
+
+  const projectLinks = projects.forEach(project => {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    li.appendChild(link)
+    console.log(projectPages)
+    projectPages.appendChild(li)
+  })
 
   closeNavBtn.addEventListener('click', closeNav)
 
