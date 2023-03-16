@@ -2,7 +2,6 @@ import Project, { projects } from '../components/projects'
 
 const nav = document.getElementById('nav')
 
-
 export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
@@ -23,28 +22,35 @@ export default function navbar() {
     }
   }
 
-  const addProjectToNav = () => {
+  const createProjectLink = (project) => {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    link.href = "#"
+    li.appendChild(link)
+    projectPages.appendChild(li)
+  }
+
+  const appendProjectsToNav = () => {
+    projects.forEach(project => {
+      createProjectLink(project)
+    })
+  }
+
+  const addProject = () => {
     const projectName = projectInput.value
     const newProject = new Project(projectName)
-    newProject.sayName()
     projects.push(newProject)
-    console.log(projects)
+    createProjectLink(projectName)
     projectInput.value = ''
     toggleProjectControlsView()
   }
 
+  appendProjectsToNav()
+
   const closeNav = () => {
     nav.classList.remove('open')
   }
-
-  const projectLinks = projects.forEach(project => {
-    const li = document.createElement('li')
-    const link = document.createElement('a')
-    link.innerText = project.name
-    li.appendChild(link)
-    console.log(projectPages)
-    projectPages.appendChild(li)
-  })
 
   closeNavBtn.addEventListener('click', closeNav)
 
@@ -53,7 +59,7 @@ export default function navbar() {
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
-  submitNewProjectBtn.addEventListener('click', addProjectToNav)
+  submitNewProjectBtn.addEventListener('click', addProject)
   closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
 }
 

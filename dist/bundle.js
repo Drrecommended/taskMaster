@@ -660,7 +660,6 @@ __webpack_require__.r(__webpack_exports__);
 
 const nav = document.getElementById('nav')
 
-
 function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
@@ -681,28 +680,35 @@ function navbar() {
     }
   }
 
-  const addProjectToNav = () => {
+  const createProjectLink = (project) => {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    link.href = "#"
+    li.appendChild(link)
+    projectPages.appendChild(li)
+  }
+
+  const appendProjectsToNav = () => {
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(project => {
+      createProjectLink(project)
+    })
+  }
+
+  const addProject = () => {
     const projectName = projectInput.value
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
-    newProject.sayName()
     _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
-    console.log(_components_projects__WEBPACK_IMPORTED_MODULE_0__.projects)
+    createProjectLink(projectName)
     projectInput.value = ''
     toggleProjectControlsView()
   }
 
+  appendProjectsToNav()
+
   const closeNav = () => {
     nav.classList.remove('open')
   }
-
-  const projectLinks = _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(project => {
-    const li = document.createElement('li')
-    const link = document.createElement('a')
-    link.innerText = project.name
-    li.appendChild(link)
-    console.log(projectPages)
-    projectPages.appendChild(li)
-  })
 
   closeNavBtn.addEventListener('click', closeNav)
 
@@ -711,7 +717,7 @@ function navbar() {
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
-  submitNewProjectBtn.addEventListener('click', addProjectToNav)
+  submitNewProjectBtn.addEventListener('click', addProject)
   closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
 }
 
