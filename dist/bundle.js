@@ -547,7 +547,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Project),
 /* harmony export */   "projects": () => (/* binding */ projects)
 /* harmony export */ });
-const projects = []
+const projects = [
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+  { name: 'hey4' },
+]
 
 class Project {
   constructor(name) {
@@ -555,7 +560,7 @@ class Project {
   }
 
   sayName() {
-    console.log(`this is the prject name: + ${this.name}`) 
+    console.log(`this is the prject name: + ${this.name}`)
   }
 }
 
@@ -653,7 +658,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/projects */ "./src/components/projects.js");
 
 
-
 const nav = document.getElementById('nav')
 
 function navbar() {
@@ -664,6 +668,7 @@ function navbar() {
   const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
   const projectControls = document.getElementById('project-controls')
   const projectInput = document.getElementById('project_input')
+  const projectPages = document.getElementById('project-pages')
 
   const navigate = () => {}
 
@@ -675,14 +680,31 @@ function navbar() {
     }
   }
 
-  const addProjectToNav = () => {
+  const createProjectLink = (project) => {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    link.href = "#"
+    li.appendChild(link)
+    projectPages.appendChild(li)
+  }
+
+  const appendProjectsToNav = () => {
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(project => {
+      createProjectLink(project)
+    })
+  }
+
+  const addProject = () => {
     const projectName = projectInput.value
-    console.log(projectInput.value)
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
-    newProject.sayName()
-    projectInput.value = ""
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
+    createProjectLink(projectName)
+    projectInput.value = ''
     toggleProjectControlsView()
   }
+
+  appendProjectsToNav()
 
   const closeNav = () => {
     nav.classList.remove('open')
@@ -695,7 +717,7 @@ function navbar() {
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
-  submitNewProjectBtn.addEventListener('click', addProjectToNav)
+  submitNewProjectBtn.addEventListener('click', addProject)
   closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
 }
 
