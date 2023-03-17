@@ -27,6 +27,7 @@ export default function navbar() {
     const link = document.createElement('a')
     link.innerText = project.name
     link.href = "#"
+    console.log(link, project)
     li.appendChild(link)
     projectPages.appendChild(li)
   }
@@ -41,7 +42,7 @@ export default function navbar() {
     const projectName = projectInput.value
     const newProject = new Project(projectName)
     projects.push(newProject)
-    createProjectLink(projectName)
+    createProjectLink(newProject)
     projectInput.value = ''
     toggleProjectControlsView()
   }

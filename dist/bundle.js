@@ -685,6 +685,7 @@ function navbar() {
     const link = document.createElement('a')
     link.innerText = project.name
     link.href = "#"
+    console.log(link, project)
     li.appendChild(link)
     projectPages.appendChild(li)
   }
@@ -699,7 +700,7 @@ function navbar() {
     const projectName = projectInput.value
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
     _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
-    createProjectLink(projectName)
+    createProjectLink(newProject)
     projectInput.value = ''
     toggleProjectControlsView()
   }
