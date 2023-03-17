@@ -698,6 +698,7 @@ function navbar() {
 
   const addProject = () => {
     const projectName = projectInput.value
+    if(projectName.trim() === '') return
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
     _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
     createProjectLink(newProject)

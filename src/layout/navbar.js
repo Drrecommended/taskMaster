@@ -40,6 +40,7 @@ export default function navbar() {
 
   const addProject = () => {
     const projectName = projectInput.value
+    if(projectName.trim() === '') return
     const newProject = new Project(projectName)
     projects.push(newProject)
     createProjectLink(newProject)
