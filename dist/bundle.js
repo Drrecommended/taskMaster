@@ -660,6 +660,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const nav = document.getElementById('nav')
 
+function closeNav() {
+  nav.classList.remove('open')
+}
+
+function openNav() {
+  nav.classList.add('open')
+}
+
 function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
@@ -670,7 +678,15 @@ function navbar() {
   const projectInput = document.getElementById('project_input')
   const projectPages = document.getElementById('project-pages')
 
-  const navigate = () => {}
+  const navigate = (e) => {
+    const { section } = e.target.dataset
+    console.log(section)
+    closeNav()
+  }
+
+  const addEventToLink = (link) => {
+    link.addEventListener('click', navigate)
+  }
 
   const toggleProjectControlsView = () => {
     if (projectControls.style.display === 'block') {
@@ -684,20 +700,23 @@ function navbar() {
     const li = document.createElement('li')
     const link = document.createElement('a')
     link.innerText = project.name
-    link.href = "#"
+    link.href = `# + ${project.name}`
+    link.dataset.section = project.name
     console.log(link, project)
+    addEventToLink(link)
     li.appendChild(link)
     projectPages.appendChild(li)
   }
 
   const appendProjectsToNav = () => {
-    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(project => {
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach((project) => {
       createProjectLink(project)
     })
   }
 
   const addProject = () => {
     const projectName = projectInput.value
+    if (projectName.trim() === '') return
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
     _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
     createProjectLink(newProject)
@@ -707,23 +726,15 @@ function navbar() {
 
   appendProjectsToNav()
 
-  const closeNav = () => {
-    nav.classList.remove('open')
-  }
-
   closeNavBtn.addEventListener('click', closeNav)
 
   navLinks.forEach((link) => {
-    link.addEventListener('click', navigate)
+    addEventToLink(link)
   })
 
   projectControlsBtn.addEventListener('click', toggleProjectControlsView)
   submitNewProjectBtn.addEventListener('click', addProject)
   closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
-}
-
-const openNav = () => {
-  nav.classList.add('open')
 }
 
 
