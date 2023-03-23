@@ -65,61 +65,63 @@
         </div>
       </div>
       <section id="content">
-        <form class="form" id="task-form">
-          <label for="task-name">Task:</label><br />
-          <input
-            class="task-input"
-            type="text"
-            name="task-name"
-            id="task-name"
-          /><br />
-          <label for="task-description">Description:</label><br />
-          <textarea
-            type=""
-            name="task-description"
-            id="task-description"
-          ></textarea
-          ><br />
-          <label for="task-date">Date due:</label><br />
-          <input type="date" name="task-date" id="task-date" /><br />
-          <fieldset>
-            <legend>Priority:</legend>
-            <div class="radio-container">
-              <div class="radio-btn">
-                <input
-                  type="radio"
-                  name="task-priority"
-                  id="low-priority"
-                  value="low"
-                />
-                <label for="low-priority">low</label>
+        <div class="wrapper">
+          <form class="form" id="task-form">
+            <label for="task-name">Task:</label><br />
+            <input
+              class="task-input"
+              type="text"
+              name="task-name"
+              id="task-name"
+            /><br />
+            <label for="task-description">Description:</label><br />
+            <textarea
+              type=""
+              name="task-description"
+              id="task-description"
+            ></textarea
+            ><br />
+            <label for="task-date">Date due:</label><br />
+            <input type="date" name="task-date" id="task-date" /><br />
+            <fieldset>
+              <legend>Priority:</legend>
+              <div class="radio-container">
+                <div class="radio-btn">
+                  <input
+                    type="radio"
+                    name="task-priority"
+                    id="low-priority"
+                    value="low"
+                  />
+                  <label for="low-priority">low</label>
+                </div>
+                <div class="radio-btn">
+                  <input
+                    type="radio"
+                    name="task-priority"
+                    id="medium-priority"
+                    value="medium"
+                  />
+                  <label for="medium-priority">medium</label>
+                </div>
+                <div class="radio-btn">
+                  <input
+                    type="radio"
+                    name="task-priority"
+                    id="high-priority"
+                    value="high"
+                  />
+                  <label for="high-priority">high</label>
+                </div>
               </div>
-              <div class="radio-btn">
-                <input
-                  type="radio"
-                  name="task-priority"
-                  id="medium-priority"
-                  value="medium"
-                />
-                <label for="medium-priority">medium</label>
-              </div>
-              <div class="radio-btn">
-                <input
-                  type="radio"
-                  name="task-priority"
-                  id="high-priority"
-                  value="high"
-                />
-                <label for="high-priority">high</label>
-              </div>
+            </fieldset>
+            <div class="form-btn-container">
+              <a href="#" class="cancel-btn" id="close-form-btn">CANCEL</a>
+              <input class="submit-btn" type="submit" value="SUBMIT" />
             </div>
-          </fieldset>
-          <div class="form-btn-container">
-            <a href="#" class="cancel-btn" id="close-form-btn">CANCEL</a>
-            <input class="submit-btn" type="submit" value="SUBMIT" />
-          </div>
-        </form>
-        <ul class="task-list-container" id="task-list-container"></ul>
+          </form>
+          <ul class="task-list-container" id="task-list-container"></ul>
+        </div>
       </section>
     </main>
     <!--FOOTER-->
