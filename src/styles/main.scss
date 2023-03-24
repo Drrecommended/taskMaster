@@ -1,5 +1,17 @@
 @import url('reset.css');
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+
+
 button {
   background-color: white;
   min-height: 54px;
