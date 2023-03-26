@@ -536,6 +536,43 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/components/form.js":
+/*!********************************!*\
+  !*** ./src/components/form.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ form)
+/* harmony export */ });
+
+
+
+function form() {
+  const taskName = document.getElementById('task-name')
+  const taskDescription = document.getElementById('task-description')
+  const taskDate = document.getElementById('task-date')
+  const taskPriority = document.getElementById('priority')
+  const form = document.getElementById('task-form')
+
+
+  console.log('test 3 ')
+  return {
+    toggleFormView() {
+      console.log('test 2')
+      if (form.style.display === 'block') {
+        form.style.display = 'none'
+      } else {
+        form.style.display = 'block'
+      }
+    },
+  }
+}
+
+
+/***/ }),
+
 /***/ "./src/components/projects.js":
 /*!************************************!*\
   !*** ./src/components/projects.js ***!
@@ -588,11 +625,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function startApp() {
+  const loadDefaultTasks = (0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
   const initialize = () => {
     
-    (0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    ;(0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
     ;(0,_layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
-    ;(0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    loadDefaultTasks.showTasks()
     console.log('app started')
   }
 
@@ -637,20 +675,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ mainContent)
 /* harmony export */ });
+/* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/form */ "./src/components/form.js");
+
+
 function mainContent() {
-  const sectionTitle = document.getElementById('section__title')
-  const form = document.getElementById('task-form')
+  // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
+  const sectionTitle = document.getElementById('section__title')
+  const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
 
-  const toggleFormView = () => {
-    if (form.style.display === 'block') {
-      form.style.display = 'none'
-    } else {
-      form.style.display = 'block'
-    }
+ 
+  openFormBtn.addEventListener('click', newForm.toggleFormView)
+  return {
+    showTasks() {
+      sectionTitle.innerText = 'this works'
+      console.log("allTodaysTasks")
+    }, 
   }
-
-  openFormBtn.addEventListener('click', toggleFormView)
 }
 
 
