@@ -546,18 +546,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ form)
 /* harmony export */ });
+/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
 
 
 
 function form() {
   const taskName = document.getElementById('task-name')
-  const taskDescription = document.getElementById('task-description')
-  const taskDate = document.getElementById('task-date')
-  const taskPriority = document.getElementById('priority')
+  const taskDescription = document.getElementById('task-description').value
+  const taskDate = document.getElementById('task-date').value
+  // const taskPriority = document.getElementById('priority').value
+  const closeForm = document.getElementById('close-form__btn')
   const form = document.getElementById('task-form')
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate)
+    console.log('yeah baby yea')
+  }
 
   console.log('test 3 ')
+  form.addEventListener('submit', handleSubmit)
+  closeForm.addEventListener('click', toggleFormView)
   return {
     toggleFormView() {
       console.log('test 2')
@@ -641,6 +650,41 @@ const app = startApp()
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (app);
 
+
+/***/ }),
+
+/***/ "./src/components/tasks.js":
+/*!*********************************!*\
+  !*** ./src/components/tasks.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createTask)
+/* harmony export */ });
+
+const tasks = [
+  {
+    name: '432',
+    description: '423',
+    dueDate: '01/20/23',
+    priority: 'medium',
+    complete: true,
+  },
+]
+
+
+class Task {
+  constructor(name) {
+    this.name = name
+  }
+  
+}
+
+function createTask() {
+  const task = new Task()
+}
 
 /***/ }),
 

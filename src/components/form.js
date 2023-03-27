@@ -1,15 +1,23 @@
-
+import createTask from "./tasks"
 
 
 export default function form() {
   const taskName = document.getElementById('task-name')
-  const taskDescription = document.getElementById('task-description')
-  const taskDate = document.getElementById('task-date')
-  const taskPriority = document.getElementById('priority')
+  const taskDescription = document.getElementById('task-description').value
+  const taskDate = document.getElementById('task-date').value
+  // const taskPriority = document.getElementById('priority').value
+  const closeForm = document.getElementById('close-form__btn')
   const form = document.getElementById('task-form')
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    createTask(taskName, taskDescription, taskDate)
+    console.log('yeah baby yea')
+  }
 
   console.log('test 3 ')
+  form.addEventListener('submit', handleSubmit)
+  closeForm.addEventListener('click', toggleFormView)
   return {
     toggleFormView() {
       console.log('test 2')
