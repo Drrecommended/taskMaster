@@ -549,7 +549,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
 
 
-
 function form() {
   const taskName = document.getElementById('task-name')
   const taskDescription = document.getElementById('task-description').value
@@ -564,18 +563,20 @@ function form() {
     console.log('yeah baby yea')
   }
 
+  function toggleFormView() {
+    console.log('test 2')
+    if (form.style.display === 'block') {
+      form.style.display = 'none'
+    } else {
+      form.style.display = 'block'
+    }
+  }
+
   console.log('test 3 ')
   form.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
   return {
-    toggleFormView() {
-      console.log('test 2')
-      if (form.style.display === 'block') {
-        form.style.display = 'none'
-      } else {
-        form.style.display = 'block'
-      }
-    },
+    toggleFormView,
   }
 }
 

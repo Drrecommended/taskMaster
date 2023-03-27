@@ -1,5 +1,4 @@
-import createTask from "./tasks"
-
+import createTask from './tasks'
 
 export default function form() {
   const taskName = document.getElementById('task-name')
@@ -15,17 +14,19 @@ export default function form() {
     console.log('yeah baby yea')
   }
 
+  function toggleFormView() {
+    console.log('test 2')
+    if (form.style.display === 'block') {
+      form.style.display = 'none'
+    } else {
+      form.style.display = 'block'
+    }
+  }
+
   console.log('test 3 ')
   form.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
   return {
-    toggleFormView() {
-      console.log('test 2')
-      if (form.style.display === 'block') {
-        form.style.display = 'none'
-      } else {
-        form.style.display = 'block'
-      }
-    },
+    toggleFormView,
   }
 }
