@@ -739,9 +739,9 @@ function mainContent() {
   const sectionTitle = document.getElementById('section__title')
   const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
 
-  const showTasks = () => {
-    sectionTitle.innerText = 'this works'
-    console.log('allTodaysTasks')
+  const showTasks = (section) => {
+    console.log(section)
+    sectionTitle.innerText = section
     _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.forEach((task) => console.log(`${task.name} + is the name`))
   }
 
@@ -766,6 +766,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "openNav": () => (/* binding */ openNav)
 /* harmony export */ });
 /* harmony import */ var _components_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/projects */ "./src/components/projects.js");
+/* harmony import */ var _mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mainContent */ "./src/layout/mainContent.js");
+
 
 
 const nav = document.getElementById('nav')
@@ -789,9 +791,9 @@ function navbar() {
   const projectPages = document.getElementById('project-pages')
 
   const navigate = (e) => {
+    const newContent = (0,_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
     const { section } = e.target.dataset
-    console.log(section)
-    
+    newContent.showTasks(section)
     closeNav()
   }
 

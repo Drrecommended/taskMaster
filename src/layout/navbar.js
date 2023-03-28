@@ -1,4 +1,5 @@
 import Project, { projects } from '../components/projects'
+import mainContent from './mainContent'
 
 const nav = document.getElementById('nav')
 
@@ -21,9 +22,9 @@ export default function navbar() {
   const projectPages = document.getElementById('project-pages')
 
   const navigate = (e) => {
+    const newContent = mainContent()
     const { section } = e.target.dataset
-    console.log(section)
-    
+    newContent.showTasks(section)
     closeNav()
   }
 

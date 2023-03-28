@@ -7,9 +7,9 @@ export default function mainContent() {
   const sectionTitle = document.getElementById('section__title')
   const newForm = form()
 
-  const showTasks = () => {
-    sectionTitle.innerText = 'this works'
-    console.log('allTodaysTasks')
+  const showTasks = (section) => {
+    console.log(section)
+    sectionTitle.innerText = section
     tasks.forEach((task) => console.log(`${task.name} + is the name`))
   }
 
