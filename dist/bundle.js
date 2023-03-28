@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit {\n  background-color: green;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n}\n.nav.open {\n  width: 320px;\n}\n.nav h2 {\n  font-size: 28px;\n}\n.nav .task-pages,\n.nav .project-controls_header {\n  margin-bottom: 14px;\n}\n.nav a {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  display: block;\n  transition: 0.3s;\n}\n.nav .close-nav_btn {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  margin-left: 50px;\n}\n.nav .divider-line,\n.nav .project-controls_header,\n.nav .cancel {\n  margin-right: 14px;\n}\n.nav .divider-line {\n  border-bottom: 2px solid black;\n  display: block;\n  margin-left: 32px;\n  margin-bottom: 10px;\n  max-width: 90%;\n}\n.nav .project-controls_header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.nav .project-controls,\n.nav .project-controls_header {\n  padding-left: 32px;\n}\n.nav .project-controls {\n  width: 90%;\n  display: none;\n}\n.nav .project-controls .show-controls {\n  display: block;\n}\n.nav .project-controls input {\n  display: block;\n  width: 100%;\n  margin-bottom: 5px;\n}\n.nav .project-controls .cancel {\n  margin-left: 5px;\n}\n\n.form {\n  display: none;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAEA;EACE,iBAAA;EACA,aAAA;EACA,sBAAA;AAAF;;AAGA;EACE,YAAA;AAAF;;AAKA;EACE,uBAAA;EACA,gBAAA;EACA,eAAA;AAFF;;AAKA;;EAEE,kBAAA;EACA,uBAAA;AAFF;;AAKA;EACE,oCAAA;EACA,YAAA;AAFF;;AAKA;EACE,uBAAA;EACA,YAAA;AAFF;;AAMA;EACE,iBAAA;EACA,aAAA;EACA,cAAA;EACA,aAAA;EACA,8BAAA;AAHF;;AAMA;EACE,uBAAA;AAHF;;AAUA;EACE,uBAAA;EACA,YAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,kBAAA;EACA,gBAAA;EACA,iBAAA;AAPF;AAQE;EACE,YAAA;AANJ;AAQE;EACE,eAAA;AANJ;AAQE;;EAEE,mBAAA;AANJ;AAQE;EACE,yBAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;AANJ;AAQE;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,iBAAA;AANJ;AAQE;;;EAGE,kBAAA;AANJ;AAQE;EACE,8BAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;EACA,cAAA;AANJ;AAQE;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;AANJ;AAQE;;EAEE,kBAAA;AANJ;AAQE;EACE,UAAA;EACA,aAAA;AANJ;AAOI;EACE,cAAA;AALN;AAOI;EACE,cAAA;EACA,WAAA;EACA,kBAAA;AALN;AAOI;EACE,gBAAA;AALN;;AAUA;EACE,aAAA;AAPF","sourcesContent":["@import url('reset.css');\n\nbody {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\n\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit {\n  background-color: green;\n  color: white;\n}\n\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n  // .wrapper {\n  //   display: flex;\n  //   justify-content: space-between;\n  // }\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n  &.open {\n    width: 320px;\n  }\n  h2 {\n    font-size: 28px;\n  }\n  .task-pages,\n  .project-controls_header {\n    margin-bottom: 14px;\n  }\n  a {\n    padding: 8px 8px 8px 32px;\n    text-decoration: none;\n    font-size: 25px;\n    display: block;\n    transition: 0.3s;\n  }\n  .close-nav_btn {\n    position: absolute;\n    top: 14px;\n    right: 14px;\n    margin-left: 50px;\n  }\n  .divider-line,\n  .project-controls_header,\n  .cancel {\n    margin-right: 14px;\n  }\n  .divider-line {\n    border-bottom: 2px solid black;\n    display: block;\n    margin-left: 32px;\n    margin-bottom: 10px;\n    max-width: 90%;\n  }\n  .project-controls_header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n  .project-controls,\n  .project-controls_header {\n    padding-left: 32px;\n  }\n  .project-controls {\n    width: 90%;\n    display: none;\n    .show-controls {\n      display: block;\n    }\n    input {\n      display: block;\n      width: 100%;\n      margin-bottom: 5px;\n    }\n    .cancel {\n      margin-left: 5px;\n    }\n  }\n}\n\n.form {\n  display: none;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit {\n  background-color: green;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n}\n.nav.open {\n  width: 320px;\n  max-width: 100%;\n}\n.nav h2 {\n  font-size: 28px;\n}\n.nav .task-pages,\n.nav .project-controls_header {\n  margin-bottom: 14px;\n}\n.nav a {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  display: block;\n  transition: 0.3s;\n}\n.nav .close-nav_btn {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  margin-left: 50px;\n}\n.nav .divider-line,\n.nav .project-controls_header,\n.nav .cancel {\n  margin-right: 14px;\n}\n.nav .divider-line {\n  border-bottom: 2px solid black;\n  display: block;\n  margin-left: 32px;\n  margin-bottom: 10px;\n  max-width: 90%;\n}\n.nav .project-controls_header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.nav .project-controls,\n.nav .project-controls_header {\n  padding-left: 32px;\n}\n.nav .project-controls {\n  width: 90%;\n  display: none;\n}\n.nav .project-controls .show-controls {\n  display: block;\n}\n.nav .project-controls input {\n  display: block;\n  width: 100%;\n  margin-bottom: 5px;\n}\n.nav .project-controls .cancel {\n  margin-left: 5px;\n}\n\n.form {\n  width: 100%;\n}\n.form input, .form textarea {\n  width: 100%;\n  border: 2px solid black;\n}\n.form .radio__container {\n  display: flex;\n  justify-content: space-around;\n  text-align: center;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAEA;EACE,iBAAA;EACA,aAAA;EACA,sBAAA;AAAF;;AAGA;EACE,YAAA;AAAF;;AAKA;EACE,uBAAA;EACA,gBAAA;EACA,eAAA;AAFF;;AAKA;;EAEE,kBAAA;EACA,uBAAA;AAFF;;AAKA;EACE,oCAAA;EACA,YAAA;AAFF;;AAKA;EACE,uBAAA;EACA,YAAA;AAFF;;AAMA;EACE,iBAAA;EACA,aAAA;EACA,cAAA;EACA,aAAA;EACA,8BAAA;AAHF;;AAMA;EACE,uBAAA;AAHF;;AAUA;EACE,uBAAA;EACA,YAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,kBAAA;EACA,gBAAA;EACA,iBAAA;AAPF;AAQE;EACE,YAAA;EACA,eAAA;AANJ;AAQE;EACE,eAAA;AANJ;AAQE;;EAEE,mBAAA;AANJ;AAQE;EACE,yBAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;AANJ;AAQE;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,iBAAA;AANJ;AAQE;;;EAGE,kBAAA;AANJ;AAQE;EACE,8BAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;EACA,cAAA;AANJ;AAQE;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;AANJ;AAQE;;EAEE,kBAAA;AANJ;AAQE;EACE,UAAA;EACA,aAAA;AANJ;AAOI;EACE,cAAA;AALN;AAOI;EACE,cAAA;EACA,WAAA;EACA,kBAAA;AALN;AAOI;EACE,gBAAA;AALN;;AAUA;EAEE,WAAA;AARF;AASE;EACE,WAAA;EACA,uBAAA;AAPJ;AASE;EACE,aAAA;EACA,6BAAA;EACA,kBAAA;AAPJ","sourcesContent":["@import url('reset.css');\n\nbody {\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\n\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit {\n  background-color: green;\n  color: white;\n}\n\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n  // .wrapper {\n  //   display: flex;\n  //   justify-content: space-between;\n  // }\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n  &.open {\n    width: 320px;\n    max-width: 100%;\n  }\n  h2 {\n    font-size: 28px;\n  }\n  .task-pages,\n  .project-controls_header {\n    margin-bottom: 14px;\n  }\n  a {\n    padding: 8px 8px 8px 32px;\n    text-decoration: none;\n    font-size: 25px;\n    display: block;\n    transition: 0.3s;\n  }\n  .close-nav_btn {\n    position: absolute;\n    top: 14px;\n    right: 14px;\n    margin-left: 50px;\n  }\n  .divider-line,\n  .project-controls_header,\n  .cancel {\n    margin-right: 14px;\n  }\n  .divider-line {\n    border-bottom: 2px solid black;\n    display: block;\n    margin-left: 32px;\n    margin-bottom: 10px;\n    max-width: 90%;\n  }\n  .project-controls_header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n  .project-controls,\n  .project-controls_header {\n    padding-left: 32px;\n  }\n  .project-controls {\n    width: 90%;\n    display: none;\n    .show-controls {\n      display: block;\n    }\n    input {\n      display: block;\n      width: 100%;\n      margin-bottom: 5px;\n    }\n    .cancel {\n      margin-left: 5px;\n    }\n  }\n}\n\n.form {\n  // display: none;\n  width: 100%;\n  input, textarea {\n    width: 100%;\n    border: 2px solid black;\n  }\n  .radio__container {\n    display: flex;\n    justify-content: space-around;\n    text-align: center;\n  }\n  // .form-btn__container {\n  //   input\n  // }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -546,35 +546,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ form)
 /* harmony export */ });
-/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tasks */ "./src/components/tasks.js");
+/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ "./src/components/task.js");
 
 
 function form() {
   const taskName = document.getElementById('task-name')
-  const taskDescription = document.getElementById('task-description').value
-  const taskDate = document.getElementById('task-date').value
-  // const taskPriority = document.getElementById('priority').value
+  const taskDescription = document.getElementById('task-description')
+  const taskDate = document.getElementById('task-date')
+  // const taskPriority = document.getElementById('priority')
   const closeForm = document.getElementById('close-form__btn')
-  const form = document.getElementById('task-form')
+  const thisForm = document.getElementById('task-form')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    ;(0,_tasks__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName, taskDescription, taskDate)
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName.value, taskDescription.value, taskDate.value)
     console.log('yeah baby yea')
   }
 
-  function toggleFormView() {
-    console.log('test 2')
-    if (form.style.display === 'block') {
-      form.style.display = 'none'
+  const toggleFormView = () => {
+    if (thisForm.style.display === 'block') {
+      thisForm.style.display = 'none'
     } else {
-      form.style.display = 'block'
+      thisForm.style.display = 'block'
     }
   }
 
-  console.log('test 3 ')
-  form.addEventListener('submit', handleSubmit)
+  thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
+
   return {
     toggleFormView,
   }
@@ -654,38 +653,47 @@ const app = startApp()
 
 /***/ }),
 
-/***/ "./src/components/tasks.js":
-/*!*********************************!*\
-  !*** ./src/components/tasks.js ***!
-  \*********************************/
+/***/ "./src/components/task.js":
+/*!********************************!*\
+  !*** ./src/components/task.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createTask)
+/* harmony export */   "default": () => (/* binding */ createTask),
+/* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
-
 const tasks = [
   {
-    name: '432',
-    description: '423',
-    dueDate: '01/20/23',
-    priority: 'medium',
-    complete: true,
+    name: '43',
+    description: '42',
+    date: '2023-03-01',
+    complete: false,
   },
 ]
 
-
 class Task {
-  constructor(name) {
+  constructor(name, description, date) {
     this.name = name
+    this.description = description
+    this.date = date
+    this.complete = false
   }
-  
+
+  markComplete() {
+    console.log(this.complete)
+  }
 }
 
-function createTask() {
-  const task = new Task()
+function createTask(name, description, date) {
+  const task = new Task(name, description, date)
+  tasks.push(task)
+  console.log(tasks)
 }
+
+
+
 
 /***/ }),
 
@@ -721,6 +729,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ mainContent)
 /* harmony export */ });
 /* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/form */ "./src/components/form.js");
+/* harmony import */ var _components_task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/task */ "./src/components/task.js");
+
 
 
 function mainContent() {
@@ -729,13 +739,15 @@ function mainContent() {
   const sectionTitle = document.getElementById('section__title')
   const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
 
- 
+  const showTasks = (section) => {
+    console.log(section)
+    sectionTitle.innerText = section
+    _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.forEach((task) => console.log(`${task.name} + is the name`))
+  }
+
   openFormBtn.addEventListener('click', newForm.toggleFormView)
   return {
-    showTasks() {
-      sectionTitle.innerText = 'this works'
-      console.log("allTodaysTasks")
-    }, 
+    showTasks,
   }
 }
 
@@ -754,6 +766,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "openNav": () => (/* binding */ openNav)
 /* harmony export */ });
 /* harmony import */ var _components_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/projects */ "./src/components/projects.js");
+/* harmony import */ var _mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mainContent */ "./src/layout/mainContent.js");
+
 
 
 const nav = document.getElementById('nav')
@@ -777,8 +791,9 @@ function navbar() {
   const projectPages = document.getElementById('project-pages')
 
   const navigate = (e) => {
+    const newContent = (0,_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
     const { section } = e.target.dataset
-    console.log(section)
+    newContent.showTasks(section)
     closeNav()
   }
 
@@ -800,7 +815,6 @@ function navbar() {
     link.innerText = project.name
     link.href = `# + ${project.name}`
     link.dataset.section = project.name
-    console.log(link, project)
     addEventToLink(link)
     li.appendChild(link)
     projectPages.appendChild(li)
