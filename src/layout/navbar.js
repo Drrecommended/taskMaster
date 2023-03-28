@@ -23,6 +23,7 @@ export default function navbar() {
   const navigate = (e) => {
     const { section } = e.target.dataset
     console.log(section)
+    
     closeNav()
   }
 
@@ -44,7 +45,6 @@ export default function navbar() {
     link.innerText = project.name
     link.href = `# + ${project.name}`
     link.dataset.section = project.name
-    console.log(link, project)
     addEventToLink(link)
     li.appendChild(link)
     projectPages.appendChild(li)
