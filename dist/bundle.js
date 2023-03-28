@@ -559,8 +559,7 @@ function form() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__["default"])(taskName.value, taskDescription.value, taskDate.value)
-    console.log('yeah baby yea')
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(taskName.value, taskDescription.value, taskDate.value)
   }
 
   const toggleFormView = () => {
@@ -661,7 +660,8 @@ const app = startApp()
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ createTask),
+/* harmony export */   "createTask": () => (/* binding */ createTask),
+/* harmony export */   "displayTasks": () => (/* binding */ displayTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 const tasks = [
@@ -690,6 +690,12 @@ function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
   console.log(tasks)
+}
+
+function displayTasks() {
+  tasks.forEach((task) => {
+    console.log(task)
+  })
 }
 
 
@@ -733,6 +739,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function mainContent() {
   // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
@@ -740,9 +747,8 @@ function mainContent() {
   const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
 
   const showTasks = (section) => {
-    console.log(section)
     sectionTitle.innerText = section
-    _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.forEach((task) => console.log(`${task.name} + is the name`))
+    ;(0,_components_task__WEBPACK_IMPORTED_MODULE_1__.displayTasks)()
   }
 
   openFormBtn.addEventListener('click', newForm.toggleFormView)
