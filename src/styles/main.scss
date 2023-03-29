@@ -1,5 +1,8 @@
 @import url('reset.css');
 
+$cancel-color: rgb(224, 105, 105);
+$submit-color: green;
+
 body {
   min-height: 100vh;
   display: flex;
@@ -10,8 +13,6 @@ main {
   flex-grow: 1;
 }
 
-
-
 button {
   background-color: white;
   min-height: 54px;
@@ -19,21 +20,21 @@ button {
 }
 
 button,
+.cancel__btn,
 input {
   padding: 10px 15px;
   border: 2px solid black;
 }
 
-.cancel {
-  background-color: rgb(224, 105, 105);
+.cancel__btn {
+  background-color: $cancel-color;
   color: white;
 }
 
-.submit {
-  background-color: green;
+.submit__btn {
+  background-color: $submit-color;
   color: white;
 }
-
 
 .wrapper {
   max-width: 1200px;
@@ -108,7 +109,7 @@ header {
     padding-left: 32px;
   }
   .project-controls {
-    width: 90%;
+    width: 95%;
     display: none;
     .show-controls {
       display: block;
@@ -118,8 +119,16 @@ header {
       width: 100%;
       margin-bottom: 5px;
     }
-    .cancel {
-      margin-left: 5px;
+    .project-controls__btns {
+      display: flex;
+      justify-content: right;
+      gap: 5px;
+      .submit__btn {
+        min-width: 132px;
+      }
+      .cancel__btn {
+        width: 100%;
+      }
     }
   }
 }
@@ -127,7 +136,9 @@ header {
 .form {
   // display: none;
   width: 100%;
-  input, textarea {
+  background-color: lightblue;
+  input,
+  textarea {
     width: 100%;
     border: 2px solid black;
   }
@@ -136,7 +147,8 @@ header {
     justify-content: space-around;
     text-align: center;
   }
-  // .form-btn__container {
-  //   input
-  // }
+  .form-btn__container {
+    display: flex;
+    gap: 5px;
+  }
 }

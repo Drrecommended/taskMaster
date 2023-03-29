@@ -1,4 +1,4 @@
-import createTask from './task'
+import { createTask } from './task'
 
 export default function form() {
   const taskName = document.getElementById('task-name')
@@ -11,7 +11,6 @@ export default function form() {
   const handleSubmit = (e) => {
     e.preventDefault()
     createTask(taskName.value, taskDescription.value, taskDate.value)
-    console.log('yeah baby yea')
   }
 
   const toggleFormView = () => {

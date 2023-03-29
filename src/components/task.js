@@ -20,10 +20,16 @@ class Task {
   }
 }
 
-export default function createTask(name, description, date) {
+export function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
   console.log(tasks)
+}
+
+export function displayTasks() {
+  tasks.forEach((task) => {
+    console.log(task)
+  })
 }
 
 export { tasks }

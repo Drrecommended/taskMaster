@@ -45,12 +45,11 @@
         <button id="project-controls_btn">&#43;</button>
       </div>
       <div class="project-controls" id="project-controls">
-        <input type="text" id="project_input" /><button
-          class="submit"
-          id="add-project_btn"
-        >
-          ADD</button
-        ><button class="cancel" id="cancel-project_btn">CANCEL</button>
+        <input type="text" id="project_input" />
+        <div class="project-controls__btns">
+          <button class="cancel__btn" id="cancel-project_btn">CANCEL</button
+          ><button class="submit__btn" id="add-project_btn">ADD</button>
+        </div>
       </div>
       <ul class="project-pages" id="project-pages"></ul>
     </nav>
@@ -116,8 +115,8 @@
               </div>
             </fieldset>
             <div class="form-btn__container">
-              <a href="#" class="cancel-btn" id="close-form__btn">CANCEL</a>
-              <input class="submit-btn" type="submit" value="SUBMIT" />
+              <a href="#" class="cancel__btn" id="close-form__btn">CANCEL</a>
+              <input class="submit__btn" type="submit" value="SUBMIT" />
             </div>
           </form>
           <ul class="task-list-container" id="task-list-container"></ul>
