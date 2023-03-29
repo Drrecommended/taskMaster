@@ -13,15 +13,14 @@ main {
   flex-grow: 1;
 }
 
-
-
 button {
   background-color: white;
   min-height: 54px;
   min-width: 54px;
 }
 
-button, .cancel__btn,
+button,
+.cancel__btn,
 input {
   padding: 10px 15px;
   border: 2px solid black;
@@ -36,7 +35,6 @@ input {
   background-color: $submit-color;
   color: white;
 }
-
 
 .wrapper {
   max-width: 1200px;
@@ -111,7 +109,7 @@ header {
     padding-left: 32px;
   }
   .project-controls {
-    width: 90%;
+    width: 95%;
     display: none;
     .show-controls {
       display: block;
@@ -121,7 +119,10 @@ header {
       width: 100%;
       margin-bottom: 5px;
     }
-    .cancel {
+
+    .submit__btn {
+      min-width: 130px;
+      float: right;
       margin-left: 5px;
     }
   }
@@ -131,7 +132,8 @@ header {
   // display: none;
   width: 100%;
   background-color: lightblue;
-  input, textarea {
+  input,
+  textarea {
     width: 100%;
     border: 2px solid black;
   }
