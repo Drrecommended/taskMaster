@@ -1,5 +1,8 @@
 @import url('reset.css');
 
+$cancel-color: rgb(224, 105, 105);
+$submit-color: green;
+
 body {
   min-height: 100vh;
   display: flex;
@@ -18,19 +21,19 @@ button {
   min-width: 54px;
 }
 
-button,
+button, .cancel__btn,
 input {
   padding: 10px 15px;
   border: 2px solid black;
 }
 
-.cancel {
-  background-color: rgb(224, 105, 105);
+.cancel__btn {
+  background-color: $cancel-color;
   color: white;
 }
 
-.submit {
-  background-color: green;
+.submit__btn {
+  background-color: $submit-color;
   color: white;
 }
 
@@ -127,6 +130,7 @@ header {
 .form {
   // display: none;
   width: 100%;
+  background-color: lightblue;
   input, textarea {
     width: 100%;
     border: 2px solid black;
@@ -136,7 +140,8 @@ header {
     justify-content: space-around;
     text-align: center;
   }
-  // .form-btn__container {
-  //   input
-  // }
+  .form-btn__container {
+    display: flex;
+    gap: 5px;
+  }
 }
