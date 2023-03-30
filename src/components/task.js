@@ -24,6 +24,7 @@ function createTaskCard(task, container) {
   const taskCard = document.createElement('div')
   taskCard.classList.add('card__grid')
   const taskTitle = document.createElement('h3')
+  taskTitle.classList.add('task__title')
   const taskDescription = document.createElement('p')
   const taskDate = document.createElement('p')
   const deleteBtn = document.createElement('button')

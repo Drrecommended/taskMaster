@@ -4,12 +4,13 @@ import navbar from '../layout/navbar'
 
 
 function startApp() {
-  const content = mainContent()
+  // const content = mainContent()
   const initialize = () => {
     
     header()
     navbar()
-    content.loadTasks()
+    mainContent()
+    // content.loadTasks()
     console.log('app started')
   }
 
