@@ -20,8 +20,21 @@ class Task {
   }
 }
 
-function createTaskCards() {
-
+function createTaskCard(task, container) {
+  const taskCard = document.createElement('div')
+  taskCard.classList.add('card__grid')
+  const taskTitle = document.createElement('h3')
+  const taskDescription = document.createElement('p')
+  const taskDate = document.createElement('p')
+  const deleteBtn = document.createElement('button')
+  const editBtn = document.createElement('button')
+  editBtn.innerText = 'edit'
+  deleteBtn.innerText = 'delete'
+  taskTitle.innerText = task.name
+  taskDescription.innerText = task.description
+  taskDate.innerText = task.date
+  taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
+  container.appendChild(taskCard)
 }
 
 export function createTask(name, description, date) {
@@ -32,9 +45,7 @@ export function createTask(name, description, date) {
 export function displayTaskCards(container) {
   console.log(container)
   return tasks.forEach((task) => {
-    const taskCard = document.createElement('div')
-    taskCard.innerText = task.name
-    container.appendChild(taskCard)
+    createTaskCard(task, container)
   })
 }
 
