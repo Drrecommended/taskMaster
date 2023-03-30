@@ -20,15 +20,21 @@ class Task {
   }
 }
 
+function createTaskCards() {
+
+}
+
 export function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
-  console.log(tasks)
 }
 
-export function displayTasks() {
-  tasks.forEach((task) => {
-    console.log(task)
+export function displayTaskCards(container) {
+  console.log(container)
+  return tasks.forEach((task) => {
+    const taskCard = document.createElement('div')
+    taskCard.innerText = task.name
+    container.appendChild(taskCard)
   })
 }
 
