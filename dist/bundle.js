@@ -785,7 +785,7 @@ function mainContent() {
   const taskContainer = document.getElementById('task-list__container')
   const renderTask = renderTo(taskContainer, sectionTitle)
   const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
-
+  console.log('test')
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
   //   displayTaskCards(taskContainer)

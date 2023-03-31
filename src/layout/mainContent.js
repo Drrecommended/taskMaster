@@ -28,7 +28,7 @@ export default function mainContent() {
   const taskContainer = document.getElementById('task-list__container')
   const renderTask = renderTo(taskContainer, sectionTitle)
   const thisForm = form()
-
+  console.log('test')
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
   //   displayTaskCards(taskContainer)
