@@ -20,15 +20,33 @@ class Task {
   }
 }
 
+// function createTaskCard(task, container) {
+//   const taskCard = document.createElement('div')
+//   taskCard.classList.add('card__grid')
+//   const taskTitle = document.createElement('h3')
+//   taskTitle.classList.add('task__title')
+//   const taskDescription = document.createElement('p')
+//   const taskDate = document.createElement('p')
+//   const deleteBtn = document.createElement('button')
+//   const editBtn = document.createElement('button')
+//   editBtn.innerText = 'edit'
+//   deleteBtn.innerText = 'delete'
+//   taskTitle.innerText = task.name
+//   taskDescription.innerText = task.description
+//   taskDate.innerText = task.date
+//   taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
+//   container.appendChild(taskCard)
+// }
+
 export function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
-  console.log(tasks)
 }
 
-export function displayTasks() {
-  tasks.forEach((task) => {
-    console.log(task)
+export function displayTaskCards(container) {
+  console.log(container)
+  return tasks.forEach((task) => {
+    createTaskCard(task, container)
   })
 }
 

@@ -134,7 +134,7 @@ header {
 }
 
 .form {
-  // display: none;
+  display: none;
   width: 100%;
   background-color: lightblue;
   input,
@@ -151,4 +151,11 @@ header {
     display: flex;
     gap: 5px;
   }
+}
+
+
+.task-list__container {
+  background-color: pink;
+  min-height: 10px;
+  min-width: 10px;
 }

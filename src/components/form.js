@@ -1,6 +1,6 @@
-import { createTask } from './task'
+import {createTask }from './task'
 
-export default function form() {
+export default function form(render) {
   const taskName = document.getElementById('task-name')
   const taskDescription = document.getElementById('task-description')
   const taskDate = document.getElementById('task-date')

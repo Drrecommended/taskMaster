@@ -11,6 +11,10 @@ function openNav() {
   nav.classList.add('open')
 }
 
+
+// LETS REFORMAT THIS TO RETURN A OBJECT THAT WE CAN PUT ALL THE METHODS IN THAT WAY ^^ THAT STUFF ISN"T OUT IN THE OPEN
+
+
 export default function navbar() {
   const navLinks = document.querySelectorAll('nav a')
   const closeNavBtn = document.getElementById('close-nav_btn')
