@@ -549,7 +549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ "./src/components/task.js");
 
 
-function form() {
+function form(render) {
   const taskName = document.getElementById('task-name')
   const taskDescription = document.getElementById('task-description')
   const taskDate = document.getElementById('task-date')
@@ -687,23 +687,23 @@ class Task {
   }
 }
 
-function createTaskCard(task, container) {
-  const taskCard = document.createElement('div')
-  taskCard.classList.add('card__grid')
-  const taskTitle = document.createElement('h3')
-  taskTitle.classList.add('task__title')
-  const taskDescription = document.createElement('p')
-  const taskDate = document.createElement('p')
-  const deleteBtn = document.createElement('button')
-  const editBtn = document.createElement('button')
-  editBtn.innerText = 'edit'
-  deleteBtn.innerText = 'delete'
-  taskTitle.innerText = task.name
-  taskDescription.innerText = task.description
-  taskDate.innerText = task.date
-  taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
-  container.appendChild(taskCard)
-}
+// function createTaskCard(task, container) {
+//   const taskCard = document.createElement('div')
+//   taskCard.classList.add('card__grid')
+//   const taskTitle = document.createElement('h3')
+//   taskTitle.classList.add('task__title')
+//   const taskDescription = document.createElement('p')
+//   const taskDate = document.createElement('p')
+//   const deleteBtn = document.createElement('button')
+//   const editBtn = document.createElement('button')
+//   editBtn.innerText = 'edit'
+//   deleteBtn.innerText = 'delete'
+//   taskTitle.innerText = task.name
+//   taskDescription.innerText = task.description
+//   taskDate.innerText = task.date
+//   taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
+//   container.appendChild(taskCard)
+// }
 
 function createTask(name, description, date) {
   const task = new Task(name, description, date)
@@ -758,7 +758,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function renderTo(container) {
   return function createTaskCard(task) {
     const taskCard = document.createElement('div')
@@ -784,8 +783,8 @@ function mainContent() {
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const taskContainer = document.getElementById('task-list__container')
-  const renderTask = renderTo(taskContainer)
-  const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
+  const renderTask = renderTo(taskContainer, sectionTitle)
+  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
 
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
@@ -801,7 +800,7 @@ function mainContent() {
     renderTask,
   }
 
-  openFormBtn.addEventListener('click', newForm.toggleFormView)
+  openFormBtn.addEventListener('click', thisForm.toggleFormView)
   return contentAPI
 }
 

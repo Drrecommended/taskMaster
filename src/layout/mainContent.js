@@ -1,6 +1,5 @@
 import form from '../components/form'
-import { displayTaskCards, tasks } from '../components/task'
-
+import { tasks } from '../components/task'
 
 function renderTo(container) {
   return function createTaskCard(task) {
@@ -27,8 +26,8 @@ export default function mainContent() {
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const taskContainer = document.getElementById('task-list__container')
-  const renderTask = renderTo(taskContainer)
-  const newForm = form()
+  const renderTask = renderTo(taskContainer, sectionTitle)
+  const thisForm = form()
 
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
@@ -44,6 +43,6 @@ export default function mainContent() {
     renderTask,
   }
 
-  openFormBtn.addEventListener('click', newForm.toggleFormView)
+  openFormBtn.addEventListener('click', thisForm.toggleFormView)
   return contentAPI
 }
