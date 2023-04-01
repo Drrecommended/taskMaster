@@ -4,7 +4,7 @@ import { tasks } from '../components/task'
 function renderTo(container) {
   return function createTaskCard(task) {
     const taskCard = document.createElement('div')
-    taskCard.classList.add('card__grid')
+    taskCard.classList.add('card')
     const taskTitle = document.createElement('h3')
     taskTitle.classList.add('task__title')
     const taskDescription = document.createElement('p')

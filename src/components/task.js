@@ -1,3 +1,5 @@
+import Project from "./projects"
+
 const tasks = [
   {
     name: '43',
@@ -7,8 +9,9 @@ const tasks = [
   },
 ]
 
-class Task {
+class Task extends Project {
   constructor(name, description, date) {
+    super()
     this.name = name
     this.description = description
     this.date = date
@@ -43,11 +46,5 @@ export function createTask(name, description, date) {
   tasks.push(task)
 }
 
-export function displayTaskCards(container) {
-  console.log(container)
-  return tasks.forEach((task) => {
-    createTaskCard(task, container)
-  })
-}
 
 export { tasks }
