@@ -153,9 +153,18 @@ header {
   }
 }
 
-
 .task-list__container {
   background-color: pink;
   min-height: 10px;
   min-width: 10px;
+}
+
+.card {
+  display: grid;
+  background-color: lightgreen;
+  grid-template-columns: 10px 50px 1fr 50px 10px;
+  grid-template-rows: auto;
+  .task__title {
+    grid-column: 2 / -1;
+  }
 }
