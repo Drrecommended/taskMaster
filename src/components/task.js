@@ -1,4 +1,4 @@
-import Project from "./projects"
+import Project from './projects'
 
 const tasks = [
   {
@@ -10,11 +10,12 @@ const tasks = [
 ]
 
 class Task extends Project {
-  constructor(name, description, date) {
+  constructor(name, date, priority, description) {
     super()
     this.name = name
-    this.description = description
     this.date = date
+    this.priorty = priority
+    this.description = description
     this.complete = false
   }
 
@@ -45,6 +46,5 @@ export function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
 }
-
 
 export { tasks }

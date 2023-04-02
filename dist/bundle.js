@@ -549,17 +549,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ "./src/components/task.js");
 
 
-function form(render) {
+function form() {
   const taskName = document.getElementById('task-name')
-  const taskDescription = document.getElementById('task-description')
   const taskDate = document.getElementById('task-date')
+  const taskPriority = document.querySelectorAll('#task-priority input[type=radio]')
+  const taskDescription = document.getElementById('task-description')
   // const taskPriority = document.getElementById('priority')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
+  console.log(taskPriority)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(taskName.value, taskDescription.value, taskDate.value)
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(
+      taskName.value,
+      taskDate.value,
+      taskPriority.value,
+      taskDescription.value
+    )
   }
 
   const toggleFormView = () => {
@@ -677,11 +684,12 @@ const tasks = [
 ]
 
 class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
-  constructor(name, description, date) {
+  constructor(name, date, priority, description) {
     super()
     this.name = name
-    this.description = description
     this.date = date
+    this.priorty = priority
+    this.description = description
     this.complete = false
   }
 
@@ -712,7 +720,6 @@ function createTask(name, description, date) {
   const task = new Task(name, description, date)
   tasks.push(task)
 }
-
 
 
 
