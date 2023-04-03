@@ -3,12 +3,17 @@ import { createTask } from './task'
 export default function form() {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
-  const taskPriority = document.querySelectorAll('#task-priority input[type=radio]')
+  const taskPriority = document.querySelectorAll(
+    '#task-priority input[type=radio]'
+  )
   const taskDescription = document.getElementById('task-description')
-  // const taskPriority = document.getElementById('priority')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
-  console.log(taskPriority)
+
+
+  const getPriorityValue = (e) => {
+    taskPriority.value = e.target.value
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -30,7 +35,9 @@ export default function form() {
 
   thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
-
+  taskPriority.forEach((priority) =>
+    priority.addEventListener('click', getPriorityValue)
+  )
   return {
     toggleFormView,
   }
