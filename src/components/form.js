@@ -1,16 +1,28 @@
-import {createTask }from './task'
+import { createTask } from './task'
 
-export default function form(render) {
+export default function form() {
   const taskName = document.getElementById('task-name')
-  const taskDescription = document.getElementById('task-description')
   const taskDate = document.getElementById('task-date')
-  // const taskPriority = document.getElementById('priority')
+  const taskPriority = document.querySelectorAll(
+    '#task-priority input[type=radio]'
+  )
+  const taskDescription = document.getElementById('task-description')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
 
+
+  const getPriorityValue = (e) => {
+    taskPriority.value = e.target.value
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    createTask(taskName.value, taskDescription.value, taskDate.value)
+    createTask(
+      taskName.value,
+      taskDate.value,
+      taskPriority.value,
+      taskDescription.value
+    )
   }
 
   const toggleFormView = () => {
@@ -23,7 +35,9 @@ export default function form(render) {
 
   thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
-
+  taskPriority.forEach((priority) =>
+    priority.addEventListener('click', getPriorityValue)
+  )
   return {
     toggleFormView,
   }

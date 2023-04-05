@@ -1,20 +1,23 @@
-import Project from "./projects"
+import Project from './projects'
 
 const tasks = [
   {
     name: '43',
-    description: '42',
-    date: '2023-03-01',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
+    priority: 'high',
+    date: '08/23/89',
     complete: false,
   },
 ]
 
 class Task extends Project {
-  constructor(name, description, date) {
+  constructor(name, date, priority, description) {
     super()
     this.name = name
-    this.description = description
     this.date = date
+    this.priorty = priority
+    this.description = description
     this.complete = false
   }
 
@@ -41,10 +44,10 @@ class Task extends Project {
 //   container.appendChild(taskCard)
 // }
 
-export function createTask(name, description, date) {
-  const task = new Task(name, description, date)
+export function createTask(name, date, priority, description) {
+  const task = new Task(name, date, priority, description)
   tasks.push(task)
+  console.log(task)
 }
-
 
 export { tasks }

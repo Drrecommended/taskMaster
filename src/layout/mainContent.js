@@ -3,21 +3,31 @@ import { tasks } from '../components/task'
 
 function renderTo(container) {
   return function createTaskCard(task) {
-    const taskCard = document.createElement('div')
-    taskCard.classList.add('card')
-    const taskTitle = document.createElement('h3')
-    taskTitle.classList.add('task__title')
-    const taskDescription = document.createElement('p')
-    const taskDate = document.createElement('p')
-    const deleteBtn = document.createElement('button')
+    const card = document.createElement('div')
+    card.classList.add('card')
+    const title = document.createElement('h3')
+    title.classList.add('task__title')
+    title.innerText = task.name
+    const date = document.createElement('p')
+    date.classList.add('task__date')
+    date.innerText = task.date
+    const priorty = document.createElement('p')
+    priorty.classList.add('task__priority')
+    priorty.innerText = task.priority
+    const description = document.createElement('p')
+    description.classList.add('task__description')
+    description.innerText = task.description
+    const btnContainer = document.createElement('div')
+    btnContainer.classList.add('btn__container')
     const editBtn = document.createElement('button')
-    editBtn.innerText = 'edit'
-    deleteBtn.innerText = 'delete'
-    taskTitle.innerText = task.name
-    taskDescription.innerText = task.description
-    taskDate.innerText = task.date
-    taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
-    container.appendChild(taskCard)
+    editBtn.innerText = '\u{270D}'
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerText = '\u{2718}'
+    const completeBtn = document.createElement('button')
+    completeBtn.innerText = '\u{2714}'
+    btnContainer.append(completeBtn, editBtn, deleteBtn)
+    card.append(title, date, priorty, description, btnContainer)
+    container.appendChild(card)
   }
 }
 
