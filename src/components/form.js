@@ -1,6 +1,6 @@
 import { createTask } from './task'
 
-export default function form() {
+export default function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
   const taskPriority = document.querySelectorAll(
@@ -26,10 +26,14 @@ export default function form() {
   }
 
   const toggleFormView = () => {
+    const taskContainer = container
     if (thisForm.style.display === 'block') {
       thisForm.style.display = 'none'
+      taskContainer.style.display = 'block'
     } else {
       thisForm.style.display = 'block'
+      taskContainer.style.display = 'none'
+
     }
   }
 

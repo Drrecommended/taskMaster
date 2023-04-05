@@ -549,7 +549,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ "./src/components/task.js");
 
 
-function form() {
+function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
   const taskPriority = document.querySelectorAll(
@@ -575,10 +575,14 @@ function form() {
   }
 
   const toggleFormView = () => {
+    const taskContainer = container
     if (thisForm.style.display === 'block') {
       thisForm.style.display = 'none'
+      taskContainer.style.display = 'block'
     } else {
       thisForm.style.display = 'block'
+      taskContainer.style.display = 'none'
+
     }
   }
 
@@ -808,8 +812,7 @@ function mainContent() {
   const sectionTitle = document.getElementById('section__title')
   const taskContainer = document.getElementById('task-list__container')
   const renderTask = renderTo(taskContainer, sectionTitle)
-  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])()
-  console.log('test')
+  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(taskContainer)
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
   //   displayTaskCards(taskContainer)
