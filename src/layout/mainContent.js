@@ -20,10 +20,12 @@ function renderTo(container) {
     const btnContainer = document.createElement('div')
     btnContainer.classList.add('btn__container')
     const editBtn = document.createElement('button')
-    editBtn.innerText = 'edit'
+    editBtn.innerText = '\u{270D}'
     const deleteBtn = document.createElement('button')
-    deleteBtn.innerText = 'delete'
-    btnContainer.append(editBtn, deleteBtn)
+    deleteBtn.innerText = '\u{2718}'
+    const completeBtn = document.createElement('button')
+    completeBtn.innerText = '\u{2714}'
+    btnContainer.append(completeBtn, editBtn, deleteBtn)
     card.append(title, date, priorty, description, btnContainer)
     container.appendChild(card)
   }

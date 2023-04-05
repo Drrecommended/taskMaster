@@ -6,7 +6,7 @@ const tasks = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
     priority: 'high',
-    date: '2023-03-01',
+    date: '08/23/89',
     complete: false,
   },
 ]
