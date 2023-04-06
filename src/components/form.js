@@ -10,19 +10,8 @@ export default function form(container) {
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
 
-
   const getPriorityValue = (e) => {
     taskPriority.value = e.target.value
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    createTask(
-      taskName.value,
-      taskDate.value,
-      taskPriority.value,
-      taskDescription.value
-    )
   }
 
   const toggleFormView = () => {
@@ -33,8 +22,19 @@ export default function form(container) {
     } else {
       thisForm.style.display = 'block'
       taskContainer.style.display = 'none'
-
     }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    createTask(
+      taskName.value,
+      taskDate.value,
+      taskPriority.value,
+      taskDescription.value,
+      container
+    )
+    toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)

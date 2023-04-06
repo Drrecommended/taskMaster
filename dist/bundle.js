@@ -559,19 +559,8 @@ function form(container) {
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
 
-
   const getPriorityValue = (e) => {
     taskPriority.value = e.target.value
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(
-      taskName.value,
-      taskDate.value,
-      taskPriority.value,
-      taskDescription.value
-    )
   }
 
   const toggleFormView = () => {
@@ -582,8 +571,19 @@ function form(container) {
     } else {
       thisForm.style.display = 'block'
       taskContainer.style.display = 'none'
-
     }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(
+      taskName.value,
+      taskDate.value,
+      taskPriority.value,
+      taskDescription.value,
+      container
+    )
+    toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)
@@ -680,9 +680,11 @@ const app = startApp()
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createTask": () => (/* binding */ createTask),
+/* harmony export */   "renderTaskto": () => (/* binding */ renderTaskto),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
+
 
 
 const tasks = [
@@ -711,28 +713,44 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
-// function createTaskCard(task, container) {
-//   const taskCard = document.createElement('div')
-//   taskCard.classList.add('card__grid')
-//   const taskTitle = document.createElement('h3')
-//   taskTitle.classList.add('task__title')
-//   const taskDescription = document.createElement('p')
-//   const taskDate = document.createElement('p')
-//   const deleteBtn = document.createElement('button')
-//   const editBtn = document.createElement('button')
-//   editBtn.innerText = 'edit'
-//   deleteBtn.innerText = 'delete'
-//   taskTitle.innerText = task.name
-//   taskDescription.innerText = task.description
-//   taskDate.innerText = task.date
-//   taskCard.append(taskTitle, taskDescription, taskDate, editBtn, deleteBtn)
-//   container.appendChild(taskCard)
-// }
 
-function createTask(name, date, priority, description) {
+
+function renderTaskto(container) {
+  console.log(container)
+  return function createTaskCard(task) {
+    const card = document.createElement('div')
+    card.classList.add('card')
+    const title = document.createElement('h3')
+    title.classList.add('task__title')
+    title.innerText = task.name
+    const date = document.createElement('p')
+    date.classList.add('task__date')
+    date.innerText = task.date
+    const priorty = document.createElement('p')
+    priorty.classList.add('task__priority')
+    priorty.innerText = task.priority
+    const description = document.createElement('p')
+    description.classList.add('task__description')
+    description.innerText = task.description
+    const btnContainer = document.createElement('div')
+    btnContainer.classList.add('btn__container')
+    const editBtn = document.createElement('button')
+    editBtn.innerText = '\u{270D}'
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerText = '\u{2718}'
+    const completeBtn = document.createElement('button')
+    completeBtn.innerText = '\u{2714}'
+    btnContainer.append(completeBtn, editBtn, deleteBtn)
+    card.append(title, date, priorty, description, btnContainer)
+    container.appendChild(card)
+  }
+}
+
+function createTask(name, date, priority, description, container) {
   const task = new Task(name, date, priority, description)
   tasks.push(task)
-  console.log(task)
+  const renderTask = renderTaskto(container)
+  renderTask(task)
 }
 
 
@@ -776,42 +794,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function renderTo(container) {
-  return function createTaskCard(task) {
-    const card = document.createElement('div')
-    card.classList.add('card')
-    const title = document.createElement('h3')
-    title.classList.add('task__title')
-    title.innerText = task.name
-    const date = document.createElement('p')
-    date.classList.add('task__date')
-    date.innerText = task.date
-    const priorty = document.createElement('p')
-    priorty.classList.add('task__priority')
-    priorty.innerText = task.priority
-    const description = document.createElement('p')
-    description.classList.add('task__description')
-    description.innerText = task.description
-    const btnContainer = document.createElement('div')
-    btnContainer.classList.add('btn__container')
-    const editBtn = document.createElement('button')
-    editBtn.innerText = '\u{270D}'
-    const deleteBtn = document.createElement('button')
-    deleteBtn.innerText = '\u{2718}'
-    const completeBtn = document.createElement('button')
-    completeBtn.innerText = '\u{2714}'
-    btnContainer.append(completeBtn, editBtn, deleteBtn)
-    card.append(title, date, priorty, description, btnContainer)
-    container.appendChild(card)
-  }
-}
+
 
 function mainContent() {
   // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const taskContainer = document.getElementById('task-list__container')
-  const renderTask = renderTo(taskContainer, sectionTitle)
+  const renderTask = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.renderTaskto)(taskContainer, sectionTitle)
   const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(taskContainer)
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
@@ -823,12 +813,9 @@ function mainContent() {
 
   _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.forEach(renderTask)
 
-  const contentAPI = {
-    renderTask,
-  }
 
   openFormBtn.addEventListener('click', thisForm.toggleFormView)
-  return contentAPI
+
 }
 
 
