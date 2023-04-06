@@ -1,6 +1,6 @@
 import { createTask } from './task'
 
-export default function form() {
+export default function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
   const taskPriority = document.querySelectorAll(
@@ -10,9 +10,19 @@ export default function form() {
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
 
-
   const getPriorityValue = (e) => {
     taskPriority.value = e.target.value
+  }
+
+  const toggleFormView = () => {
+    const taskContainer = container
+    if (thisForm.style.display === 'block') {
+      thisForm.style.display = 'none'
+      taskContainer.style.display = 'block'
+    } else {
+      thisForm.style.display = 'block'
+      taskContainer.style.display = 'none'
+    }
   }
 
   const handleSubmit = (e) => {
@@ -21,16 +31,10 @@ export default function form() {
       taskName.value,
       taskDate.value,
       taskPriority.value,
-      taskDescription.value
+      taskDescription.value,
+      container
     )
-  }
-
-  const toggleFormView = () => {
-    if (thisForm.style.display === 'block') {
-      thisForm.style.display = 'none'
-    } else {
-      thisForm.style.display = 'block'
-    }
+    toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)

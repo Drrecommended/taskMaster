@@ -1,44 +1,15 @@
 import form from '../components/form'
-import { tasks } from '../components/task'
+import { tasks, renderTaskto } from '../components/task'
 
-function renderTo(container) {
-  return function createTaskCard(task) {
-    const card = document.createElement('div')
-    card.classList.add('card')
-    const title = document.createElement('h3')
-    title.classList.add('task__title')
-    title.innerText = task.name
-    const date = document.createElement('p')
-    date.classList.add('task__date')
-    date.innerText = task.date
-    const priorty = document.createElement('p')
-    priorty.classList.add('task__priority')
-    priorty.innerText = task.priority
-    const description = document.createElement('p')
-    description.classList.add('task__description')
-    description.innerText = task.description
-    const btnContainer = document.createElement('div')
-    btnContainer.classList.add('btn__container')
-    const editBtn = document.createElement('button')
-    editBtn.innerText = '\u{270D}'
-    const deleteBtn = document.createElement('button')
-    deleteBtn.innerText = '\u{2718}'
-    const completeBtn = document.createElement('button')
-    completeBtn.innerText = '\u{2714}'
-    btnContainer.append(completeBtn, editBtn, deleteBtn)
-    card.append(title, date, priorty, description, btnContainer)
-    container.appendChild(card)
-  }
-}
+
 
 export default function mainContent() {
   // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const taskContainer = document.getElementById('task-list__container')
-  const renderTask = renderTo(taskContainer, sectionTitle)
-  const thisForm = form()
-  console.log('test')
+  const renderTask = renderTaskto(taskContainer, sectionTitle)
+  const thisForm = form(taskContainer)
   // const loadTasks = (section) => {
   //   sectionTitle.innerText = section || 'All Tasks'
   //   displayTaskCards(taskContainer)
@@ -49,10 +20,7 @@ export default function mainContent() {
 
   tasks.forEach(renderTask)
 
-  const contentAPI = {
-    renderTask,
-  }
 
   openFormBtn.addEventListener('click', thisForm.toggleFormView)
-  return contentAPI
+
 }
