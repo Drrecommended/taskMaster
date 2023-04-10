@@ -22,5 +22,5 @@ export default function mainContent() {
 
 
   openFormBtn.addEventListener('click', thisForm.toggleFormView)
-
+  
 }

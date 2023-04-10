@@ -686,7 +686,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
 
 
-
 const tasks = [
   {
     name: '43',
@@ -695,6 +694,14 @@ const tasks = [
     priority: 'high',
     date: '08/23/89',
     complete: false,
+    markComplete() {
+      console.log(this)
+      this.complete = true
+      console.log(this.complete)
+    },
+    editTask() {
+      console.log(this, 'we are editing now')
+    },
   },
 ]
 
@@ -709,15 +716,42 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   markComplete() {
+    console.log(this)
+    this.complete = true
     console.log(this.complete)
   }
+
+  editTask() {
+    console.log(this, 'we are editing now')
+  }
+
+  // deleteTask() {
+  //   console.log(this, 'deleted')
+  //   const index = tasks.indexOf(this.name)
+  //   if(index > -1) {
+  //     tasks.splice(index, 1)
+  //     return true
+  //   }
+
+  //   console.log(tasks)
+  //   return false
+  // }
 }
 
-
+function deleteTask(task) {
+  console.log(task)
+  const index = tasks.indexOf(task.name)
+  console.log(task.name)
+  console.log(index)
+  if (index > -1) {
+    tasks.splice(index, 1)
+  }
+  console.log(tasks)
+}
 
 function renderTaskto(container) {
-  console.log(container)
   return function createTaskCard(task) {
+    console.log(task)
     const card = document.createElement('div')
     card.classList.add('card')
     const title = document.createElement('h3')
@@ -740,6 +774,13 @@ function renderTaskto(container) {
     deleteBtn.innerText = '\u{2718}'
     const completeBtn = document.createElement('button')
     completeBtn.innerText = '\u{2714}'
+    completeBtn.addEventListener('click', () => {
+      task.markComplete()
+    })
+    deleteBtn.addEventListener('click', () => {
+      // console.log(this, task.deleteTask)
+      deleteTask(task)
+    })
     btnContainer.append(completeBtn, editBtn, deleteBtn)
     card.append(title, date, priorty, description, btnContainer)
     container.appendChild(card)
@@ -815,7 +856,7 @@ function mainContent() {
 
 
   openFormBtn.addEventListener('click', thisForm.toggleFormView)
-
+  
 }
 
 
