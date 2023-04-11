@@ -38,24 +38,13 @@ class Task extends Project {
   editTask() {
     console.log(this, 'we are editing now')
   }
-
-  // deleteTask() {
-  //   console.log(this, 'deleted')
-  //   const index = tasks.indexOf(this.name)
-  //   if(index > -1) {
-  //     tasks.splice(index, 1)
-  //     return true
-  //   }
-
-  //   console.log(tasks)
-  //   return false
-  // }
 }
 
-function deleteTask(task) {
-  console.log(task)
-  const index = tasks.indexOf(task.name)
-  console.log(task.name)
+console.log(tasks.indexOf())
+
+function deleteTask(e) {
+  console.log(this, e.target)
+  const index = tasks.findIndex(x => x.name === this.name)
   console.log(index)
   if (index > -1) {
     tasks.splice(index, 1)
@@ -65,7 +54,6 @@ function deleteTask(task) {
 
 export function renderTaskto(container) {
   return function createTaskCard(task) {
-    console.log(task)
     const card = document.createElement('div')
     card.classList.add('card')
     const title = document.createElement('h3')
@@ -91,10 +79,7 @@ export function renderTaskto(container) {
     completeBtn.addEventListener('click', () => {
       task.markComplete()
     })
-    deleteBtn.addEventListener('click', () => {
-      // console.log(this, task.deleteTask)
-      deleteTask(task)
-    })
+    deleteBtn.addEventListener('click', deleteTask.bind(task))
     btnContainer.append(completeBtn, editBtn, deleteBtn)
     card.append(title, date, priorty, description, btnContainer)
     container.appendChild(card)
