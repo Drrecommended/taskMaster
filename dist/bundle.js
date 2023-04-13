@@ -576,13 +576,13 @@ function form(container) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(
-      taskName.value,
-      taskDate.value,
-      taskPriority.value,
-      taskDescription.value,
-      container
-    )
+
+    const name = taskName.value.trim()
+    const date = taskDate.value.trim()
+    const priority = taskPriority.value.trim()
+    const description = taskDescription.value.trim()
+
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(name, date, priority, description, _task__WEBPACK_IMPORTED_MODULE_0__.tasks, container)
     toggleFormView()
   }
 
@@ -703,38 +703,6 @@ const tasks = [
       console.log(this, 'we are editing now')
     },
   },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
 ]
 
 class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
@@ -758,7 +726,14 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
-const taskCards = tasks.map((task) => {
+const deleteTask = (task) => {
+  const index = tasks.findIndex((x) => x.name === task.name)
+  if (index > -1) {
+    tasks.splice(index, 1)
+  }
+}
+
+function createCard(task) {
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -784,13 +759,13 @@ const taskCards = tasks.map((task) => {
   completeBtn.addEventListener('click', () => {
     task.markComplete()
   })
-  deleteBtn.addEventListener('click', () => {
-    console.log('test')
-  })
+  deleteBtn.addEventListener('click', deleteTask.bind(task))
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
-})
+}
+
+const taskCards = tasks.map(createCard)
 
 function taskLoader(container, title, section = 'tasks') {
   const thisContainer = container
@@ -801,20 +776,11 @@ function taskLoader(container, title, section = 'tasks') {
   }
 }
 
-const deleteTask = () => {
-  const index = tasks.findIndex((x) => x.name === undefined.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  taskLoader()
-}
 
-
-
-
-function createTask(name, date, priority, description) {
+function createTask(name, date, priority, description, taskList ) {
   const task = new Task(name, date, priority, description)
-  tasks.push(task)
+  taskList.push(task)
+  taskLoader()
 }
 
 
@@ -861,14 +827,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function mainContent(section) {
-  // const sectionTitle = document.getElementById('section__title')
+  console.log(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const contentContainer = document.getElementById('task-list__container')
   const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
   
   const loadTasks = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.taskLoader)(contentContainer, sectionTitle, section)
-  loadTasks()
+  loadTasks(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
   
   openFormBtn.addEventListener('click', thisForm.toggleFormView)
   return {

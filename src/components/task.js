@@ -17,38 +17,6 @@ const tasks = [
       console.log(this, 'we are editing now')
     },
   },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
 ]
 
 class Task extends Project {
@@ -72,7 +40,14 @@ class Task extends Project {
   }
 }
 
-const taskCards = tasks.map((task) => {
+const deleteTask = (task) => {
+  const index = tasks.findIndex((x) => x.name === task.name)
+  if (index > -1) {
+    tasks.splice(index, 1)
+  }
+}
+
+function createCard(task) {
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -98,13 +73,13 @@ const taskCards = tasks.map((task) => {
   completeBtn.addEventListener('click', () => {
     task.markComplete()
   })
-  deleteBtn.addEventListener('click', () => {
-    console.log('test')
-  })
+  deleteBtn.addEventListener('click', deleteTask.bind(task))
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
-})
+}
+
+const taskCards = tasks.map(createCard)
 
 export function taskLoader(container, title, section = 'tasks') {
   const thisContainer = container
@@ -115,20 +90,11 @@ export function taskLoader(container, title, section = 'tasks') {
   }
 }
 
-const deleteTask = () => {
-  const index = tasks.findIndex((x) => x.name === this.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  taskLoader()
-}
 
-
-
-
-export function createTask(name, date, priority, description) {
+export function createTask(name, date, priority, description, taskList ) {
   const task = new Task(name, date, priority, description)
-  tasks.push(task)
+  taskList.push(task)
+  taskLoader()
 }
 
 
