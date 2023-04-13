@@ -680,13 +680,45 @@ const app = startApp()
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createTask": () => (/* binding */ createTask),
-/* harmony export */   "renderTaskto": () => (/* binding */ renderTaskto),
+/* harmony export */   "taskLoader": () => (/* binding */ taskLoader),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
 
 
 const tasks = [
+  {
+    name: '43',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
+    priority: 'high',
+    date: '08/23/89',
+    complete: false,
+    markComplete() {
+      console.log(this)
+      this.complete = true
+      console.log(this.complete)
+    },
+    editTask() {
+      console.log(this, 'we are editing now')
+    },
+  },
+  {
+    name: '43',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
+    priority: 'high',
+    date: '08/23/89',
+    complete: false,
+    markComplete() {
+      console.log(this)
+      this.complete = true
+      console.log(this.complete)
+    },
+    editTask() {
+      console.log(this, 'we are editing now')
+    },
+  },
   {
     name: '43',
     description:
@@ -726,58 +758,66 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
-console.log(tasks.indexOf())
+const taskCards = tasks.map((task) => {
+  const card = document.createElement('div')
+  card.classList.add('card')
+  const title = document.createElement('h3')
+  title.classList.add('task__title')
+  title.innerText = task.name
+  const date = document.createElement('p')
+  date.classList.add('task__date')
+  date.innerText = task.date
+  const priorty = document.createElement('p')
+  priorty.classList.add('task__priority')
+  priorty.innerText = task.priority
+  const description = document.createElement('p')
+  description.classList.add('task__description')
+  description.innerText = task.description
+  const btnContainer = document.createElement('div')
+  btnContainer.classList.add('btn__container')
+  const editBtn = document.createElement('button')
+  editBtn.innerText = '\u{270D}'
+  const deleteBtn = document.createElement('button')
+  deleteBtn.innerText = '\u{2718}'
+  const completeBtn = document.createElement('button')
+  completeBtn.innerText = '\u{2714}'
+  completeBtn.addEventListener('click', () => {
+    task.markComplete()
+  })
+  deleteBtn.addEventListener('click', () => {
+    console.log('test')
+  })
+  btnContainer.append(completeBtn, editBtn, deleteBtn)
+  card.append(title, date, priorty, description, btnContainer)
+  return card
+})
 
-function deleteTask(e) {
-  console.log(this, e.target)
-  const index = tasks.findIndex(x => x.name === this.name)
-  console.log(index)
+function taskLoader(container, title, section = 'tasks') {
+  const thisContainer = container
+  console.log('test', thisContainer)
+  return function loadCards () {
+    thisContainer.innerHTML = ''
+    taskCards.forEach((card) => thisContainer.append(card))
+  }
+}
+
+const deleteTask = () => {
+  const index = tasks.findIndex((x) => x.name === undefined.name)
   if (index > -1) {
     tasks.splice(index, 1)
   }
-  console.log(tasks)
+  taskLoader()
 }
 
-function renderTaskto(container) {
-  return function createTaskCard(task) {
-    const card = document.createElement('div')
-    card.classList.add('card')
-    const title = document.createElement('h3')
-    title.classList.add('task__title')
-    title.innerText = task.name
-    const date = document.createElement('p')
-    date.classList.add('task__date')
-    date.innerText = task.date
-    const priorty = document.createElement('p')
-    priorty.classList.add('task__priority')
-    priorty.innerText = task.priority
-    const description = document.createElement('p')
-    description.classList.add('task__description')
-    description.innerText = task.description
-    const btnContainer = document.createElement('div')
-    btnContainer.classList.add('btn__container')
-    const editBtn = document.createElement('button')
-    editBtn.innerText = '\u{270D}'
-    const deleteBtn = document.createElement('button')
-    deleteBtn.innerText = '\u{2718}'
-    const completeBtn = document.createElement('button')
-    completeBtn.innerText = '\u{2714}'
-    completeBtn.addEventListener('click', () => {
-      task.markComplete()
-    })
-    deleteBtn.addEventListener('click', deleteTask.bind(task))
-    btnContainer.append(completeBtn, editBtn, deleteBtn)
-    card.append(title, date, priorty, description, btnContainer)
-    container.appendChild(card)
-  }
-}
 
-function createTask(name, date, priority, description, container) {
+
+
+function createTask(name, date, priority, description) {
   const task = new Task(name, date, priority, description)
   tasks.push(task)
-  const renderTask = renderTaskto(container)
-  renderTask(task)
 }
+
+
 
 
 
@@ -820,28 +860,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-function mainContent() {
+function mainContent(section) {
   // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
-  const taskContainer = document.getElementById('task-list__container')
-  const renderTask = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.renderTaskto)(taskContainer, sectionTitle)
-  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(taskContainer)
-  // const loadTasks = (section) => {
-  //   sectionTitle.innerText = section || 'All Tasks'
-  //   displayTaskCards(taskContainer)
-  //   // const taskCards = displayTaskCards()
-  //   // console.log(taskContainer, taskCards())
-  //   // taskContainer.appendChild(taskCards)
-  // }
-
-  _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.forEach(renderTask)
-
-
-  openFormBtn.addEventListener('click', thisForm.toggleFormView)
+  const contentContainer = document.getElementById('task-list__container')
+  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
   
+  const loadTasks = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.taskLoader)(contentContainer, sectionTitle, section)
+  loadTasks()
+  
+  openFormBtn.addEventListener('click', thisForm.toggleFormView)
+  return {
+    loadTasks
+  }
 }
 
 
@@ -873,9 +905,7 @@ function openNav() {
   nav.classList.add('open')
 }
 
-
 // LETS REFORMAT THIS TO RETURN A OBJECT THAT WE CAN PUT ALL THE METHODS IN THAT WAY ^^ THAT STUFF ISN"T OUT IN THE OPEN
-
 
 function navbar() {
   const navLinks = document.querySelectorAll('nav a')
@@ -890,7 +920,8 @@ function navbar() {
   const navigate = (e) => {
     const newContent = (0,_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
     const { section } = e.target.dataset
-    newContent.showTasks(section)
+    newContent.loadTasks(section)
+    // newContent.showTasks(section)
     closeNav()
   }
 
