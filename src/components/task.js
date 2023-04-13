@@ -70,10 +70,10 @@ function createCard(task) {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', () => {
-    task.markComplete()
-  })
+  completeBtn.addEventListener('click', task.markComplete)
+  editBtn.addEventListener('click', task.editTask)
   deleteBtn.addEventListener('click', deleteTask.bind(task))
+
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
