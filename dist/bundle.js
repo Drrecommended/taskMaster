@@ -680,10 +680,11 @@ const app = startApp()
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createTask": () => (/* binding */ createTask),
-/* harmony export */   "taskLoader": () => (/* binding */ taskLoader),
+/* harmony export */   "loadTasks": () => (/* binding */ loadTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
+
 
 
 const tasks = [
@@ -695,9 +696,8 @@ const tasks = [
     date: '08/23/89',
     complete: false,
     markComplete() {
-      console.log(this)
+      console.log(this.complete, this.name)
       this.complete = true
-      console.log(this.complete)
     },
     editTask() {
       console.log(this, 'we are editing now')
@@ -726,12 +726,23 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
+function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+
 const deleteTask = (task) => {
+  console.log(task)
   const index = tasks.findIndex((x) => x.name === task.name)
   if (index > -1) {
     tasks.splice(index, 1)
   }
+  loadTasks()
 }
+
 
 function createCard(task) {
   const card = document.createElement('div')
@@ -756,31 +767,41 @@ function createCard(task) {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete)
+  completeBtn.addEventListener('click', task.markComplete.bind(this))
   editBtn.addEventListener('click', task.editTask)
-  deleteBtn.addEventListener('click', deleteTask.bind(task))
-
+  deleteBtn.addEventListener('click', () => {
+    deleteTask(task)
+  })
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
 }
 
-const taskCards = tasks.map(createCard)
-
-function taskLoader(container, title, section = 'tasks') {
-  const thisContainer = container
-  console.log('test', thisContainer)
-  return function loadCards () {
-    thisContainer.innerHTML = ''
-    taskCards.forEach((card) => thisContainer.append(card))
-  }
-}
 
 
-function createTask(name, date, priority, description, taskList ) {
+
+
+
+
+
+
+
+// export function taskLoader(container, title, section = 'tasks') {
+//   const thisContainer = container
+//   console.log('test', thisContainer)
+//   return function loadCards () {
+//     thisContainer.innerHTML = ''
+//     taskCards.forEach((card) => thisContainer.append(card))
+//   }
+// }
+
+
+
+
+function createTask(name, date, priority, description, taskList) {
   const task = new Task(name, date, priority, description)
   taskList.push(task)
-  taskLoader()
+  loadTasks()
 }
 
 
@@ -827,18 +848,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function mainContent(section) {
-  console.log(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const contentContainer = document.getElementById('task-list__container')
-  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
+  const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
   
-  const loadTasks = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.taskLoader)(contentContainer, sectionTitle, section)
-  loadTasks(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
+  ;(0,_components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks)()
   
-  openFormBtn.addEventListener('click', thisForm.toggleFormView)
+  openFormBtn.addEventListener('click', newForm.toggleFormView)
   return {
-    loadTasks
+    loadTasks: _components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks
   }
 }
 

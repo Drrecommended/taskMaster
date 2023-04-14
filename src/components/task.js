@@ -1,5 +1,6 @@
 import Project from './projects'
 
+
 const tasks = [
   {
     name: '43',
@@ -9,9 +10,8 @@ const tasks = [
     date: '08/23/89',
     complete: false,
     markComplete() {
-      console.log(this)
+      console.log(this.complete, this.name)
       this.complete = true
-      console.log(this.complete)
     },
     editTask() {
       console.log(this, 'we are editing now')
@@ -40,12 +40,23 @@ class Task extends Project {
   }
 }
 
+export function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+
 const deleteTask = (task) => {
+  console.log(task)
   const index = tasks.findIndex((x) => x.name === task.name)
   if (index > -1) {
     tasks.splice(index, 1)
   }
+  loadTasks()
 }
+
 
 function createCard(task) {
   const card = document.createElement('div')
@@ -70,31 +81,41 @@ function createCard(task) {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete)
+  completeBtn.addEventListener('click', task.markComplete.bind(this))
   editBtn.addEventListener('click', task.editTask)
-  deleteBtn.addEventListener('click', deleteTask.bind(task))
-
+  deleteBtn.addEventListener('click', () => {
+    deleteTask(task)
+  })
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
 }
 
-const taskCards = tasks.map(createCard)
-
-export function taskLoader(container, title, section = 'tasks') {
-  const thisContainer = container
-  console.log('test', thisContainer)
-  return function loadCards () {
-    thisContainer.innerHTML = ''
-    taskCards.forEach((card) => thisContainer.append(card))
-  }
-}
 
 
-export function createTask(name, date, priority, description, taskList ) {
+
+
+
+
+
+
+
+// export function taskLoader(container, title, section = 'tasks') {
+//   const thisContainer = container
+//   console.log('test', thisContainer)
+//   return function loadCards () {
+//     thisContainer.innerHTML = ''
+//     taskCards.forEach((card) => thisContainer.append(card))
+//   }
+// }
+
+
+
+
+export function createTask(name, date, priority, description, taskList) {
   const task = new Task(name, date, priority, description)
   taskList.push(task)
-  taskLoader()
+  loadTasks()
 }
 
 
