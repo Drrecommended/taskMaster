@@ -552,15 +552,15 @@ __webpack_require__.r(__webpack_exports__);
 function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
-  const taskPriority = document.querySelectorAll(
-    '#task-priority input[type=radio]'
-  )
+  const taskPriorityRadios = document.getElementsByName('task-priority')
   const taskDescription = document.getElementById('task-description')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
+  let radioValue
 
-  const getPriorityValue = (e) => {
-    taskPriority.value = e.target.value
+  const getRadioValue = (e) => {
+    radioValue = e.target.value
+    return radioValue
   }
 
   const toggleFormView = () => {
@@ -576,20 +576,19 @@ function form(container) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     const name = taskName.value.trim()
     const date = taskDate.value.trim()
-    const priority = taskPriority.value.trim()
+    const priority = radioValue
     const description = taskDescription.value.trim()
-
+    console.log(priority, radioValue)
     ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(name, date, priority, description, _task__WEBPACK_IMPORTED_MODULE_0__.tasks, container)
     toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
-  taskPriority.forEach((priority) =>
-    priority.addEventListener('click', getPriorityValue)
+  taskPriorityRadios.forEach((radio) =>
+    radio.addEventListener('click', getRadioValue)
   )
   return {
     toggleFormView,
@@ -710,7 +709,7 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
     super()
     this.name = name
     this.date = date
-    this.priorty = priority
+    this.priority = priority
     this.description = description
     this.complete = false
   }
@@ -726,25 +725,8 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 }
 
-function loadTasks() {
-  const taskCards = tasks.map(createCard)
-  const taskContainer = document.getElementById('task-list__container')
-  taskContainer.innerHTML = ''
-  taskCards.forEach(card => taskContainer.appendChild(card))
-}
-
-
-const deleteTask = (task) => {
-  console.log(task)
-  const index = tasks.findIndex((x) => x.name === task.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  loadTasks()
-}
-
-
 function createCard(task) {
+  console.log(task)
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -777,6 +759,27 @@ function createCard(task) {
   return card
 }
 
+function deleteTask(task) {
+  console.log(task)
+  const index = tasks.findIndex((x) => x.name === task.name)
+  if (index > -1) {
+    tasks.splice(index, 1)
+  }
+  loadTasks()
+}
+
+
+function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+
+
+
+
 
 
 
@@ -799,6 +802,7 @@ function createCard(task) {
 
 
 function createTask(name, date, priority, description, taskList) {
+  console.log(priority)
   const task = new Task(name, date, priority, description)
   taskList.push(task)
   loadTasks()
@@ -860,6 +864,7 @@ function mainContent(section) {
     loadTasks: _components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks
   }
 }
+
 
 
 /***/ }),

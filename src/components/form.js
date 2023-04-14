@@ -3,15 +3,15 @@ import { tasks, createTask } from './task'
 export default function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
-  const taskPriority = document.querySelectorAll(
-    '#task-priority input[type=radio]'
-  )
+  const taskPriorityRadios = document.getElementsByName('task-priority')
   const taskDescription = document.getElementById('task-description')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
+  let radioValue
 
-  const getPriorityValue = (e) => {
-    taskPriority.value = e.target.value
+  const getRadioValue = (e) => {
+    radioValue = e.target.value
+    return radioValue
   }
 
   const toggleFormView = () => {
@@ -27,20 +27,19 @@ export default function form(container) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     const name = taskName.value.trim()
     const date = taskDate.value.trim()
-    const priority = taskPriority.value.trim()
+    const priority = radioValue
     const description = taskDescription.value.trim()
-
+    console.log(priority, radioValue)
     createTask(name, date, priority, description, tasks, container)
     toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
-  taskPriority.forEach((priority) =>
-    priority.addEventListener('click', getPriorityValue)
+  taskPriorityRadios.forEach((radio) =>
+    radio.addEventListener('click', getRadioValue)
   )
   return {
     toggleFormView,

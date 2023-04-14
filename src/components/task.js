@@ -24,7 +24,7 @@ class Task extends Project {
     super()
     this.name = name
     this.date = date
-    this.priorty = priority
+    this.priority = priority
     this.description = description
     this.complete = false
   }
@@ -40,25 +40,8 @@ class Task extends Project {
   }
 }
 
-export function loadTasks() {
-  const taskCards = tasks.map(createCard)
-  const taskContainer = document.getElementById('task-list__container')
-  taskContainer.innerHTML = ''
-  taskCards.forEach(card => taskContainer.appendChild(card))
-}
-
-
-const deleteTask = (task) => {
-  console.log(task)
-  const index = tasks.findIndex((x) => x.name === task.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  loadTasks()
-}
-
-
 function createCard(task) {
+  console.log(task)
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -91,6 +74,27 @@ function createCard(task) {
   return card
 }
 
+function deleteTask(task) {
+  console.log(task)
+  const index = tasks.findIndex((x) => x.name === task.name)
+  if (index > -1) {
+    tasks.splice(index, 1)
+  }
+  loadTasks()
+}
+
+
+export function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+
+
+
+
 
 
 
@@ -113,6 +117,7 @@ function createCard(task) {
 
 
 export function createTask(name, date, priority, description, taskList) {
+  console.log(priority)
   const task = new Task(name, date, priority, description)
   taskList.push(task)
   loadTasks()
