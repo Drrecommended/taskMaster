@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_reset_css__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: rgb(182, 224, 238);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\n.cancel__btn,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel__btn {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit__btn {\n  background-color: green;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n}\n.nav.open {\n  width: 320px;\n  max-width: 100%;\n}\n.nav h2 {\n  font-size: 28px;\n}\n.nav .task-pages,\n.nav .project-controls_header {\n  margin-bottom: 14px;\n}\n.nav a {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  display: block;\n  transition: 0.3s;\n}\n.nav .close-nav_btn {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  margin-left: 50px;\n}\n.nav .divider-line,\n.nav .project-controls_header,\n.nav .cancel {\n  margin-right: 14px;\n}\n.nav .divider-line {\n  border-bottom: 2px solid black;\n  display: block;\n  margin-left: 32px;\n  margin-bottom: 10px;\n  max-width: 90%;\n}\n.nav .project-controls_header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.nav .project-controls,\n.nav .project-controls_header {\n  padding-left: 32px;\n}\n.nav .project-controls {\n  width: 95%;\n  display: none;\n}\n.nav .project-controls .show-controls {\n  display: block;\n}\n.nav .project-controls input {\n  display: block;\n  width: 100%;\n  margin-bottom: 5px;\n}\n.nav .project-controls .project-controls__btns {\n  display: flex;\n  justify-content: right;\n  gap: 5px;\n}\n.nav .project-controls .project-controls__btns .submit__btn {\n  min-width: 132px;\n}\n.nav .project-controls .project-controls__btns .cancel__btn {\n  width: 100%;\n}\n\n.form {\n  display: none;\n  width: 100%;\n  background-color: lightblue;\n}\n.form input,\n.form textarea {\n  width: 100%;\n  border: 2px solid black;\n}\n.form .radio__container {\n  display: flex;\n  justify-content: space-around;\n  text-align: center;\n}\n.form .form-btn__container {\n  display: flex;\n  gap: 5px;\n}\n\n.task-list__container {\n  width: 100%;\n}\n\n.card {\n  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);\n  border-radius: 5px;\n  background-color: white;\n  padding: 12px;\n  display: grid;\n  max-width: 320px;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(4, auto);\n}\n.card .task__title {\n  text-align: center;\n  align-self: center;\n  grid-column: 1/-1;\n  grid-row: 1/2;\n  border-bottom: 2px solid black;\n}\n.card .task__date {\n  grid-row: 2/3;\n  grid-column: 1/3;\n  justify-self: center;\n}\n.card .task__priority {\n  grid-row: 2/3;\n  grid-column-end: -1;\n}\n.card .task__description {\n  justify-content: center;\n  color: rgb(120, 113, 113);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  text-align: center;\n  grid-row: 3/-1;\n  grid-column: 1/-1;\n  margin-bottom: 5px;\n}\n@supports (-webkit-line-clamp: 3) {\n  .card .task__description {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: initial;\n    display: -webkit-box;\n    -webkit-line-clamp: 3;\n    -webkit-box-orient: vertical;\n  }\n}\n.card .btn__container {\n  display: flex;\n  gap: 5px;\n  justify-content: space-evenly;\n  grid-column: 1/-1;\n}\n.card .btn__container button {\n  border-radius: 50%;\n  width: 42px;\n  height: 42px;\n}\n\nfooter .wrapper a {\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAKA;EACE,oCAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;AAHF;;AAMA;EACE,YAAA;AAHF;;AAMA;EACE,uBAAA;EACA,gBAAA;EACA,eAAA;AAHF;;AAMA;;;EAGE,kBAAA;EACA,uBAAA;AAHF;;AAMA;EACE,oCA5Ba;EA6Bb,YAAA;AAHF;;AAMA;EACE,uBAhCa;EAiCb,YAAA;AAHF;;AAMA;EACE,iBAAA;EACA,aAAA;EACA,cAAA;EACA,aAAA;EACA,8BAAA;AAHF;;AAMA;EACE,uBAAA;AAHF;;AAUA;EACE,uBAAA;EACA,YAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,kBAAA;EACA,gBAAA;EACA,iBAAA;AAPF;AAQE;EACE,YAAA;EACA,eAAA;AANJ;AAQE;EACE,eAAA;AANJ;AAQE;;EAEE,mBAAA;AANJ;AAQE;EACE,yBAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;AANJ;AAQE;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,iBAAA;AANJ;AAQE;;;EAGE,kBAAA;AANJ;AAQE;EACE,8BAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;EACA,cAAA;AANJ;AAQE;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;AANJ;AAQE;;EAEE,kBAAA;AANJ;AAQE;EACE,UAAA;EACA,aAAA;AANJ;AAOI;EACE,cAAA;AALN;AAOI;EACE,cAAA;EACA,WAAA;EACA,kBAAA;AALN;AAOI;EACE,aAAA;EACA,sBAAA;EACA,QAAA;AALN;AAMM;EACE,gBAAA;AAJR;AAMM;EACE,WAAA;AAJR;;AAUA;EACE,aAAA;EACA,WAAA;EACA,2BAAA;AAPF;AAQE;;EAEE,WAAA;EACA,uBAAA;AANJ;AAQE;EACE,aAAA;EACA,6BAAA;EACA,kBAAA;AANJ;AAQE;EACE,aAAA;EACA,QAAA;AANJ;;AAUA;EACE,WAAA;AAPF;;AAUA;EACE,yCAAA;EACA,kBAAA;EACA,uBAAA;EACA,aAAA;EACA,aAAA;EACA,gBAAA;EACA,qCAAA;EACA,mCAAA;AAPF;AAQE;EACE,kBAAA;EACA,kBAAA;EACA,iBAAA;EACA,aAAA;EACA,8BAAA;AANJ;AAQE;EACE,aAAA;EACA,gBAAA;EACA,oBAAA;AANJ;AAQE;EACE,aAAA;EACA,mBAAA;AANJ;AAQE;EACE,uBAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;EACA,kBAAA;EACA,cAAA;EACA,iBAAA;EACA,kBAAA;AANJ;AAOI;EAVF;IAWI,gBAAA;IACA,uBAAA;IACA,oBAAA;IACA,oBAAA;IACA,qBAAA;IACA,4BAAA;EAJJ;AACF;AAME;EACE,aAAA;EACA,QAAA;EACA,6BAAA;EACA,iBAAA;AAJJ;AAKI;EACE,kBAAA;EACA,WAAA;EACA,YAAA;AAHN;;AAUI;EACE,cAAA;AAPN","sourcesContent":["@import url('reset.css');\n\n$cancel-color: rgb(224, 105, 105);\n$submit-color: green;\n\nbody {\n  background-color: rgb(182, 224, 238);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\n.cancel__btn,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel__btn {\n  background-color: $cancel-color;\n  color: white;\n}\n\n.submit__btn {\n  background-color: $submit-color;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n}\n\nheader {\n  background-color: white;\n  // .wrapper {\n  //   display: flex;\n  //   justify-content: space-between;\n  // }\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n  &.open {\n    width: 320px;\n    max-width: 100%;\n  }\n  h2 {\n    font-size: 28px;\n  }\n  .task-pages,\n  .project-controls_header {\n    margin-bottom: 14px;\n  }\n  a {\n    padding: 8px 8px 8px 32px;\n    text-decoration: none;\n    font-size: 25px;\n    display: block;\n    transition: 0.3s;\n  }\n  .close-nav_btn {\n    position: absolute;\n    top: 14px;\n    right: 14px;\n    margin-left: 50px;\n  }\n  .divider-line,\n  .project-controls_header,\n  .cancel {\n    margin-right: 14px;\n  }\n  .divider-line {\n    border-bottom: 2px solid black;\n    display: block;\n    margin-left: 32px;\n    margin-bottom: 10px;\n    max-width: 90%;\n  }\n  .project-controls_header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n  .project-controls,\n  .project-controls_header {\n    padding-left: 32px;\n  }\n  .project-controls {\n    width: 95%;\n    display: none;\n    .show-controls {\n      display: block;\n    }\n    input {\n      display: block;\n      width: 100%;\n      margin-bottom: 5px;\n    }\n    .project-controls__btns {\n      display: flex;\n      justify-content: right;\n      gap: 5px;\n      .submit__btn {\n        min-width: 132px;\n      }\n      .cancel__btn {\n        width: 100%;\n      }\n    }\n  }\n}\n\n.form {\n  display: none;\n  width: 100%;\n  background-color: lightblue;\n  input,\n  textarea {\n    width: 100%;\n    border: 2px solid black;\n  }\n  .radio__container {\n    display: flex;\n    justify-content: space-around;\n    text-align: center;\n  }\n  .form-btn__container {\n    display: flex;\n    gap: 5px;\n  }\n}\n\n.task-list__container {\n  width: 100%;\n}\n\n.card {\n  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);\n  border-radius: 5px;\n  background-color: white;\n  padding: 12px;\n  display: grid;\n  max-width: 320px;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(4, auto);\n  .task__title {\n    text-align: center;\n    align-self: center;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    border-bottom: 2px solid black;\n  }\n  .task__date {\n    grid-row: 2 / 3;\n    grid-column: 1 / 3;\n    justify-self: center;\n  }\n  .task__priority {\n    grid-row: 2 / 3;\n    grid-column-end: -1;\n  }\n  .task__description {\n    justify-content: center;\n    color: rgb(120, 113, 113);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: center;\n    grid-row: 3 / -1;\n    grid-column: 1 / -1;\n    margin-bottom: 5px;\n    @supports (-webkit-line-clamp: 3) {\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: initial;\n      display: -webkit-box;\n      -webkit-line-clamp: 3;\n      -webkit-box-orient: vertical;\n    }\n  }\n  .btn__container {\n    display: flex;\n    gap: 5px;\n    justify-content: space-evenly;\n    grid-column: 1 / -1;\n    button {\n      border-radius: 50%;\n      width: 42px;\n      height: 42px;\n    }\n  }\n}\n\nfooter {\n  .wrapper {\n    a {\n      margin: 0 auto;\n    }\n  }\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: rgb(182, 224, 238);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\n.cancel__btn,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel__btn {\n  background-color: rgb(224, 105, 105);\n  color: white;\n}\n\n.submit__btn {\n  background-color: green;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nheader {\n  background-color: white;\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n}\n.nav.open {\n  width: 320px;\n  max-width: 100%;\n}\n.nav h2 {\n  font-size: 28px;\n}\n.nav .task-pages,\n.nav .project-controls_header {\n  margin-bottom: 14px;\n}\n.nav a {\n  padding: 8px 8px 8px 32px;\n  text-decoration: none;\n  font-size: 25px;\n  display: block;\n  transition: 0.3s;\n}\n.nav .close-nav_btn {\n  position: absolute;\n  top: 14px;\n  right: 14px;\n  margin-left: 50px;\n}\n.nav .divider-line,\n.nav .project-controls_header,\n.nav .cancel {\n  margin-right: 14px;\n}\n.nav .divider-line {\n  border-bottom: 2px solid black;\n  display: block;\n  margin-left: 32px;\n  margin-bottom: 10px;\n  max-width: 90%;\n}\n.nav .project-controls_header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.nav .project-controls,\n.nav .project-controls_header {\n  padding-left: 32px;\n}\n.nav .project-controls {\n  width: 95%;\n  display: none;\n}\n.nav .project-controls .show-controls {\n  display: block;\n}\n.nav .project-controls input {\n  display: block;\n  width: 100%;\n  margin-bottom: 5px;\n}\n.nav .project-controls .project-controls__btns {\n  display: flex;\n  justify-content: right;\n  gap: 5px;\n}\n.nav .project-controls .project-controls__btns .submit__btn {\n  min-width: 132px;\n}\n.nav .project-controls .project-controls__btns .cancel__btn {\n  width: 100%;\n}\n\n.form {\n  display: none;\n  width: 100%;\n  background-color: lightblue;\n}\n.form input,\n.form textarea {\n  width: 100%;\n  border: 2px solid black;\n}\n.form .radio__container {\n  display: flex;\n  justify-content: space-around;\n  text-align: center;\n}\n.form .form-btn__container {\n  display: flex;\n  gap: 5px;\n}\n\n.task-list__container {\n  width: 100%;\n}\n\n.card {\n  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);\n  border-radius: 5px;\n  background-color: white;\n  padding: 12px;\n  display: grid;\n  max-width: 320px;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(4, auto);\n}\n.card .task__title {\n  text-align: center;\n  align-self: center;\n  grid-column: 1/-1;\n  grid-row: 1/2;\n  border-bottom: 2px solid black;\n}\n.card .task__date {\n  grid-row: 2/3;\n  grid-column: 1/3;\n  justify-self: center;\n}\n.card .task__priority {\n  grid-row: 2/3;\n  grid-column-end: -1;\n}\n.card .task__description {\n  justify-content: center;\n  color: rgb(120, 113, 113);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  text-align: center;\n  grid-row: 3/-1;\n  grid-column: 1/-1;\n  margin-bottom: 5px;\n}\n@supports (-webkit-line-clamp: 3) {\n  .card .task__description {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: initial;\n    display: -webkit-box;\n    -webkit-line-clamp: 3;\n    -webkit-box-orient: vertical;\n  }\n}\n.card .btn__container {\n  display: flex;\n  gap: 5px;\n  justify-content: space-evenly;\n  grid-column: 1/-1;\n}\n.card .btn__container button {\n  border-radius: 50%;\n  width: 42px;\n  height: 42px;\n}\n\nfooter .wrapper a {\n  margin: 0 auto;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAKA;EACE,oCAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;AAHF;;AAMA;EACE,YAAA;AAHF;;AAMA;EACE,uBAAA;EACA,gBAAA;EACA,eAAA;AAHF;;AAMA;;;EAGE,kBAAA;EACA,uBAAA;AAHF;;AAMA;EACE,oCA5Ba;EA6Bb,YAAA;AAHF;;AAMA;EACE,uBAhCa;EAiCb,YAAA;AAHF;;AAMA;EACE,iBAAA;EACA,aAAA;EACA,cAAA;EACA,aAAA;EACA,8BAAA;EACA,mBAAA;AAHF;;AAMA;EACE,uBAAA;AAHF;;AAUA;EACE,uBAAA;EACA,YAAA;EACA,QAAA;EACA,eAAA;EACA,UAAA;EACA,MAAA;EACA,OAAA;EACA,kBAAA;EACA,gBAAA;EACA,iBAAA;AAPF;AAQE;EACE,YAAA;EACA,eAAA;AANJ;AAQE;EACE,eAAA;AANJ;AAQE;;EAEE,mBAAA;AANJ;AAQE;EACE,yBAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;AANJ;AAQE;EACE,kBAAA;EACA,SAAA;EACA,WAAA;EACA,iBAAA;AANJ;AAQE;;;EAGE,kBAAA;AANJ;AAQE;EACE,8BAAA;EACA,cAAA;EACA,iBAAA;EACA,mBAAA;EACA,cAAA;AANJ;AAQE;EACE,aAAA;EACA,8BAAA;EACA,mBAAA;AANJ;AAQE;;EAEE,kBAAA;AANJ;AAQE;EACE,UAAA;EACA,aAAA;AANJ;AAOI;EACE,cAAA;AALN;AAOI;EACE,cAAA;EACA,WAAA;EACA,kBAAA;AALN;AAOI;EACE,aAAA;EACA,sBAAA;EACA,QAAA;AALN;AAMM;EACE,gBAAA;AAJR;AAMM;EACE,WAAA;AAJR;;AAUA;EACE,aAAA;EACA,WAAA;EACA,2BAAA;AAPF;AAQE;;EAEE,WAAA;EACA,uBAAA;AANJ;AAQE;EACE,aAAA;EACA,6BAAA;EACA,kBAAA;AANJ;AAQE;EACE,aAAA;EACA,QAAA;AANJ;;AAUA;EACE,WAAA;AAPF;;AAUA;EACE,yCAAA;EACA,kBAAA;EACA,uBAAA;EACA,aAAA;EACA,aAAA;EACA,gBAAA;EACA,qCAAA;EACA,mCAAA;AAPF;AAQE;EACE,kBAAA;EACA,kBAAA;EACA,iBAAA;EACA,aAAA;EACA,8BAAA;AANJ;AAQE;EACE,aAAA;EACA,gBAAA;EACA,oBAAA;AANJ;AAQE;EACE,aAAA;EACA,mBAAA;AANJ;AAQE;EACE,uBAAA;EACA,yBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;EACA,kBAAA;EACA,cAAA;EACA,iBAAA;EACA,kBAAA;AANJ;AAOI;EAVF;IAWI,gBAAA;IACA,uBAAA;IACA,oBAAA;IACA,oBAAA;IACA,qBAAA;IACA,4BAAA;EAJJ;AACF;AAME;EACE,aAAA;EACA,QAAA;EACA,6BAAA;EACA,iBAAA;AAJJ;AAKI;EACE,kBAAA;EACA,WAAA;EACA,YAAA;AAHN;;AAUI;EACE,cAAA;AAPN","sourcesContent":["@import url('reset.css');\n\n$cancel-color: rgb(224, 105, 105);\n$submit-color: green;\n\nbody {\n  background-color: rgb(182, 224, 238);\n  min-height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n\nmain {\n  flex-grow: 1;\n}\n\nbutton {\n  background-color: white;\n  min-height: 54px;\n  min-width: 54px;\n}\n\nbutton,\n.cancel__btn,\ninput {\n  padding: 10px 15px;\n  border: 2px solid black;\n}\n\n.cancel__btn {\n  background-color: $cancel-color;\n  color: white;\n}\n\n.submit__btn {\n  background-color: $submit-color;\n  color: white;\n}\n\n.wrapper {\n  max-width: 1200px;\n  padding: 14px;\n  margin: 0 auto;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\nheader {\n  background-color: white;\n  // .wrapper {\n  //   display: flex;\n  //   justify-content: space-between;\n  // }\n}\n\n.nav {\n  background-color: wheat;\n  height: 100%;\n  width: 0;\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  left: 0;\n  overflow-x: hidden;\n  transition: 0.4s;\n  padding-top: 80px;\n  &.open {\n    width: 320px;\n    max-width: 100%;\n  }\n  h2 {\n    font-size: 28px;\n  }\n  .task-pages,\n  .project-controls_header {\n    margin-bottom: 14px;\n  }\n  a {\n    padding: 8px 8px 8px 32px;\n    text-decoration: none;\n    font-size: 25px;\n    display: block;\n    transition: 0.3s;\n  }\n  .close-nav_btn {\n    position: absolute;\n    top: 14px;\n    right: 14px;\n    margin-left: 50px;\n  }\n  .divider-line,\n  .project-controls_header,\n  .cancel {\n    margin-right: 14px;\n  }\n  .divider-line {\n    border-bottom: 2px solid black;\n    display: block;\n    margin-left: 32px;\n    margin-bottom: 10px;\n    max-width: 90%;\n  }\n  .project-controls_header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n  }\n  .project-controls,\n  .project-controls_header {\n    padding-left: 32px;\n  }\n  .project-controls {\n    width: 95%;\n    display: none;\n    .show-controls {\n      display: block;\n    }\n    input {\n      display: block;\n      width: 100%;\n      margin-bottom: 5px;\n    }\n    .project-controls__btns {\n      display: flex;\n      justify-content: right;\n      gap: 5px;\n      .submit__btn {\n        min-width: 132px;\n      }\n      .cancel__btn {\n        width: 100%;\n      }\n    }\n  }\n}\n\n.form {\n  display: none;\n  width: 100%;\n  background-color: lightblue;\n  input,\n  textarea {\n    width: 100%;\n    border: 2px solid black;\n  }\n  .radio__container {\n    display: flex;\n    justify-content: space-around;\n    text-align: center;\n  }\n  .form-btn__container {\n    display: flex;\n    gap: 5px;\n  }\n}\n\n.task-list__container {\n  width: 100%;\n}\n\n.card {\n  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);\n  border-radius: 5px;\n  background-color: white;\n  padding: 12px;\n  display: grid;\n  max-width: 320px;\n  grid-template-columns: repeat(6, 1fr);\n  grid-template-rows: repeat(4, auto);\n  .task__title {\n    text-align: center;\n    align-self: center;\n    grid-column: 1 / -1;\n    grid-row: 1 / 2;\n    border-bottom: 2px solid black;\n  }\n  .task__date {\n    grid-row: 2 / 3;\n    grid-column: 1 / 3;\n    justify-self: center;\n  }\n  .task__priority {\n    grid-row: 2 / 3;\n    grid-column-end: -1;\n  }\n  .task__description {\n    justify-content: center;\n    color: rgb(120, 113, 113);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    text-align: center;\n    grid-row: 3 / -1;\n    grid-column: 1 / -1;\n    margin-bottom: 5px;\n    @supports (-webkit-line-clamp: 3) {\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: initial;\n      display: -webkit-box;\n      -webkit-line-clamp: 3;\n      -webkit-box-orient: vertical;\n    }\n  }\n  .btn__container {\n    display: flex;\n    gap: 5px;\n    justify-content: space-evenly;\n    grid-column: 1 / -1;\n    button {\n      border-radius: 50%;\n      width: 42px;\n      height: 42px;\n    }\n  }\n}\n\nfooter {\n  .wrapper {\n    a {\n      margin: 0 auto;\n    }\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -552,15 +552,16 @@ __webpack_require__.r(__webpack_exports__);
 function form(container) {
   const taskName = document.getElementById('task-name')
   const taskDate = document.getElementById('task-date')
-  const taskPriority = document.querySelectorAll(
-    '#task-priority input[type=radio]'
-  )
+  const taskPriorityRadios = document.getElementsByName('task-priority')
   const taskDescription = document.getElementById('task-description')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
+  console.log(container)
+  let radioValue
 
-  const getPriorityValue = (e) => {
-    taskPriority.value = e.target.value
+  const getRadioValue = (e) => {
+    radioValue = e.target.value
+    return radioValue
   }
 
   const toggleFormView = () => {
@@ -576,20 +577,19 @@ function form(container) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(
-      taskName.value,
-      taskDate.value,
-      taskPriority.value,
-      taskDescription.value,
-      container
-    )
+    const name = taskName.value.trim()
+    const date = taskDate.value.trim()
+    const priority = radioValue
+    const description = taskDescription.value.trim()
+    console.log(priority, radioValue)
+    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(name, date, priority, description, _task__WEBPACK_IMPORTED_MODULE_0__.tasks, container)
     toggleFormView()
   }
 
   thisForm.addEventListener('submit', handleSubmit)
   closeForm.addEventListener('click', toggleFormView)
-  taskPriority.forEach((priority) =>
-    priority.addEventListener('click', getPriorityValue)
+  taskPriorityRadios.forEach((radio) =>
+    radio.addEventListener('click', getRadioValue)
   )
   return {
     toggleFormView,
@@ -680,10 +680,12 @@ const app = startApp()
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createTask": () => (/* binding */ createTask),
-/* harmony export */   "taskLoader": () => (/* binding */ taskLoader),
+/* harmony export */   "loadTasks": () => (/* binding */ loadTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
+
 
 
 const tasks = [
@@ -695,41 +697,8 @@ const tasks = [
     date: '08/23/89',
     complete: false,
     markComplete() {
-      console.log(this)
+      console.log(this.complete, this.name)
       this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
     },
     editTask() {
       console.log(this, 'we are editing now')
@@ -742,7 +711,7 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
     super()
     this.name = name
     this.date = date
-    this.priorty = priority
+    this.priority = priority
     this.description = description
     this.complete = false
   }
@@ -754,11 +723,14 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   editTask() {
-    console.log(this, 'we are editing now')
+    console.log(this)
+    const taskForm = (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    taskForm.toggleFormView()
   }
 }
 
-const taskCards = tasks.map((task) => {
+function createCard(task) {
+  console.log(task)
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -781,40 +753,50 @@ const taskCards = tasks.map((task) => {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', () => {
-    task.markComplete()
-  })
+  completeBtn.addEventListener('click', task.markComplete.bind(this))
+  editBtn.addEventListener('click', task.editTask)
   deleteBtn.addEventListener('click', () => {
-    console.log('test')
+    deleteTask(task)
   })
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
-})
-
-function taskLoader(container, title, section = 'tasks') {
-  const thisContainer = container
-  console.log('test', thisContainer)
-  return function loadCards () {
-    thisContainer.innerHTML = ''
-    taskCards.forEach((card) => thisContainer.append(card))
-  }
 }
 
-const deleteTask = () => {
-  const index = tasks.findIndex((x) => x.name === undefined.name)
+function deleteTask(task) {
+  console.log(task)
+  const index = tasks.findIndex((x) => x.name === task.name)
   if (index > -1) {
     tasks.splice(index, 1)
   }
-  taskLoader()
+  loadTasks()
 }
 
 
+function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+// export function taskLoader(container, title, section = 'tasks') {
+//   const thisContainer = container
+//   console.log('test', thisContainer)
+//   return function loadCards () {
+//     thisContainer.innerHTML = ''
+//     taskCards.forEach((card) => thisContainer.append(card))
+//   }
+// }
 
 
-function createTask(name, date, priority, description) {
+
+
+function createTask(name, date, priority, description, taskList) {
+  console.log(priority)
   const task = new Task(name, date, priority, description)
-  tasks.push(task)
+  taskList.push(task)
+  loadTasks()
 }
 
 
@@ -860,19 +842,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 function mainContent(section) {
-  // const sectionTitle = document.getElementById('section__title')
   const openFormBtn = document.getElementById('open-form__btn')
   const sectionTitle = document.getElementById('section__title')
   const contentContainer = document.getElementById('task-list__container')
-  const thisForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
-  
-  const loadTasks = (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.taskLoader)(contentContainer, sectionTitle, section)
-  loadTasks()
-  
-  openFormBtn.addEventListener('click', thisForm.toggleFormView)
+  const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
+
+  ;(0,_components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks)(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
+
+  openFormBtn.addEventListener('click', newForm.toggleFormView)
   return {
-    loadTasks
+    loadTasks: _components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks,
   }
 }
 

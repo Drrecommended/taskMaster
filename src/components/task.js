@@ -1,4 +1,5 @@
 import Project from './projects'
+import form from './form'
 
 const tasks = [
   {
@@ -9,41 +10,8 @@ const tasks = [
     date: '08/23/89',
     complete: false,
     markComplete() {
-      console.log(this)
+      console.log(this.complete, this.name)
       this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
-    },
-    editTask() {
-      console.log(this, 'we are editing now')
-    },
-  },
-  {
-    name: '43',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dolore vitae animi. Soluta, rem quae aut ab veritatis officia consequuntur quidem perspiciatis ad laboriosam laudantium? Assumenda fuga consequatur eveniet facilis.',
-    priority: 'high',
-    date: '08/23/89',
-    complete: false,
-    markComplete() {
-      console.log(this)
-      this.complete = true
-      console.log(this.complete)
     },
     editTask() {
       console.log(this, 'we are editing now')
@@ -56,7 +24,7 @@ class Task extends Project {
     super()
     this.name = name
     this.date = date
-    this.priorty = priority
+    this.priority = priority
     this.description = description
     this.complete = false
   }
@@ -68,11 +36,14 @@ class Task extends Project {
   }
 
   editTask() {
-    console.log(this, 'we are editing now')
+    console.log(this)
+    const taskForm = form()
+    taskForm.toggleFormView()
   }
 }
 
-const taskCards = tasks.map((task) => {
+function createCard(task) {
+  console.log(task)
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -95,40 +66,50 @@ const taskCards = tasks.map((task) => {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', () => {
-    task.markComplete()
-  })
+  completeBtn.addEventListener('click', task.markComplete.bind(this))
+  editBtn.addEventListener('click', task.editTask)
   deleteBtn.addEventListener('click', () => {
-    console.log('test')
+    deleteTask(task)
   })
   btnContainer.append(completeBtn, editBtn, deleteBtn)
   card.append(title, date, priorty, description, btnContainer)
   return card
-})
-
-export function taskLoader(container, title, section = 'tasks') {
-  const thisContainer = container
-  console.log('test', thisContainer)
-  return function loadCards () {
-    thisContainer.innerHTML = ''
-    taskCards.forEach((card) => thisContainer.append(card))
-  }
 }
 
-const deleteTask = () => {
-  const index = tasks.findIndex((x) => x.name === this.name)
+function deleteTask(task) {
+  console.log(task)
+  const index = tasks.findIndex((x) => x.name === task.name)
   if (index > -1) {
     tasks.splice(index, 1)
   }
-  taskLoader()
+  loadTasks()
 }
 
 
+export function loadTasks() {
+  const taskCards = tasks.map(createCard)
+  const taskContainer = document.getElementById('task-list__container')
+  taskContainer.innerHTML = ''
+  taskCards.forEach(card => taskContainer.appendChild(card))
+}
+
+// export function taskLoader(container, title, section = 'tasks') {
+//   const thisContainer = container
+//   console.log('test', thisContainer)
+//   return function loadCards () {
+//     thisContainer.innerHTML = ''
+//     taskCards.forEach((card) => thisContainer.append(card))
+//   }
+// }
 
 
-export function createTask(name, date, priority, description) {
+
+
+export function createTask(name, date, priority, description, taskList) {
+  console.log(priority)
   const task = new Task(name, date, priority, description)
-  tasks.push(task)
+  taskList.push(task)
+  loadTasks()
 }
 
 
