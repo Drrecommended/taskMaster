@@ -1,5 +1,5 @@
 import Project from './projects'
-
+import form from './form'
 
 const tasks = [
   {
@@ -36,7 +36,9 @@ class Task extends Project {
   }
 
   editTask() {
-    console.log(this, 'we are editing now')
+    console.log(this)
+    const taskForm = form()
+    taskForm.toggleFormView()
   }
 }
 
@@ -90,19 +92,6 @@ export function loadTasks() {
   taskContainer.innerHTML = ''
   taskCards.forEach(card => taskContainer.appendChild(card))
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container

@@ -7,6 +7,7 @@ export default function form(container) {
   const taskDescription = document.getElementById('task-description')
   const closeForm = document.getElementById('close-form__btn')
   const thisForm = document.getElementById('task-form')
+  console.log(container)
   let radioValue
 
   const getRadioValue = (e) => {
