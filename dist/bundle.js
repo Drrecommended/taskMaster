@@ -649,13 +649,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function startApp() {
   // const content = mainContent()
+  const nav = new _layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"]()
   const initialize = () => {
     
-    (0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
-    ;(0,_layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"])()
+    ;(0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
+    nav.init()
     ;(0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
     // content.loadTasks()
     console.log('app started')
@@ -821,7 +821,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function header() {
   const openNavBtn = document.getElementById('open-nav_btn')
-  openNavBtn.addEventListener('click', _navbar__WEBPACK_IMPORTED_MODULE_0__.openNav)
+  const navbar = new _navbar__WEBPACK_IMPORTED_MODULE_0__["default"]()
+  openNavBtn.addEventListener('click', navbar.openNav.bind(navbar))
 }
 
 
@@ -869,97 +870,97 @@ function mainContent(section) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ navbar),
-/* harmony export */   "openNav": () => (/* binding */ openNav)
+/* harmony export */   "default": () => (/* binding */ Navbar)
 /* harmony export */ });
 /* harmony import */ var _components_projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/projects */ "./src/components/projects.js");
 /* harmony import */ var _mainContent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mainContent */ "./src/layout/mainContent.js");
 
 
 
-const nav = document.getElementById('nav')
-
-function closeNav() {
-  nav.classList.remove('open')
-}
-
-function openNav() {
-  nav.classList.add('open')
-}
-
-// LETS REFORMAT THIS TO RETURN A OBJECT THAT WE CAN PUT ALL THE METHODS IN THAT WAY ^^ THAT STUFF ISN"T OUT IN THE OPEN
-
-function navbar() {
-  const navLinks = document.querySelectorAll('nav a')
-  const closeNavBtn = document.getElementById('close-nav_btn')
-  const projectControlsBtn = document.getElementById('project-controls_btn')
-  const submitNewProjectBtn = document.getElementById('add-project_btn')
-  const closeProjectControlsBtn = document.getElementById('cancel-project_btn')
-  const projectControls = document.getElementById('project-controls')
-  const projectInput = document.getElementById('project_input')
-  const projectPages = document.getElementById('project-pages')
-
-  const navigate = (e) => {
-    const newContent = (0,_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
-    const { section } = e.target.dataset
-    newContent.loadTasks(section)
-    // newContent.showTasks(section)
-    closeNav()
+class Navbar {
+  constructor() {
+    this.nav = document.getElementById('nav')
+    this.closeNavBtn = document.getElementById('close-nav_btn')
+    this.projectControlsBtn = document.getElementById('project-controls_btn')
+    this.submitNewProjectBtn = document.getElementById('add-project_btn')
+    this.closeProjectControlsBtn = document.getElementById('cancel-project_btn')
+    this.projectControls = document.getElementById('project-controls')
+    this.projectInput = document.getElementById('project_input')
+    this.projectPages = document.getElementById('project-pages')
   }
 
-  const addEventToLink = (link) => {
-    link.addEventListener('click', navigate)
+  openNav() {
+    this.nav.classList.add('open')
   }
 
-  const toggleProjectControlsView = () => {
-    if (projectControls.style.display === 'block') {
-      projectControls.style.display = 'none'
-    } else {
-      projectControls.style.display = 'block'
-    }
+  closeNav() {
+    this.nav.classList.remove('open')
   }
 
-  const createProjectLink = (project) => {
+  navigate(e) {
+    console.log(e.target, this)
+  }
+
+  addProject() {
+    console.log(this.projectInput)
+    const projectName = this.projectInput.value
+    console.log(projectName)
+    if (projectName.trim() === '') return
+    const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
+    this.createProjectLink(newProject)
+    this.projectInput.value = ''
+    this.toggleProjectControlsView()
+  }
+
+  loadProjects() {
+    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach(this.createProjectLink.bind(this))
+  }
+
+  createProjectLink(project) {
     const li = document.createElement('li')
     const link = document.createElement('a')
     link.innerText = project.name
     link.href = `# + ${project.name}`
     link.dataset.section = project.name
-    addEventToLink(link)
+    this.addEventToLink(link)
     li.appendChild(link)
-    projectPages.appendChild(li)
+    this.projectPages.appendChild(li)
   }
 
-  const appendProjectsToNav = () => {
-    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.forEach((project) => {
-      createProjectLink(project)
-    })
+  addEventToLink(link) {
+    link.addEventListener('click', this.navigate)
   }
 
-  const addProject = () => {
-    const projectName = projectInput.value
-    if (projectName.trim() === '') return
-    const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
-    _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
-    createProjectLink(newProject)
-    projectInput.value = ''
-    toggleProjectControlsView()
+  toggleProjectControlsView = () => {
+    if (this.projectControls.style.display === 'block') {
+      this.projectControls.style.display = 'none'
+    } else {
+      this.projectControls.style.display = 'block'
+    }
   }
 
-  appendProjectsToNav()
+  addEventListeners() {
+    this.closeNavBtn.addEventListener('click', this.closeNav.bind(this))
+    this.projectControlsBtn.addEventListener(
+      'click',
+      this.toggleProjectControlsView
+    )
+    this.closeProjectControlsBtn.addEventListener(
+      'click',
+      this.toggleProjectControlsView
+    )
+    this.submitNewProjectBtn.addEventListener(
+      'click',
+      this.addProject.bind(this)
+    )
+  }
 
-  closeNavBtn.addEventListener('click', closeNav)
-
-  navLinks.forEach((link) => {
-    addEventToLink(link)
-  })
-
-  projectControlsBtn.addEventListener('click', toggleProjectControlsView)
-  submitNewProjectBtn.addEventListener('click', addProject)
-  closeProjectControlsBtn.addEventListener('click', toggleProjectControlsView)
+  init() {
+    this.loadProjects()
+    this.addEventListeners()
+  }
 }
-
-
 
 
 /***/ })

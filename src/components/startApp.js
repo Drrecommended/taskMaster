@@ -1,14 +1,14 @@
 import header from '../layout/header'
 import mainContent from '../layout/mainContent'
-import navbar from '../layout/navbar'
-
+import Navbar from '../layout/navbar'
 
 function startApp() {
   // const content = mainContent()
+  const nav = new Navbar()
   const initialize = () => {
     
     header()
-    navbar()
+    nav.init()
     mainContent()
     // content.loadTasks()
     console.log('app started')
