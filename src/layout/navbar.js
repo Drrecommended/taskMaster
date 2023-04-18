@@ -85,15 +85,19 @@ import mainContent from './mainContent'
 
 // export { openNav }
 
-
 export default class Navbar {
   constructor() {
     this.nav = document.getElementById('nav')
     this.closeNavBtn = document.getElementById('close-nav_btn')
+    this.projectControlsBtn = document.getElementById('project-controls_btn')
+    this.submitNewProjectBtn = document.getElementById('add-project_btn')
+    this.closeProjectControlsBtn = document.getElementById('cancel-project_btn')
+    this.projectControls = document.getElementById('project-controls')
+    this.projectInput = document.getElementById('project_input')
+    this.projectPages = document.getElementById('project-pages')
   }
 
   openNav() {
-    console.log(this.nav)
     this.nav.classList.add('open')
   }
 
@@ -101,11 +105,48 @@ export default class Navbar {
     this.nav.classList.remove('open')
   }
 
+  navigate(e) {
+    console.log(e.target, this)
+  }
+
+  createProjectLink(project) {
+    const li = document.createElement('li')
+    const link = document.createElement('a')
+    link.innerText = project.name
+    link.href = `# + ${project.name}`
+    link.dataset.section = project.name
+    this.addEventToLink(link)
+    li.appendChild(link)
+    this.projectPages.appendChild(li)
+  }
+
+  addEventToLink(link) {
+    link.addEventListener('click', this.navigate)
+  }
+
+  loadProjects() {
+    projects.forEach(this.createProjectLink.bind(this))
+  }
+
+  toggleProjectControlsView = () => {
+    if (this.projectControls.style.display === 'block') {
+      this.projectControls.style.display = 'none'
+    } else {
+      this.projectControls.style.display = 'block'
+    }
+  }
 
   init() {
     console.log(this.nav)
+    this.loadProjects()
     this.closeNavBtn.addEventListener('click', this.closeNav.bind(this))
+    this.projectControlsBtn.addEventListener(
+      'click',
+      this.toggleProjectControlsView
+    )
+    this.closeProjectControlsBtn.addEventListener(
+      'click',
+      this.toggleProjectControlsView
+    )
   }
-
-
 }
