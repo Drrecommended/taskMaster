@@ -839,6 +839,7 @@ class MainContent {
     this.openFormBtn = document.getElementById('open-form__btn')
     this.sectionTitle = document.getElementById('section__title')
     this.taskContainer = document.getElementById('task-list__container')
+    this.form = new _components_form__WEBPACK_IMPORTED_MODULE_0__["default"]()
   }
 
   // loadHeading() {

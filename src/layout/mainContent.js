@@ -1,4 +1,4 @@
-import form from '../components/form'
+import Form from '../components/form'
 import { tasks, createCard } from '../components/task'
 
 export default class MainContent {
@@ -6,6 +6,7 @@ export default class MainContent {
     this.openFormBtn = document.getElementById('open-form__btn')
     this.sectionTitle = document.getElementById('section__title')
     this.taskContainer = document.getElementById('task-list__container')
+    this.form = new Form()
   }
 
   // loadHeading() {
