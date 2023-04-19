@@ -22,10 +22,11 @@ export default class MainContent {
 
   openTaskForm() {
     console.log(this)
+    this.form.toggleFormView(this.taskContainer)
   }
 
   addEventListeners() {
-    console.log(this)
+    this.openFormBtn.addEventListener('click', this.openTaskForm.bind(this))
   }
 
   init() {
