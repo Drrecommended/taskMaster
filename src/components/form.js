@@ -1,4 +1,3 @@
-import { tasks, createTask } from './task'
 
 export default function form(container) {
   const taskName = document.getElementById('task-name')

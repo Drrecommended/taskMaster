@@ -546,8 +546,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ form)
 /* harmony export */ });
-/* harmony import */ var _task__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task */ "./src/components/task.js");
-
 
 function form(container) {
   const taskName = document.getElementById('task-name')
@@ -582,7 +580,7 @@ function form(container) {
     const priority = radioValue
     const description = taskDescription.value.trim()
     console.log(priority, radioValue)
-    ;(0,_task__WEBPACK_IMPORTED_MODULE_0__.createTask)(name, date, priority, description, _task__WEBPACK_IMPORTED_MODULE_0__.tasks, container)
+    createTask(name, date, priority, description, tasks, container)
     toggleFormView()
   }
 
@@ -652,11 +650,12 @@ __webpack_require__.r(__webpack_exports__);
 function startApp() {
   // const content = mainContent()
   const nav = new _layout_navbar__WEBPACK_IMPORTED_MODULE_2__["default"]()
+  const content = new _layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"]()
   const initialize = () => {
     
     ;(0,_layout_header__WEBPACK_IMPORTED_MODULE_0__["default"])()
     nav.init()
-    ;(0,_layout_mainContent__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    content.init()
     // content.loadTasks()
     console.log('app started')
   }
@@ -679,13 +678,11 @@ const app = startApp()
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createCard": () => (/* binding */ createCard),
 /* harmony export */   "createTask": () => (/* binding */ createTask),
-/* harmony export */   "loadTasks": () => (/* binding */ loadTasks),
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
-
 
 
 const tasks = [
@@ -724,13 +721,12 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
 
   editTask() {
     console.log(this)
-    const taskForm = (0,_form__WEBPACK_IMPORTED_MODULE_1__["default"])()
+    const taskForm = form()
     taskForm.toggleFormView()
   }
 }
 
 function createCard(task) {
-  console.log(task)
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -773,12 +769,7 @@ function deleteTask(task) {
 }
 
 
-function loadTasks() {
-  const taskCards = tasks.map(createCard)
-  const taskContainer = document.getElementById('task-list__container')
-  taskContainer.innerHTML = ''
-  taskCards.forEach(card => taskContainer.appendChild(card))
-}
+
 
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
@@ -836,26 +827,42 @@ function header() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ mainContent)
+/* harmony export */   "default": () => (/* binding */ MainContent)
 /* harmony export */ });
 /* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/form */ "./src/components/form.js");
 /* harmony import */ var _components_task__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/task */ "./src/components/task.js");
 
 
 
+class MainContent {
+  constructor() {
+    this.openFormBtn = document.getElementById('open-form__btn')
+    this.sectionTitle = document.getElementById('section__title')
+    this.taskContainer = document.getElementById('task-list__container')
+  }
 
+  // loadHeading() {
+  //   this.sectionTitle =
+  // }
 
-function mainContent(section) {
-  const openFormBtn = document.getElementById('open-form__btn')
-  const sectionTitle = document.getElementById('section__title')
-  const contentContainer = document.getElementById('task-list__container')
-  const newForm = (0,_components_form__WEBPACK_IMPORTED_MODULE_0__["default"])(contentContainer)
+  loadTasks(section) {
+    console.log(section)
+    const taskCards = _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.map(_components_task__WEBPACK_IMPORTED_MODULE_1__.createCard)
+    this.taskContainer.innerHTML = ''
+    taskCards.forEach((card) => this.taskContainer.appendChild(card))
+  }
 
-  ;(0,_components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks)(_components_task__WEBPACK_IMPORTED_MODULE_1__.tasks)
+  openTaskForm() {
+    console.log(this)
+  }
 
-  openFormBtn.addEventListener('click', newForm.toggleFormView)
-  return {
-    loadTasks: _components_task__WEBPACK_IMPORTED_MODULE_1__.loadTasks,
+  addEventListeners() {
+    console.log(this)
+  }
+
+  init() {
+    this.loadTasks()
+    this.addEventListeners()
   }
 }
 
@@ -887,6 +894,8 @@ class Navbar {
     this.projectControls = document.getElementById('project-controls')
     this.projectInput = document.getElementById('project_input')
     this.projectPages = document.getElementById('project-pages')
+    this.taskPages = document.querySelectorAll('.task-pages li a')
+    this.content = new _mainContent__WEBPACK_IMPORTED_MODULE_1__["default"]()
   }
 
   openNav() {
@@ -898,13 +907,13 @@ class Navbar {
   }
 
   navigate(e) {
-    console.log(e.target, this)
+    const { section } = e.target.dataset
+    this.content.loadTasks(section)
+    this.closeNav()
   }
 
   addProject() {
-    console.log(this.projectInput)
     const projectName = this.projectInput.value
-    console.log(projectName)
     if (projectName.trim() === '') return
     const newProject = new _components_projects__WEBPACK_IMPORTED_MODULE_0__["default"](projectName)
     _components_projects__WEBPACK_IMPORTED_MODULE_0__.projects.push(newProject)
@@ -929,7 +938,7 @@ class Navbar {
   }
 
   addEventToLink(link) {
-    link.addEventListener('click', this.navigate)
+    link.addEventListener('click', this.navigate.bind(this))
   }
 
   toggleProjectControlsView = () => {
@@ -954,6 +963,7 @@ class Navbar {
       'click',
       this.addProject.bind(this)
     )
+    this.taskPages.forEach(this.addEventToLink.bind(this))
   }
 
   init() {
