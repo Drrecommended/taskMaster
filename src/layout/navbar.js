@@ -1,5 +1,5 @@
 import Project, { projects } from '../components/projects'
-import mainContent from './mainContent'
+import MainContent from './mainContent'
 
 export default class Navbar {
   constructor() {
@@ -11,6 +11,8 @@ export default class Navbar {
     this.projectControls = document.getElementById('project-controls')
     this.projectInput = document.getElementById('project_input')
     this.projectPages = document.getElementById('project-pages')
+    this.taskPages = document.querySelectorAll('.task-pages li a')
+    this.content = new MainContent()
   }
 
   openNav() {
@@ -22,13 +24,13 @@ export default class Navbar {
   }
 
   navigate(e) {
-    console.log(e.target, this)
+    const { section } = e.target.dataset
+    this.content.loadTasks(section)
+    this.closeNav()
   }
 
   addProject() {
-    console.log(this.projectInput)
     const projectName = this.projectInput.value
-    console.log(projectName)
     if (projectName.trim() === '') return
     const newProject = new Project(projectName)
     projects.push(newProject)
@@ -53,7 +55,7 @@ export default class Navbar {
   }
 
   addEventToLink(link) {
-    link.addEventListener('click', this.navigate)
+    link.addEventListener('click', this.navigate.bind(this))
   }
 
   toggleProjectControlsView = () => {
@@ -78,6 +80,7 @@ export default class Navbar {
       'click',
       this.addProject.bind(this)
     )
+    this.taskPages.forEach(this.addEventToLink.bind(this))
   }
 
   init() {

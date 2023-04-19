@@ -1,5 +1,4 @@
 import Project from './projects'
-import form from './form'
 
 const tasks = [
   {
@@ -42,8 +41,7 @@ class Task extends Project {
   }
 }
 
-function createCard(task) {
-  console.log(task)
+export function createCard(task) {
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -86,12 +84,7 @@ function deleteTask(task) {
 }
 
 
-export function loadTasks() {
-  const taskCards = tasks.map(createCard)
-  const taskContainer = document.getElementById('task-list__container')
-  taskContainer.innerHTML = ''
-  taskCards.forEach(card => taskContainer.appendChild(card))
-}
+
 
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
