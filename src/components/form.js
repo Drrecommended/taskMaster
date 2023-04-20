@@ -45,6 +45,8 @@
 //   }
 // }
 
+
+
 export default class Form {
   constructor(container) {
     this.taskName = document.getElementById('task-name')
@@ -55,9 +57,17 @@ export default class Form {
     this.container = container
     this.form = document.getElementById('task-form')
   }
+
+  // add function to clear form 
   
-  toggleFormView = () => {
-    console.log(this.container)
+  set formTaskData(task) {
+    console.log(this.taskName, task)
+    this.taskName.value = task.name
+    this.taskDate.valiue = task.date
+    this.taskDescription.value = task.description
+  }
+  
+  toggleFormView = (task) => {
     const taskContainer = this.container
     if (this.form.style.display === 'block') {
       this.form.style.display = 'none'
@@ -66,5 +76,10 @@ export default class Form {
       this.form.style.display = 'block'
       taskContainer.style.display = 'none'
     }
+    if(task) {
+      this.formTaskData = task
+    }
   }
+
+
 }

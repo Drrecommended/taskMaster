@@ -13,15 +13,14 @@ export default class MainContent {
   //   this.sectionTitle =
   // }
 
-  loadTasks(section) {
-    console.log(section)
+  loadTasks() {
     const taskCards = tasks.map((task) => createCard(task, this.form))
     this.taskContainer.innerHTML = ''
     taskCards.forEach((card) => this.taskContainer.appendChild(card))
   }
 
   openTaskForm() {
-    this.form.toggleFormView(this.taskContainer)
+    this.form.toggleFormView()
   }
 
   addEventListeners() {

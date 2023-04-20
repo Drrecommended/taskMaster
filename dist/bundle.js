@@ -593,6 +593,8 @@ __webpack_require__.r(__webpack_exports__);
 //   }
 // }
 
+
+
 class Form {
   constructor(container) {
     this.taskName = document.getElementById('task-name')
@@ -603,9 +605,17 @@ class Form {
     this.container = container
     this.form = document.getElementById('task-form')
   }
+
+  // add function to clear form 
   
-  toggleFormView = () => {
-    console.log(this.container)
+  set formTaskData(task) {
+    console.log(this.taskName, task)
+    this.taskName.value = task.name
+    this.taskDate.valiue = task.date
+    this.taskDescription.value = task.description
+  }
+  
+  toggleFormView = (task) => {
     const taskContainer = this.container
     if (this.form.style.display === 'block') {
       this.form.style.display = 'none'
@@ -614,7 +624,12 @@ class Form {
       this.form.style.display = 'block'
       taskContainer.style.display = 'none'
     }
+    if(task) {
+      this.formTaskData = task
+    }
   }
+
+
 }
 
 
@@ -706,7 +721,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
+/* harmony import */ var _layout_taskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/taskCard */ "./src/layout/taskCard.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
+
 
 
 
@@ -754,48 +771,19 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
 }
 
 function createCard(task, form) {
-  const card = document.createElement('div')
-  card.classList.add('card')
-  const title = document.createElement('h3')
-  title.classList.add('task__title')
-  title.innerText = task.name
-  const date = document.createElement('p')
-  date.classList.add('task__date')
-  date.innerText = task.date
-  const priorty = document.createElement('p')
-  priorty.classList.add('task__priority')
-  priorty.innerText = task.priority
-  const description = document.createElement('p')
-  description.classList.add('task__description')
-  description.innerText = task.description
-  const btnContainer = document.createElement('div')
-  btnContainer.classList.add('btn__container')
-  const editBtn = document.createElement('button')
-  editBtn.innerText = '\u{270D}'
-  const deleteBtn = document.createElement('button')
-  deleteBtn.innerText = '\u{2718}'
-  const completeBtn = document.createElement('button')
-  completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete.bind(form))
-  editBtn.addEventListener('click', () => {
-    form.toggleFormView(task)
-  })
-  deleteBtn.addEventListener('click', () => {
-    deleteTask(task)
-  })
-  btnContainer.append(completeBtn, editBtn, deleteBtn)
-  card.append(title, date, priorty, description, btnContainer)
-  return card
+  const card = new _layout_taskCard__WEBPACK_IMPORTED_MODULE_1__["default"](task)
+  card.addForm(form)
+  return card.render()
 }
 
-function deleteTask(task) {
-  console.log(task)
-  const index = tasks.findIndex((x) => x.name === task.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  loadTasks()
-}
+// function deleteTask(task) {
+//   console.log(task)
+//   const index = tasks.findIndex((x) => x.name === task.name)
+//   if (index > -1) {
+//     tasks.splice(index, 1)
+//   }
+//   loadTasks()
+// }
 
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
@@ -867,15 +855,14 @@ class MainContent {
   //   this.sectionTitle =
   // }
 
-  loadTasks(section) {
-    console.log(section)
+  loadTasks() {
     const taskCards = _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.map((task) => (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.createCard)(task, this.form))
     this.taskContainer.innerHTML = ''
     taskCards.forEach((card) => this.taskContainer.appendChild(card))
   }
 
   openTaskForm() {
-    this.form.toggleFormView(this.taskContainer)
+    this.form.toggleFormView()
   }
 
   addEventListeners() {
@@ -991,6 +978,65 @@ class Navbar {
   init() {
     this.loadProjects()
     this.addEventListeners()
+  }
+}
+
+
+/***/ }),
+
+/***/ "./src/layout/taskCard.js":
+/*!********************************!*\
+  !*** ./src/layout/taskCard.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TaskCard)
+/* harmony export */ });
+class TaskCard {
+  constructor(task) {
+    this.task = task
+    this.form = null
+  }
+
+  addForm(form) {
+    this.form = form
+  }
+
+  render() {
+    const card = document.createElement('div')
+    card.classList.add('card')
+    const title = document.createElement('h3')
+    title.classList.add('task__title')
+    title.innerText = this.task.name
+    const date = document.createElement('p')
+    date.classList.add('task__date')
+    date.innerText = this.task.date
+    const priorty = document.createElement('p')
+    priorty.classList.add('task__priority')
+    priorty.innerText = this.task.priority
+    const description = document.createElement('p')
+    description.classList.add('task__description')
+    description.innerText = this.task.description
+    const btnContainer = document.createElement('div')
+    btnContainer.classList.add('btn__container')
+    const editBtn = document.createElement('button')
+    editBtn.innerText = '\u{270D}'
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerText = '\u{2718}'
+    const completeBtn = document.createElement('button')
+    completeBtn.innerText = '\u{2714}'
+    completeBtn.addEventListener('click', this.task.markComplete.bind(this))
+    editBtn.addEventListener('click', () => {
+      this.form.toggleFormView(this.task)
+    })
+    deleteBtn.addEventListener('click', () => {
+      console.log('getting there')
+    })
+    btnContainer.append(completeBtn, editBtn, deleteBtn)
+    card.append(title, date, priorty, description, btnContainer)
+    return card
   }
 }
 

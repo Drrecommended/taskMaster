@@ -1,4 +1,5 @@
 import Project from './projects'
+import TaskCard from '../layout/taskCard'
 import Form from './form'
 
 const tasks = [
@@ -45,48 +46,19 @@ class Task extends Project {
 }
 
 export function createCard(task, form) {
-  const card = document.createElement('div')
-  card.classList.add('card')
-  const title = document.createElement('h3')
-  title.classList.add('task__title')
-  title.innerText = task.name
-  const date = document.createElement('p')
-  date.classList.add('task__date')
-  date.innerText = task.date
-  const priorty = document.createElement('p')
-  priorty.classList.add('task__priority')
-  priorty.innerText = task.priority
-  const description = document.createElement('p')
-  description.classList.add('task__description')
-  description.innerText = task.description
-  const btnContainer = document.createElement('div')
-  btnContainer.classList.add('btn__container')
-  const editBtn = document.createElement('button')
-  editBtn.innerText = '\u{270D}'
-  const deleteBtn = document.createElement('button')
-  deleteBtn.innerText = '\u{2718}'
-  const completeBtn = document.createElement('button')
-  completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete.bind(form))
-  editBtn.addEventListener('click', () => {
-    form.toggleFormView(task)
-  })
-  deleteBtn.addEventListener('click', () => {
-    deleteTask(task)
-  })
-  btnContainer.append(completeBtn, editBtn, deleteBtn)
-  card.append(title, date, priorty, description, btnContainer)
-  return card
+  const card = new TaskCard(task)
+  card.addForm(form)
+  return card.render()
 }
 
-function deleteTask(task) {
-  console.log(task)
-  const index = tasks.findIndex((x) => x.name === task.name)
-  if (index > -1) {
-    tasks.splice(index, 1)
-  }
-  loadTasks()
-}
+// function deleteTask(task) {
+//   console.log(task)
+//   const index = tasks.findIndex((x) => x.name === task.name)
+//   if (index > -1) {
+//     tasks.splice(index, 1)
+//   }
+//   loadTasks()
+// }
 
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
