@@ -594,17 +594,19 @@ __webpack_require__.r(__webpack_exports__);
 // }
 
 class Form {
-  constructor() {
+  constructor(container) {
     this.taskName = document.getElementById('task-name')
     this.taskDate = document.getElementById('task-date')
     this.taskPriorityRadios = document.getElementsByName('task-priority')
     this.taskDescription = document.getElementById('task-description')
     this.closeForm = document.getElementById('close-form__btn')
+    this.container = container
     this.form = document.getElementById('task-form')
   }
   
-  toggleFormView = (container) => {
-    const taskContainer = container
+  toggleFormView = () => {
+    console.log(this.container)
+    const taskContainer = this.container
     if (this.form.style.display === 'block') {
       this.form.style.display = 'none'
       taskContainer.style.display = 'block'
@@ -704,6 +706,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "tasks": () => (/* binding */ tasks)
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
+
 
 
 const tasks = [
@@ -718,8 +722,10 @@ const tasks = [
       console.log(this.complete, this.name)
       this.complete = true
     },
-    editTask() {
-      console.log(this, 'we are editing now')
+    editTask(form) {
+      console.log(this)
+
+      form.toggleFormView()
     },
   },
 ]
@@ -740,14 +746,14 @@ class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {
     console.log(this.complete)
   }
 
-  editTask() {
+  editTask(form) {
     console.log(this)
-    const taskForm = form()
-    taskForm.toggleFormView()
+
+    form.toggleFormView()
   }
 }
 
-function createCard(task) {
+function createCard(task, form) {
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -770,8 +776,10 @@ function createCard(task) {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete.bind(this))
-  editBtn.addEventListener('click', task.editTask)
+  completeBtn.addEventListener('click', task.markComplete.bind(form))
+  editBtn.addEventListener('click', () => {
+    form.toggleFormView(task)
+  })
   deleteBtn.addEventListener('click', () => {
     deleteTask(task)
   })
@@ -789,9 +797,6 @@ function deleteTask(task) {
   loadTasks()
 }
 
-
-
-
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
 //   console.log('test', thisContainer)
@@ -801,17 +806,12 @@ function deleteTask(task) {
 //   }
 // }
 
-
-
-
 function createTask(name, date, priority, description, taskList) {
   console.log(priority)
   const task = new Task(name, date, priority, description)
   taskList.push(task)
   loadTasks()
 }
-
-
 
 
 
@@ -860,7 +860,7 @@ class MainContent {
     this.openFormBtn = document.getElementById('open-form__btn')
     this.sectionTitle = document.getElementById('section__title')
     this.taskContainer = document.getElementById('task-list__container')
-    this.form = new _components_form__WEBPACK_IMPORTED_MODULE_0__["default"]()
+    this.form = new _components_form__WEBPACK_IMPORTED_MODULE_0__["default"](this.taskContainer)
   }
 
   // loadHeading() {
@@ -869,13 +869,12 @@ class MainContent {
 
   loadTasks(section) {
     console.log(section)
-    const taskCards = _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.map(_components_task__WEBPACK_IMPORTED_MODULE_1__.createCard)
+    const taskCards = _components_task__WEBPACK_IMPORTED_MODULE_1__.tasks.map((task) => (0,_components_task__WEBPACK_IMPORTED_MODULE_1__.createCard)(task, this.form))
     this.taskContainer.innerHTML = ''
     taskCards.forEach((card) => this.taskContainer.appendChild(card))
   }
 
   openTaskForm() {
-    console.log(this)
     this.form.toggleFormView(this.taskContainer)
   }
 

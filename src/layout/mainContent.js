@@ -6,7 +6,7 @@ export default class MainContent {
     this.openFormBtn = document.getElementById('open-form__btn')
     this.sectionTitle = document.getElementById('section__title')
     this.taskContainer = document.getElementById('task-list__container')
-    this.form = new Form()
+    this.form = new Form(this.taskContainer)
   }
 
   // loadHeading() {
@@ -15,13 +15,12 @@ export default class MainContent {
 
   loadTasks(section) {
     console.log(section)
-    const taskCards = tasks.map(createCard)
+    const taskCards = tasks.map((task) => createCard(task, this.form))
     this.taskContainer.innerHTML = ''
     taskCards.forEach((card) => this.taskContainer.appendChild(card))
   }
 
   openTaskForm() {
-    console.log(this)
     this.form.toggleFormView(this.taskContainer)
   }
 

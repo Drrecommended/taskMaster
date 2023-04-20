@@ -46,17 +46,19 @@
 // }
 
 export default class Form {
-  constructor() {
+  constructor(container) {
     this.taskName = document.getElementById('task-name')
     this.taskDate = document.getElementById('task-date')
     this.taskPriorityRadios = document.getElementsByName('task-priority')
     this.taskDescription = document.getElementById('task-description')
     this.closeForm = document.getElementById('close-form__btn')
+    this.container = container
     this.form = document.getElementById('task-form')
   }
   
-  toggleFormView = (container) => {
-    const taskContainer = container
+  toggleFormView = () => {
+    console.log(this.container)
+    const taskContainer = this.container
     if (this.form.style.display === 'block') {
       this.form.style.display = 'none'
       taskContainer.style.display = 'block'

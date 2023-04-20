@@ -1,4 +1,5 @@
 import Project from './projects'
+import Form from './form'
 
 const tasks = [
   {
@@ -12,8 +13,10 @@ const tasks = [
       console.log(this.complete, this.name)
       this.complete = true
     },
-    editTask() {
-      console.log(this, 'we are editing now')
+    editTask(form) {
+      console.log(this)
+
+      form.toggleFormView()
     },
   },
 ]
@@ -34,14 +37,14 @@ class Task extends Project {
     console.log(this.complete)
   }
 
-  editTask() {
+  editTask(form) {
     console.log(this)
-    const taskForm = form()
-    taskForm.toggleFormView()
+
+    form.toggleFormView()
   }
 }
 
-export function createCard(task) {
+export function createCard(task, form) {
   const card = document.createElement('div')
   card.classList.add('card')
   const title = document.createElement('h3')
@@ -64,8 +67,10 @@ export function createCard(task) {
   deleteBtn.innerText = '\u{2718}'
   const completeBtn = document.createElement('button')
   completeBtn.innerText = '\u{2714}'
-  completeBtn.addEventListener('click', task.markComplete.bind(this))
-  editBtn.addEventListener('click', task.editTask)
+  completeBtn.addEventListener('click', task.markComplete.bind(form))
+  editBtn.addEventListener('click', () => {
+    form.toggleFormView(task)
+  })
   deleteBtn.addEventListener('click', () => {
     deleteTask(task)
   })
@@ -83,9 +88,6 @@ function deleteTask(task) {
   loadTasks()
 }
 
-
-
-
 // export function taskLoader(container, title, section = 'tasks') {
 //   const thisContainer = container
 //   console.log('test', thisContainer)
@@ -95,16 +97,11 @@ function deleteTask(task) {
 //   }
 // }
 
-
-
-
 export function createTask(name, date, priority, description, taskList) {
   console.log(priority)
   const task = new Task(name, date, priority, description)
   taskList.push(task)
   loadTasks()
 }
-
-
 
 export { tasks }
