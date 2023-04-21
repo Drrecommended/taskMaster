@@ -54,6 +54,7 @@ export default class Form {
     this.closeForm = document.getElementById('close-form__btn')
     this.container = container
     this.form = document.getElementById('task-form')
+    this.radio = null
   }
 
   // add function to clear form
@@ -63,6 +64,12 @@ export default class Form {
     const dateString = currentDate.toISOString().slice(0, 10)
     this.taskName.value = task.name
     this.taskDate.value = dateString
+    this.taskPriorityRadios.forEach(radio => {
+      if(radio.value === task.priority) {
+        this.radio = radio
+        this.radio.checked = true
+      }
+    })
     this.taskDescription.value = task.description
   }
 
