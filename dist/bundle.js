@@ -593,8 +593,6 @@ __webpack_require__.r(__webpack_exports__);
 //   }
 // }
 
-
-
 class Form {
   constructor(container) {
     this.taskName = document.getElementById('task-name')
@@ -606,30 +604,44 @@ class Form {
     this.form = document.getElementById('task-form')
   }
 
-  // add function to clear form 
-  
+  // add function to clear form
+
   set formTaskData(task) {
-    console.log(this.taskName, task)
+    const currentDate = new Date(task.date)
+    const dateString = currentDate.toISOString().slice(0, 10)
     this.taskName.value = task.name
-    this.taskDate.valiue = task.date
+    this.taskDate.value = dateString
     this.taskDescription.value = task.description
   }
-  
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const name = this.taskName.value.trim()
+    const date = this.taskDate.value.trim()
+    const priority = this.radioValue
+    const description = this.taskDescription.value.trim()
+    console.log(priority, radioValue)
+    createTask(name, date, priority, description, tasks, container)
+    toggleFormView()
+  }
+ 
+
+
+
   toggleFormView = (task) => {
     const taskContainer = this.container
     if (this.form.style.display === 'block') {
+      this.form.reset()
       this.form.style.display = 'none'
       taskContainer.style.display = 'block'
     } else {
       this.form.style.display = 'block'
       taskContainer.style.display = 'none'
     }
-    if(task) {
+    if (task) {
       this.formTaskData = task
     }
   }
-
-
 }
 
 
@@ -722,7 +734,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _projects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./projects */ "./src/components/projects.js");
 /* harmony import */ var _layout_taskCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/taskCard */ "./src/layout/taskCard.js");
-/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./form */ "./src/components/form.js");
 
 
 
@@ -745,6 +756,7 @@ const tasks = [
       form.toggleFormView()
     },
   },
+  
 ]
 
 class Task extends _projects__WEBPACK_IMPORTED_MODULE_0__["default"] {

@@ -1,6 +1,6 @@
 import Project from './projects'
 import TaskCard from '../layout/taskCard'
-import Form from './form'
+
 
 const tasks = [
   {
@@ -20,6 +20,7 @@ const tasks = [
       form.toggleFormView()
     },
   },
+  
 ]
 
 class Task extends Project {
